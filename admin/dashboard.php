@@ -1,10 +1,12 @@
 <?php
-session_start();
 require("config.php");
 ////code
- 
+
+	session_start();
+   
 if(!isset($_SESSION['auser']))
 {
+	
 	header("location:index.php");
 }
 ?>
@@ -101,11 +103,11 @@ if(!isset($_SESSION['auser']))
 									</div>
 									<div class="dash-widget-info">
 										
-									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'agent'";
+									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'builder'";
 										$query = $con->query($sql);
                 						echo "$query->num_rows";?></h3>
 										
-										<h6 class="text-muted">Agents</h6>
+										<h6 class="text-muted">Builder</h6>
 										<div class="progress progress-sm">
 											<div class="progress-bar bg-success w-50"></div>
 										</div>
@@ -124,11 +126,11 @@ if(!isset($_SESSION['auser']))
 									</div>
 									<div class="dash-widget-info">
 										
-									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'builder'";
+									<h3><?php $sql = "SELECT * FROM property where stype = 'rent'";
 										$query = $con->query($sql);
                 						echo "$query->num_rows";?></h3>
 										
-										<h6 class="text-muted">Builder</h6>
+										<h6 class="text-muted">Rentals</h6>
 										<div class="progress progress-sm">
 											<div class="progress-bar bg-danger w-50"></div>
 										</div>
@@ -285,30 +287,6 @@ if(!isset($_SESSION['auser']))
 							</div>
 						</div>
 
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
-											<i class="fe fe-quote-right"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-									<h3><?php $sql = "SELECT * FROM property where stype = 'rent'";
-										$query = $con->query($sql);
-                						echo "$query->num_rows";?></h3>
-										
-										<h6 class="text-muted">Rentals</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 
 					<!-- <div class="row">
 						<div class="col-md-12 col-lg-6">

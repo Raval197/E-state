@@ -4,8 +4,8 @@
                     <div class="row">
                         <div class="col-md-8">
                             <ul class="top-contact list-text-white  d-table">
-                                <li><a href="#"><i class="fas fa-phone-alt text-success mr-1"></i>+1 243-765-4321</a></li>
-                                <li><a href="#"><i class="fas fa-envelope text-success mr-1"></i>codeastro@realestatest.com</a></li>
+                                <li><a href="#"><i class="fas fa-phone-alt text-success mr-1"></i>+91 8128914882</a></li>
+                                <li><a href="#"><i class="fas fa-envelope text-success mr-1"></i>essen@realestatest.com</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4">
@@ -41,7 +41,7 @@
 										
                                         <li class="nav-item"> <a class="nav-link" href="property.php">Properties</a> </li>
                                         
-                                        <li class="nav-item"> <a class="nav-link" href="agent.php">Agent</a> </li>
+                                      
 
 										
 										<?php  if(isset($_SESSION['uemail']))
@@ -62,7 +62,7 @@
                                     </ul>
                                     
 									
-									<a class="btn btn-success d-none d-xl-block" style="border-radius:30px;" href="submitproperty.php">Submit Peoperty</a> 
+									<!-- <a class="btn btn-success d-none d-xl-block" style="border-radius:30px;" href="submitproperty.php">Submit Peoperty</a>  -->
                                 </div>
                             </nav>
                         </div>

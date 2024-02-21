@@ -16,7 +16,6 @@ include("config.php");
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Meta Tags -->
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" href="images/favicon.ico">
 
