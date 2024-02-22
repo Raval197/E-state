@@ -186,7 +186,7 @@ include("config.php");
                                     <img src="admin/property/<?php echo $row['27'];?>" alt="Not Available"> </div>
                             </div>
 
-                            <h5 class="mt-5 mb-4 text-secondary double-down-line-left position-relative">Contact Agent</h5>
+                            <!-- <h5 class="mt-5 mb-4 text-secondary double-down-line-left position-relative">Contact Agent</h5>
                             <div class="agent-contact pt-60">
                                 <div class="row">
                                     <div class="col-sm-4 col-lg-3"> <img src="admin/user/<?php echo $row['uimage']; ?>" alt="" height="200" width="170"> </div>
@@ -209,9 +209,9 @@ include("config.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- FOR MORE PROJECTS visit: codeastro.com -->
-                                </div>
-                            </div>
+                                   
+                                 </div> -->
+                            <!-- </div> --> 
                         </div>
                     </div>
 					
@@ -308,6 +308,17 @@ include("config.php");
                                 <?php } ?>
 
                             </ul>
+                        </div>
+                        <div>
+                        <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Contect billder</h4>
+                        <ul  class="d-flex flex-row">
+							<li class="p-2"> 
+                            <button type="submit" value="submit" class="btn btn-primary mt-4"> Request Book tour </button>
+                            </li>
+                            <li class="p-2"> 
+                            <button type="submit" value="submit"  class="btn btn-primary mt-4"> Massage </button>
+                            </li>
+                        </ul>
                         </div>
                     </div>
                 </div>

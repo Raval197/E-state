@@ -39,7 +39,7 @@
                                             <div class="footer-widget">
                                                 <h4 class="widget-title text-white double-down-line-left position-relative">Contact Us</h4>
                                                 <ul class="text-white">
-                                                    <li class="hover-text-primary"><i class="fas fa-map-marker-alt text-white mr-2 font-13 mt-1"></i>27 Ingram Street, Dayton</li>
+                                                    <li class="hover-text-primary"><i class="fas fa-map-marker-alt text-white mr-2 font-13 mt-1"></i>127 Ingram Street, Dayton</li>
                                                     <li class="hover-text-primary"> <i class="fas fa-phone-alt text-white mr-2 font-13 mt-1"></i>+1 234-567-8910</li>
 													<li class="hover-text-primary"> <i class="fas fa-phone-alt text-white mr-2 font-13 mt-1"></i>+1 243-765-4321</li>
                                                     <li class="hover-text-primary"><i class="fas fa-envelope text-white mr-2 font-13 mt-1"></i>helpline@realestatest.com</li>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="row copyright">
-                    <div class="col-sm-6"> <span class="text-white">© <?php echo date('Y');?> Real Estate Website - Developed By Suraj Kumar Vishwakarma</span> </div>
+                    <div class="col-sm-6"> <span class="text-white">© <?php echo date('Y');?>E-state Website - Developed By E-state</span> </div>
                     <div class="col-sm-6">
                         <ul class="line-menu text-white hover-text-primary float-right">
                             <li><a href="#">Privacy & Policy</a></li>
