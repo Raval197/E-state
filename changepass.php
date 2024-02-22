@@ -43,6 +43,12 @@ if(!isset($_SESSION['uemail']))
 <!--	Title
 	=========================================================-->
 <title>Real Estate PHP</title>
+<style>
+    .formdiv{
+        width: 90%;
+        margin: 0 auto;
+    }
+</style>
 </head>
 <body>
 
@@ -75,7 +81,8 @@ if(!isset($_SESSION['uemail']))
                         <nav aria-label="breadcrumb" class="float-left float-md-right">
                             <ol class="breadcrumb bg-transparent m-0 p-0">
                                 <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Profile</li>
+                                <li class="breadcrumb-item text-white">Profile</li>
+                                <li class="breadcrumb-item active">Change Password</li>
                             </ol>
                         </nav>
                     </div>
@@ -94,59 +101,51 @@ if(!isset($_SESSION['uemail']))
                         </div>
 					</div>
                     <?php 
-                    if(isset($_POST['insert'])){
+                    if(isset($_POST['update'])){
                                     $uid=$_SESSION['uid'];            
-                                    $name=$_POST['name'];
-                                    $phone=$_POST['phone'];
-                                    $email=$_POST['email'];
-                                    $q=mysqli_query($con,"UPDATE user SET  uname = '{$name}', uphone = {$phone}, uemail = '{$email}' WHERE uid = {$uid}");
+                                    $cpass=$_POST['pass'];
+                                    $new_pass=$_POST['new_pass'];
+                                    $conpass=$_POST['con_pass'];
+                                    $chn_pass=mysqli_query($con,"SELECT * FROM user WHERE uid = '{$uid}'");
+                                    $chn_pass1=mysqli_fetch_array($chn_pass);
+                                    $data_pwd=$chn_pass1['upass'];
+                                    if($data_pwd == $cpass){
+                                        if($new_pass == $conpass){
+                                            $update=mysqli_query($con,"UPDATE user SET upass=$new_pass WHERE uid= '{$uid}'");
+                                            echo"<script>alert('update successfully'); window.location='changepass.php'</script>";
+                                        }
+                                        else{
+                                            echo"<script>alert('confirm password not match'); window.location='changepass.php'</script>";
+                                        }
+                                    }
+                                    else{
+                                        
+                                        echo"<script>alert('old password is wrong'); window.location='changepass.php'</script>";
+                                    }
                                 }
-                                    $uid=$_SESSION['uid'];
-									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
-									while($row=mysqli_fetch_array($query))
-									{
+                                  
 								?>
-                <div class="dashboard-personal-info p-5 bg-white">
-                    <form action="#" method="post">
-                        <h4 class="text-secondary border-bottom-on-white pb-3 mb-4">Profile Form</h4>
+                <div class="bg-white d-flex justify-content-center">
+                    <form action="#" method="post" class="formdiv">
+                        <h4 class="text-secondary border-bottom-on-white pb-3 mb-4">Change Password</h4>
 						
                         <div class="row">
-                            <div class="col-lg-6 col-md-12">
+                            <div class="col-md-10">
                                 <div class="form-group">
-                                    <label for="user-id">Full Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="<?php echo $row['1'];?>">
-                                </div>                
-                                
-                                <div class="form-group">
-                                    <label for="phone">Contact Number</label>
-                                    <input type="number" name="phone"  class="form-control" placeholder="<?php echo $row['3'];?>" maxlength="10">
+                                    <label for="about-me">Current assword</label>
+                                    <input type="password" name="pass"  class="form-control" placeholder="enter current password" maxlength="20">
                                 </div>
-
                                 <div class="form-group">
-                                    <label for="about-me">Email</label>
-                                    <input type="email" name="email"  class="form-control" placeholder="<?php echo $row['2'];?>" maxlength="20">
+                                    <label for="about-me">New Password</label>
+                                    <input type="Password" name="new_pass"  class="form-control" placeholder="enter new password" maxlength="10">
                                 </div>
-                                <input type="submit" class="btn btn-info mb-4 m-2" name="insert" value="Edit">
-                                <a href="changepass.php" type="submit" class="btn btn-info mb-4 m-2" name="update">Change Password</a>
+                                <div class="form-group">
+                                    <label for="about-me">Confirm Password</label>
+                                    <input type="Password" name="con_pass"  class="form-control" placeholder="enter confirm password" maxlength="10">
+                                </div>
+                                <input type="submit" class="btn btn-info mb-4" name="update" value="Change Password">
                             </div>
 							</form>
-                            <div class="col-lg-1"></div>
-                            <div class="col-lg-5 col-md-12">
-                                <div class="user-info mt-md-50"> <img src="admin/user/<?php echo $row['6'];?>" alt="userimage">
-                                    <div class="mb-4 mt-3">
-                                        
-                                    </div>
-									
-                                    <div class="font-18">
-                                        <div class="mb-1 text-capitalize"><b>Name:</b> <?php echo $row['1'];?></div>
-                                        <div class="mb-1"><b>Email:</b> <?php echo $row['2'];?></div>
-                                        <div class="mb-1"><b>Contact:</b> <?php echo $row['3'];?></div>
-										<div class="mb-1 text-capitalize"><b>Role:</b> <?php echo $row['5'];?></div>
-                                    </div>
-									<?php } ?>
-
-                                </div>
-                            </div>
                         </div>
                     
                 </div>            
@@ -164,10 +163,7 @@ if(!isset($_SESSION['uemail']))
         <!-- End Scroll To top --> 
     </div>
 </div>
-<!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
-<!--	Js Link
-============================================================--> 
+
 <script src="js/jquery.min.js"></script> 
 <!--jQuery Layer Slider --> 
 <script src="js/greensock.js"></script> 
