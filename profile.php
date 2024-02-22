@@ -9,32 +9,32 @@ if(!isset($_SESSION['uemail']))
 }
 
 ////// code
-$error='';
-$msg='';
-if(isset($_POST['insert']))
-{
-	$name=$_POST['name'];
-	$phone=$_POST['phone'];
+// $error='';
+// $msg='';
+// if(isset($_POST['insert']))
+// {
+// 	$name=$_POST['name'];
+// 	$phone=$_POST['phone'];
 
-	$content=$_POST['content'];
+// 	$content=$_POST['content'];
 	
-	$uid=$_SESSION['uid'];
+// 	$uid=$_SESSION['uid'];
 	
-	if(!empty($name) && !empty($phone) && !empty($content))
-	{
+// 	if(!empty($name) && !empty($phone) && !empty($content))
+// 	{
 		
-		$sql="INSERT INTO feedback (uid,fdescription,status) VALUES ('$uid','$content','0')";
-		   $result=mysqli_query($con, $sql);
-		   if($result){
-			   $msg = "<p class='alert alert-success'>Feedback Send Successfully</p> ";
-		   }
-		   else{
-			   $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
-		   }
-	}else{
-		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
-}								
+// 		$sql="INSERT INTO feedback (uid,fdescription,status) VALUES ('$uid','$content','0')";
+// 		   $result=mysqli_query($con, $sql);
+// 		   if($result){
+// 			   $msg = "<p class='alert alert-success'>Feedback Send Successfully</p> ";
+// 		   }
+// 		   else{
+// 			   $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
+// 		   }
+// 	}else{
+// 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+// 	}
+// }								
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,37 +120,50 @@ if(isset($_POST['insert']))
 							<h2 class="text-secondary double-down-line text-center">Profile</h2>
                         </div>
 					</div>
+                    <?php 
+                    if(isset($_POST['insert'])){
+                                    $uid=$_SESSION['uid'];            
+                                    $name=$_POST['name'];
+                                    $phone=$_POST['phone'];
+                                    $email=$_POST['email'];
+                                    $pass=$_POST['pass'];
+                                    $q=mysqli_query($con,"UPDATE user SET  uname = '{$name}', uphone = {$phone}, uemail = '{$email}', upass = {$pass} WHERE uid = {$uid}");
+                                }
+                                    $uid=$_SESSION['uid'];
+									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
+									while($row=mysqli_fetch_array($query))
+									{
+								?>
                 <div class="dashboard-personal-info p-5 bg-white">
                     <form action="#" method="post">
-                        <h5 class="text-secondary border-bottom-on-white pb-3 mb-4">Feedback Form</h5>
-						<?php echo $msg; ?><?php echo $error; ?>
+                        <h4 class="text-secondary border-bottom-on-white pb-3 mb-4">Profile Form</h4>
+						
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label for="user-id">Full Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter Full Name">
+                                    <input type="text" name="name" class="form-control" placeholder="<?php echo $row['1'];?>">
                                 </div>                
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="number" name="phone"  class="form-control" placeholder="Enter Phone" maxlength="10">
+                                    <input type="number" name="phone"  class="form-control" placeholder="<?php echo $row['3'];?>" maxlength="10">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="about-me">Your Feedback</label>
-                                    <textarea class="form-control" name="content" rows="7" placeholder="Enter Text Here...."></textarea>
+                                    <label for="about-me">Email</label>
+                                    <input type="email" name="email"  class="form-control" placeholder="<?php echo $row['2'];?>" maxlength="20">
+                                </div>
+                                <div class="form-group">
+                                    <label for="about-me">Password</label>
+                                    <input type="Password" name="pass"  class="form-control" placeholder="<?php echo $row['4'];?>" maxlength="10">
                                 </div>
                                 <input type="submit" class="btn btn-info mb-4" name="insert" value="Send Feedback">
                             </div>
 							</form>
                             <div class="col-lg-1"></div>
                             <div class="col-lg-5 col-md-12">
-								<?php 
-									$uid=$_SESSION['uid'];
-									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
-									while($row=mysqli_fetch_array($query))
-									{
-								?>
+							
                                 <div class="user-info mt-md-50"> <img src="admin/user/<?php echo $row['6'];?>" alt="userimage">
                                     <div class="mb-4 mt-3">
                                         

@@ -180,7 +180,7 @@ include("config.php");
 								
                                     <div class="col-md-6 col-lg-4"><!-- FOR MORE PROJECTS visit: codeastro.com -->
                                         <div class="featured-thumb hover-zoomer mb-4">
-                                            <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
+                                            <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>"  alt="pimage" style="height: 300px;">
                                                 <div class="featured bg-success text-white">New</div>
                                                 <div class="sale bg-success text-white text-capitalize">For <?php echo $row['5'];?></div>
                                                 <div class="price text-primary"><b>$<?php echo $row['13'];?> </b><span class="text-white"><?php echo $row['12'];?> Sqft</span></div>
