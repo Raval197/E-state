@@ -123,7 +123,7 @@ if(isset($_POST['add']))
                 <div class="content container-fluid">
 				
 					<!-- Page Header -->
-					<div class="page-header">
+					<div class="page-header py-5">
 						<div class="row">
 							<div class="col">
 								<h3 class="page-title">Property</h3>

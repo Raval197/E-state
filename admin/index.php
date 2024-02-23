@@ -7,7 +7,7 @@
 		$user=$_REQUEST['user'];
 		$pass=$_REQUEST['pass'];
 		// $pass= sha1($pass);
-		
+	
 		if(!empty($user) && !empty($pass))
 		{
 			$query = "SELECT auser, apass FROM admin WHERE auser='$user' AND apass='$pass'";
