@@ -4,7 +4,7 @@ session_cache_limiter(false);
 session_start();
 include("config.php");
 ///code								
-?><!-- FOR MORE PROJECTS visit: codeastro.com -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,7 @@ include("config.php");
 <meta name="keywords" content="">
 <meta name="author" content="Unicoder">
 <link rel="shortcut icon" href="images/favicon.ico">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Fonts
 	========================================================-->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&amp;display=swap" rel="stylesheet">
@@ -43,16 +43,7 @@ include("config.php");
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
+ 
 
 
 <div id="page-wrapper">
@@ -60,26 +51,7 @@ include("config.php");
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
-        <!-- FOR MORE PROJECTS visit: codeastro.com -->
-        <!--	Banner   --->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Property Grid</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Property Grid</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-         <!--	Banner   --->
+        
         
         <!--	Property Grid
 		===============================================================-->
@@ -103,7 +75,7 @@ include("config.php");
                                         <div class="sale bg-success text-white">For <?php echo $row['5'];?></div>
                                         <div class="price text-primary text-capitalize">$<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> Sqft</span></div>
                                         
-                                    </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                                    </div>
                                     <div class="featured-thumb-data shadow-one">
                                         <div class="p-4">
                                             <h5 class="text-secondary hover-text-success mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h5>
@@ -115,24 +87,8 @@ include("config.php");
                                     </div>
                                 </div>
                             </div>
-                            <?php } ?><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                            <?php } ?>
                             
-
-                            
-                            
-                        <!--    <div class="col-md-12">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-center mt-4">
-                                        <li class="page-item disabled"> <span class="page-link">Previous</span> </li>
-                                        <li class="page-item active" aria-current="page"> <span class="page-link"> 1 <span class="sr-only">(current)</span> </span> </li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">...</li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
-                                    </ul>
-                                </nav>
-                            </div>  -->
                         </div>
                     </div>
 					
@@ -144,7 +100,7 @@ include("config.php");
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">$</div>
-                                </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                                </div>
                                 <input type="text" class="form-control" name="amount" placeholder="Property Price">
                             </div>
                             <label class="sr-only">Month</label>
@@ -165,33 +121,18 @@ include("config.php");
                         </form>
                         </div>
 
-                        <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4 mt-5">Featured Property</h4>
-                        <ul class="property_list_widget">
-							
-                            <?php 
-                            $query=mysqli_query($con,"SELECT * FROM `property` WHERE isFeatured = 1 ORDER BY date DESC LIMIT 3");
-                                    while($row=mysqli_fetch_array($query))
-                                    {
-                            ?>
-                            <li> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
-                                <h6 class="text-secondary hover-text-success text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h6>
-                                <span class="font-14"><i class="fas fa-map-marker-alt icon-success icon-small"></i> <?php echo $row['14'];?></span>
-                                
-                            </li>
-                            <?php } ?>
-
                         </ul>
                         
                         <div class="sidebar-widget mt-5">
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Recently Added Property</h4>
-                            <ul class="property_list_widget"><!-- FOR MORE PROJECTS visit: codeastro.com -->
+                            <ul class="property_list_widget">
 							
 								<?php 
 								$query=mysqli_query($con,"SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
 										while($row=mysqli_fetch_array($query))
 										{
 								?>
-                                <li> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
+                                <li> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage"style="height: 80px;">
                                     <h6 class="text-secondary hover-text-success text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h6>
                                     <span class="font-14"><i class="fas fa-map-marker-alt icon-success icon-small"></i> <?php echo $row['14'];?></span>
                                     

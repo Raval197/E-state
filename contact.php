@@ -42,7 +42,7 @@ if(isset($_POST['send']))
 	========================================================-->
 <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
+
 <!--	Css Link
 	========================================================-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -61,43 +61,12 @@ if(isset($_POST['send']))
 </head>
 <body>
 
-<!--	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
---> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
 <div id="page-wrapper">
     <div class="row"> 
         <!--	Header start  -->
 		<?php include("include/header.php");?>
         <!--	Header end  -->
         
-        <!--	Banner -->
-        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Contact</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Contact</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!--	Banner -->
-		<!-- FOR MORE PROJECTS visit: codeastro.com -->
         <!--	Contact Information -->
         <div class="full-row">
             <div class="container">
@@ -139,7 +108,7 @@ if(isset($_POST['send']))
 								<h2 class="text-secondary double-down-line text-center mb-5">Get In Touch</h2>
 								<?php echo $msg; ?><?php echo $error; ?>
 							</div>
-						</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<form class="w-100" action="#" method="post">
@@ -172,7 +141,7 @@ if(isset($_POST['send']))
 					</div>
                 </div>
             </div>
-        </div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+        </div>
         <!--	Contact Inforamtion -->
         
         <!--	Map -->

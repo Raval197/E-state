@@ -162,106 +162,6 @@ if(!isset($_SESSION['auser']))
 							</div>
 						</div>
 					</div>
-
-
-					<div class="row">
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-warning">
-											<i class="fe fe-table"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-									<h3><?php $sql = "SELECT * FROM property where type = 'apartment'";
-										$query = $con->query($sql);
-                						echo "$query->num_rows";?></h3>
-										
-										<h6 class="text-muted">No. of Apartments</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
-											<i class="fe fe-home"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-									<h3><?php $sql = "SELECT * FROM property where type = 'house'";
-										$query = $con->query($sql);
-                						echo "$query->num_rows";?></h3>
-										
-										<h6 class="text-muted">No. of Houses</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-secondary">
-											<i class="fe fe-building"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-									<h3><?php $sql = "SELECT * FROM property where type = 'building'";
-										$query = $con->query($sql);
-                						echo "$query->num_rows";?></h3>
-										
-										<h6 class="text-muted">No. of Buildings</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-3 col-sm-6 col-12">
-							<div class="card">
-								<div class="card-body">
-									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-primary">
-											<i class="fe fe-tablet"></i>
-										</span>
-										
-									</div>
-									<div class="dash-widget-info">
-										
-									<h3><?php $sql = "SELECT * FROM property where type = 'flat'";
-										$query = $con->query($sql);
-                						echo "$query->num_rows";?></h3>
-										
-										<h6 class="text-muted">No. of Flat</h6>
-										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<div class="row">
 						<div class="col-xl-3 col-sm-6 col-12">
 							<div class="card">
@@ -286,38 +186,29 @@ if(!isset($_SESSION['auser']))
 								</div>
 							</div>
 						</div>
-
-
-					<!-- <div class="row">
-						<div class="col-md-12 col-lg-6">
-						
-							
-							<div class="card card-chart">
-								<div class="card-header">
-									<h4 class="card-title">Sales Overview</h4>
-								</div>
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
 								<div class="card-body">
-									<div id="morrisArea"></div>
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon bg-success">
+											<i class="fe fe-users"></i>
+										</span>
+										
+									</div>
+									<div class="dash-widget-info">
+										
+									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'builder'";
+										$query = $con->query($sql);
+                						echo "$query->num_rows";?></h3>
+										
+										<h6 class="text-muted">Buyer</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-success w-50"></div>
+										</div>
+									</div>
 								</div>
 							</div>
-							
-							
 						</div>
-						<div class="col-md-12 col-lg-6">
-						
-							
-							<div class="card card-chart">
-								<div class="card-header">
-									<h4 class="card-title">Order Status</h4>
-								</div>
-								<div class="card-body">
-									<div id="morrisLine"></div>
-								</div>
-							</div>
-							
-							
-						</div>	
-					</div> -->
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->

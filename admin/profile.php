@@ -154,7 +154,7 @@ if(!isset($_SESSION['auser']))
 								<!-- /Personal Details Tab -->
 								
 								<!-- Change Password Tab -->
-								<!--<div id="password_tab" class="tab-pane fade">
+								<!-- <div id="password_tab" class="tab-pane fade">
 								
 									<div class="card">
 										<div class="card-body">
@@ -174,7 +174,7 @@ if(!isset($_SESSION['auser']))
 															<label>Confirm Password</label>
 															<input type="password" class="form-control">
 														</div>
-														<button class="btn btn-primary" type="submit">Save Changes</button>
+														<button class="btn btn-success" type="submit">Save Changes</button>
 													</form>
 												</div>
 											</div>

@@ -152,8 +152,7 @@ if(!isset($_SESSION['uemail']))
                 </div>            
             </div>
         </div>
-	<!--	Submit property   -->
-      <!-- FOR MORE PROJECTS visit: codeastro.com -->  
+	<!--	Submit property   -->  
         
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>
@@ -165,7 +164,6 @@ if(!isset($_SESSION['uemail']))
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

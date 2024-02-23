@@ -6,12 +6,12 @@
 	{
 		$user=$_REQUEST['user'];
 		$pass=$_REQUEST['pass'];
-		$pass= sha1($pass);
+		// $pass= sha1($pass);
 		
 		if(!empty($user) && !empty($pass))
 		{
 			$query = "SELECT auser, apass FROM admin WHERE auser='$user' AND apass='$pass'";
-			$result = mysqli_query($con,$query)or die(mysqli_error());
+			$result = mysqli_query($con,$query);
 			$num_row = mysqli_num_rows($result);
 			$row=mysqli_fetch_array($result);
 			if( $num_row ==1 )
