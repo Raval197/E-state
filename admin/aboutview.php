@@ -50,7 +50,7 @@ if(!isset($_SESSION['auser']))
                 <div class="content container-fluid">
 
 					<!-- Page Header -->
-					<div class="page-header">
+					<div class="page-header py-5">
 						<div class="row">
 							<div class="col">
 								<h3 class="page-title">View About</h3>
