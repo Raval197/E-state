@@ -10,6 +10,6 @@
 **Admin Login Details**
 
 Username: admin
-Password: codeastro.com
+Password: admin
 
 
