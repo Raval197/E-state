@@ -7,24 +7,37 @@ if(isset($_REQUEST['login']))
 {
 	$email=$_REQUEST['email'];
 	$pass=$_REQUEST['pass'];
+	$type=$_REQUEST['utype'];
 	$pass= sha1($pass);
 	
 	if(!empty($email) && !empty($pass))
 	{
 		$sql = "SELECT * FROM user where uemail='$email' && upass='$pass'";
 		$result=mysqli_query($con, $sql);
-		$row=mysqli_fetch_array($result);
-		   if($row){
-			   
+		// $row=mysqli_fetch_array($result);
+		if(mysqli_num_rows($result) > 0){
+
+			$row = mysqli_fetch_array($result);
+		   if($row['utype'] == 'user'){
 				$_SESSION['uid']=$row['uid'];
 				$_SESSION['uemail']=$email;
 				header("location:index.php");
 				
+				
 		   }
+		   elseif($row['utype'] == 'builder'){
+				$_SESSION['uid']=$row['uid'];
+				$_SESSION['uemail']=$email;
+					header("location:./builder/dashboard.php");
+					
+		   }
+		
 		   else{
 			   $error = "<p class='alert alert-warning'>Email or Password doesnot match!</p> ";
 		   }
-	}else{
+		
+	}
+}else{
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
 	}
 }

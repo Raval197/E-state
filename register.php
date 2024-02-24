@@ -46,7 +46,6 @@ if(isset($_REQUEST['reg']))
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -187,7 +186,7 @@ if(isset($_REQUEST['reg']))
 								
 								<div class="text-center dont-have">Already have an account? <a href="login.php">Login</a></div>
 								
-							</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+							</div>
                         </div>
                     </div>
                 </div>

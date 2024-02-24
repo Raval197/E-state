@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 23, 2022 at 07:28 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 24, 2024 at 04:11 AM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,19 +28,21 @@ SET time_zone = "+00:00";
 -- Table structure for table `about`
 --
 
-CREATE TABLE `about` (
-  `id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `about`;
+CREATE TABLE IF NOT EXISTS `about` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `content` longtext NOT NULL,
-  `image` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `image` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `title`, `content`, `image`) VALUES
-(10, 'About Us', '<div id=\"pgc-w5d0dcc3394ac1-0-0\" class=\"panel-grid-cell\">\r\n<div id=\"panel-w5d0dcc3394ac1-0-0-0\" class=\"so-panel widget widget_sow-editor panel-first-child panel-last-child\" data-index=\"0\">\r\n<div class=\"so-widget-sow-editor so-widget-sow-editor-base\">\r\n<div class=\"siteorigin-widget-tinymce textwidget\">\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project. (codeastro.com). This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<div id=\"pgc-w5d0dcc3394ac1-0-0\" class=\"panel-grid-cell\">\r\n<div id=\"panel-w5d0dcc3394ac1-0-0-0\" class=\"so-panel widget widget_sow-editor panel-first-child panel-last-child\" data-index=\"0\">\r\n<div class=\"so-widget-sow-editor so-widget-sow-editor-base\">\r\n<div class=\"siteorigin-widget-tinymce textwidget\">\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project. (codeastro.com) This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'condos-pool.png');
+(10, 'About Us', '<div id=\"pgc-w5d0dcc3394ac1-0-0\" class=\"panel-grid-cell\">\r\n<div id=\"panel-w5d0dcc3394ac1-0-0-0\" class=\"so-panel widget widget_sow-editor panel-first-child panel-last-child\" data-index=\"0\">\r\n<div class=\"so-widget-sow-editor so-widget-sow-editor-base\">\r\n<div class=\"siteorigin-widget-tinymce textwidget\">\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project. (codeastro.com). This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<div id=\"pgc-w5d0dcc3394ac1-0-0\" class=\"panel-grid-cell\">\r\n<div id=\"panel-w5d0dcc3394ac1-0-0-0\" class=\"so-panel widget widget_sow-editor panel-first-child panel-last-child\" data-index=\"0\">\r\n<div class=\"so-widget-sow-editor so-widget-sow-editor-base\">\r\n<div class=\"siteorigin-widget-tinymce textwidget\">\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project. This is a demo about us page for this project. This is a demo about us page for this project.</p>\r\n<p class=\"text_all_p_tag_css\">This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project. (codeastro.com) This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.This is a demo about us page for this project.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', 'house-floor-plan.png');
 
 -- --------------------------------------------------------
 
@@ -46,21 +50,23 @@ INSERT INTO `about` (`id`, `title`, `content`, `image`) VALUES
 -- Table structure for table `admin`
 --
 
-CREATE TABLE `admin` (
-  `aid` int(10) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `aid` int(10) NOT NULL AUTO_INCREMENT,
   `auser` varchar(50) NOT NULL,
   `aemail` varchar(50) NOT NULL,
   `apass` varchar(50) NOT NULL,
   `adob` date NOT NULL,
-  `aphone` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `aphone` varchar(15) NOT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`aid`, `auser`, `aemail`, `apass`, `adob`, `aphone`) VALUES
-(9, 'admin', 'admin@gmail.com', '6812f136d636e737248d365016f8cfd5139e387c', '1994-12-06', '1470002569');
+(1, 'admin', 'admin1@gmail.com', 'admin', '2024-02-12', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -68,22 +74,43 @@ INSERT INTO `admin` (`aid`, `auser`, `aemail`, `apass`, `adob`, `aphone`) VALUES
 -- Table structure for table `city`
 --
 
-CREATE TABLE `city` (
-  `cid` int(50) NOT NULL,
+DROP TABLE IF EXISTS `city`;
+CREATE TABLE IF NOT EXISTS `city` (
+  `cid` int(50) NOT NULL AUTO_INCREMENT,
   `cname` varchar(100) NOT NULL,
-  `sid` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `sid` int(50) NOT NULL,
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`cid`, `cname`, `sid`) VALUES
-(9, 'Olisphis', 3),
-(10, 'Alegas', 2),
-(11, 'Floson', 2),
-(12, 'Ulmore', 7),
-(13, 'Awrerton', 15);
+(1, 'Surat', 1),
+(2, 'Ahmedabad', 1),
+(3, 'Vadodara', 1),
+(4, 'Gandhinagar', 1),
+(5, 'Vapi', 1),
+(6, 'Rajkot', 1),
+(7, 'Bhavnager', 1),
+(8, 'Junagadh', 1),
+(9, 'Nashik', 2),
+(10, 'Mumbai', 2),
+(11, 'Pune', 2),
+(12, 'Nagpur', 2),
+(13, 'Kolhapur', 2),
+(14, 'Chennai', 3),
+(15, 'Madurai', 3),
+(16, 'Salem', 3),
+(17, 'Baga Beach', 4),
+(18, 'Panjim', 4),
+(19, 'Hawa Mahal', 5),
+(20, 'Jaipur', 5),
+(21, 'Ajmer', 5),
+(22, 'Bangluru', 6),
+(23, 'Udaipur', 6),
+(24, 'Kolar', 6);
 
 -- --------------------------------------------------------
 
@@ -91,21 +118,25 @@ INSERT INTO `city` (`cid`, `cname`, `sid`) VALUES
 -- Table structure for table `contact`
 --
 
-CREATE TABLE `contact` (
-  `cid` int(50) NOT NULL,
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE IF NOT EXISTS `contact` (
+  `cid` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `subject` varchar(100) NOT NULL,
-  `message` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `message` varchar(250) NOT NULL,
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact`
 --
 
 INSERT INTO `contact` (`cid`, `name`, `email`, `phone`, `subject`, `message`) VALUES
-(7, 'codeastro', 'asda@asd.com', '8888885454', 'codeastro.com', 'asdasdasd');
+(1, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'safe', 'it is very safe plateform\r\n'),
+(2, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'saller', 'its help to sale you property easy and safe '),
+(3, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'saller', 'hy');
 
 -- --------------------------------------------------------
 
@@ -113,21 +144,24 @@ INSERT INTO `contact` (`cid`, `name`, `email`, `phone`, `subject`, `message`) VA
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE `feedback` (
-  `fid` int(50) NOT NULL,
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `fid` int(50) NOT NULL AUTO_INCREMENT,
   `uid` int(50) NOT NULL,
   `fdescription` varchar(300) NOT NULL,
   `status` int(1) NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`fid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `feedback`
 --
 
 INSERT INTO `feedback` (`fid`, `uid`, `fdescription`, `status`, `date`) VALUES
-(7, 28, 'This is a demo feedback in order to use set it as Testimonial for the site. Just a simply dummy text rather than using lorem ipsum text lines.', 1, '2022-07-23 16:07:08'),
-(8, 33, 'This is great. This is just great. Hmmm, just a dummy text for users feedback.', 1, '2022-07-23 21:51:09');
+(1, 2, 'this is very use fully and easy to use for every user . and its easy to findout smart property', 1, '2024-02-23 14:35:11'),
+(2, 2, 'it is very usefull for  find property', 1, '2024-02-23 14:36:34'),
+(3, 2, 'very safe and secure plateform for property seller and deller', 1, '2024-02-23 14:37:37');
 
 -- --------------------------------------------------------
 
@@ -135,9 +169,10 @@ INSERT INTO `feedback` (`fid`, `uid`, `fdescription`, `status`, `date`) VALUES
 -- Table structure for table `property`
 --
 
-CREATE TABLE `property` (
-  `pid` int(50) NOT NULL,
-  `title` varchar(200) NOT NULL,
+DROP TABLE IF EXISTS `property`;
+CREATE TABLE IF NOT EXISTS `property` (
+  `pid` int(50) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
   `pcontent` longtext NOT NULL,
   `type` varchar(100) NOT NULL,
   `bhk` varchar(50) NOT NULL,
@@ -166,15 +201,18 @@ CREATE TABLE `property` (
   `groundmapimage` varchar(300) NOT NULL,
   `totalfloor` varchar(50) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isFeatured` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `isFeatured` int(11) DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `property`
 --
 
 INSERT INTO `property` (`pid`, `title`, `pcontent`, `type`, `bhk`, `stype`, `bedroom`, `bathroom`, `balcony`, `kitchen`, `hall`, `floor`, `size`, `price`, `location`, `city`, `state`, `feature`, `pimage`, `pimage1`, `pimage2`, `pimage3`, `pimage4`, `uid`, `status`, `mapimage`, `topmapimage`, `groundmapimage`, `totalfloor`, `date`, `isFeatured`) VALUES
-(25, 'Zills Home', '', 'house', '4 BHK', 'sale', 4, 2, 0, 1, 1, '2nd Floor', 1869, 219690, '39 Bailey Drive', 'Floson', 'Colotana', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Appartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Elevator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', 'zillhms1.jpg', 'zillhms2.jpg', 'zillhms3.jpg', 'zillhms4.jpg', 'zillhms5.jpg', 30, 'available', 'floorplan_sample.jpg', 'zillhms7.jpg', 'zillhms6.jpg', '2 Floor', '2022-07-22 22:29:20', 0);
+(1, 'sudram villa`', '<p>surat olpad</p>', 'house', '1 BHK', 'sale', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'karmala ', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '1-11-2048x1367-1.jpg', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', 2, 'available', '91cf8acc8f538c72f929da7e4b988941.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1 Floor', '2024-02-23 14:11:55', 1),
+(3, 'madhuram villa', '<p>surat</p>', 'apartment', '1 BHK', 'sale', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'karmala ', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '96cdfbdc773234ca0a658dc1521923bd.png', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg', 2, 'available', '91cf8acc8f538c72f929da7e4b988941.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1 Floor', '2024-02-24 09:36:36', 1);
 
 -- --------------------------------------------------------
 
@@ -182,23 +220,24 @@ INSERT INTO `property` (`pid`, `title`, `pcontent`, `type`, `bhk`, `stype`, `bed
 -- Table structure for table `state`
 --
 
-CREATE TABLE `state` (
-  `sid` int(50) NOT NULL,
-  `sname` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `state`;
+CREATE TABLE IF NOT EXISTS `state` (
+  `sid` int(50) NOT NULL AUTO_INCREMENT,
+  `sname` varchar(100) NOT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `state`
 --
 
 INSERT INTO `state` (`sid`, `sname`) VALUES
-(2, 'Colotana'),
-(3, 'Floaii'),
-(4, 'Virconsin'),
-(7, 'West Misstana\n\n'),
-(9, 'New Pennrk\n\n'),
-(10, 'Louiswa\n\n'),
-(15, 'Wisginia\n\n');
+(1, 'Gujarat'),
+(2, 'Maharashtra'),
+(3, 'Tamil Nadu'),
+(4, 'Goa'),
+(5, 'Rajasthan'),
+(6, 'Karnataka');
 
 -- --------------------------------------------------------
 
@@ -206,126 +245,28 @@ INSERT INTO `state` (`sid`, `sname`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `uid` int(50) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `uid` int(50) NOT NULL AUTO_INCREMENT,
   `uname` varchar(100) NOT NULL,
   `uemail` varchar(100) NOT NULL,
   `uphone` varchar(20) NOT NULL,
   `upass` varchar(50) NOT NULL,
   `utype` varchar(50) NOT NULL,
-  `uimage` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `uimage` varchar(300) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`uid`, `uname`, `uemail`, `uphone`, `upass`, `utype`, `uimage`) VALUES
-(28, 'Christine', 'christine@mail.com', '7777444455', '6812f136d636e737248d365016f8cfd5139e387c', 'user', 'gr7.png'),
-(29, 'Alice Howard', 'howarda@mail.com', '7775552214', '6812f136d636e737248d365016f8cfd5139e387c', 'agent', 'avatarm2-min.jpg'),
-(30, 'Thomas Olson', 'thomas@mail.com', '7896665555', '6812f136d636e737248d365016f8cfd5139e387c', 'user', 'avatarm7-min.jpg'),
-(31, 'Cynthia N. Moore', 'moore@mail.com', '7896547855', '6812f136d636e737248d365016f8cfd5139e387c', 'agent', 'user-default-3-min.png'),
-(32, 'Carl Jones', 'carl@mail.com', '1458887969', '6812f136d636e737248d365016f8cfd5139e387c', 'agent', 'user-profile-min.png'),
-(33, 'Noah Stones', 'noah@mail.com', '7965555544', '6812f136d636e737248d365016f8cfd5139e387c', 'user', 'usersys-min.png'),
-(34, 'Fred Godines', 'fred@mail.com', '7850002587', '6812f136d636e737248d365016f8cfd5139e387c', 'builder', 'user-a-min.png'),
-(35, 'Michael', 'michael@mail.com', '8542221140', '6812f136d636e737248d365016f8cfd5139e387c', 'user', 'usric.png');
+(2, 'vishal lalit', 'lrdhingadiya@gmail.c', '1234567890', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'user', '1-11-2048x1367-1.jpg'),
+(3, 'balo', 'balo@gmail.com', '55555555', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'user', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg'),
+(4, 'raval', 'raval@gmail.com', '1212121212', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'builder', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg');
+COMMIT;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`aid`);
-
---
--- Indexes for table `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`cid`);
-
---
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`cid`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`fid`);
-
---
--- Indexes for table `property`
---
-ALTER TABLE `property`
-  ADD PRIMARY KEY (`pid`);
-
---
--- Indexes for table `state`
---
-ALTER TABLE `state`
-  ADD PRIMARY KEY (`sid`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`uid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `about`
---
-ALTER TABLE `about`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `aid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `city`
---
-ALTER TABLE `city`
-  MODIFY `cid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `cid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `feedback`
---
-ALTER TABLE `feedback`
-  MODIFY `fid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `property`
---
-ALTER TABLE `property`
-  MODIFY `pid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
---
--- AUTO_INCREMENT for table `state`
---
-ALTER TABLE `state`
-  MODIFY `sid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `uid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

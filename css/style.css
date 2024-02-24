@@ -246,6 +246,7 @@ label.radios {
 }
 .color-box li.color_3 {
   background-color: #21c743;
+  /* background-color: #4eca67; */
 }
 .color-box li.color_3:before {
   background: #0d1432;
