@@ -3,9 +3,9 @@ session_start();
 require("config.php");
 ////code
  
-if(!isset($_SESSION['auser']))
+if(!isset($_SESSION['uemail']))
 {
-	header("location:index.php");
+	header("location:login.php");
 }
 ?>
 <!DOCTYPE html>

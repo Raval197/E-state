@@ -2,13 +2,12 @@
 require("config.php");
 ////code
 
-// 	session_start();
+	session_start();
    
-// if(!isset($_SESSION['auser']))
-// {
-	
-// 	header("location:index.php");
-// }
+if(!isset($_SESSION['uemail']))
+{
+	header("location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

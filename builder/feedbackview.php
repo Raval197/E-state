@@ -3,9 +3,9 @@ session_start();
 require("config.php");
 ////code
  
-if(!isset($_SESSION['auser']))
+if(!isset($_SESSION['uemail']))
 {
-	header("location:index.php");
+	header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ if(!isset($_SESSION['auser']))
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>E-state | Admin</title>
+        <title>E-state | Builder</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -74,7 +74,6 @@ if(!isset($_SESSION['auser']))
 							<div class="card">
 								<div class="card-header">
 									<h4 class="card-title">Feedback List</h4>
-									<small>Here, user can select feedbacks for displaying as testimonial. Note: Status "1" sets the feedback as testimonial.</small>
 									<?php 
 											if(isset($_GET['msg']))	
 											echo $_GET['msg'];
@@ -110,7 +109,8 @@ if(!isset($_SESSION['auser']))
                                                     <td><?php echo $row['uemail']; ?></td>
                                                     <td><?php echo $row['2']; ?></td>
                                                     <td><?php echo $row['3']; ?></td>
-													<td><a href="feedbackedit.php?id=<?php echo $row['0']; ?>"><button class="btn btn-info">Edit</button></a>
+													<td>
+														<!-- <a href="feedbackedit.php?id=<?php echo $row['0']; ?>"><button class="btn btn-info">Edit</button></a> -->
                                                     <a href="feedbackdelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-danger">Delete</button></a></td>
                                                 </tr>
                                                 <?php

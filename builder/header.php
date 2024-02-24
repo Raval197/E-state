@@ -1,15 +1,9 @@
 <?php
 require("config.php");
-////code
-// if(!isset($_SESSION)){
-// 	session_start();
-// }
-
-
-// if(!isset($_SESSION['auser']))
-// {
-// 	header("location:index.php");
-// }
+if(!isset($_SESSION['uemail']))
+{
+	header("location:login.php");
+}
 ?>  
   <div class="header">
 			
@@ -53,8 +47,8 @@ require("config.php");
 									<img src="assets/img/profiles/avatar-01.png" alt="User Image" class="avatar-img rounded-circle">
 								</div>
 								<div class="user-text">
-									<h6><?php echo $_SESSION['auser'];?></h6>
-									<p class="text-muted mb-0">Administrator</p>
+									<h6><?php echo $_SESSION['uemail'];?></h6>
+									<p class="text-muted mb-0">Builder</p>
 								</div>
 							</div>
 							<a class="dropdown-item" href="profile.php">Profile</a>
@@ -105,7 +99,6 @@ require("config.php");
 								<ul style="display: none;">
 									<li><a href="propertyadd.php"> Add Property</a></li>
 									<li><a href="propertyview.php"> View Property </a></li>
-									
 								</ul>
 							</li>
 							
@@ -119,6 +112,16 @@ require("config.php");
 								<ul style="display: none;">
 									<li><a href="contactview.php"> Contact </a></li>
 									<li><a href="feedbackview.php"> Feedback </a></li>
+								</ul>
+							</li>
+							<li class="menu-title"> 
+								<span>setting</span>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-users"></i> <span> Profile</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="profile.php"> Profile </a></li>
+									<li><a href="changepass.php"> Change Password </a></li>
 								</ul>
 							</li>
 							
