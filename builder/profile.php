@@ -3,9 +3,9 @@ session_start();
 require("config.php");
 ////code
  
-if(!isset($_SESSION['auser']))
+if(!isset($_SESSION['uemail']))
 {
-	header("location:index.php");
+	header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -66,8 +66,8 @@ if(!isset($_SESSION['auser']))
 					<div class="row">
 						<?php
 						
-						$id=$_SESSION['auser'];
-						$sql="select * from admin where auser='$id'";
+						$id=$_SESSION['uemail'];
+						$sql="select * from user where uemail='$id'";
 						$result=mysqli_query($con,$sql);
 						while($row=mysqli_fetch_array($result))
 						{
@@ -93,7 +93,7 @@ if(!isset($_SESSION['auser']))
 							<div class="profile-menu">
 								<ul class="nav nav-tabs nav-tabs-solid">
 									<li class="nav-item">
-										<a class="nav-link active" data-toggle="tab" href="#per_details_tab">About</a>
+										<a href="./changepass.php" class="nav-link active">Change Password</a>
 									</li>
 								<!--	<li class="nav-item">
 										<a class="nav-link" data-toggle="tab" href="#password_tab">Password</a>
@@ -154,33 +154,8 @@ if(!isset($_SESSION['auser']))
 								<!-- /Personal Details Tab -->
 								
 								<!-- Change Password Tab -->
-								<!-- <div id="password_tab" class="tab-pane fade">
 								
-									<div class="card">
-										<div class="card-body">
-											<h5 class="card-title">Change Password</h5>
-											<div class="row">
-												<div class="col-md-10 col-lg-6">
-													<form method="post">
-														<div class="form-group">
-															<label>Old Password</label>
-															<input type="password" class="form-control">
-														</div>
-														<div class="form-group">
-															<label>New Password</label>
-															<input type="password" class="form-control">
-														</div>
-														<div class="form-group">
-															<label>Confirm Password</label>
-															<input type="password" class="form-control">
-														</div>
-														<button class="btn btn-success" type="submit">Save Changes</button>
-													</form>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>  -->
+									
 								<!-- /Change Password Tab -->
 								
 							</div>

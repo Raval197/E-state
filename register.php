@@ -96,7 +96,7 @@ if(isset($_REQUEST['reg']))
     <div class="row"> 
         <!--	Header start  -->
 		<?php include("include/header.php");?>
-        <!--	Header end  --><!-- FOR MORE PROJECTS visit: codeastro.com -->
+        <!--	Header end  -->
         
         <!--	Banner   --->
         <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
@@ -148,7 +148,7 @@ if(isset($_REQUEST['reg']))
 									  <label class="form-check-label">
 										<input type="radio" class="form-check-input" name="utype" value="user" checked>User
 									  </label>
-									</div><!-- FOR MORE PROJECTS visit: codeastro.com -->
+									</div>
 									<!-- <div class="form-check-inline">
 									  <label class="form-check-label">
 										<input type="radio" class="form-check-input" name="utype" value="agent">Agent
@@ -205,7 +205,6 @@ if(isset($_REQUEST['reg']))
     </div>
 </div>
 <!-- Wrapper End --> 
-<!-- FOR MORE PROJECTS visit: codeastro.com -->
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

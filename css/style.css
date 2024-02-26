@@ -1153,6 +1153,7 @@ blockquote {
   font-size: 15px;
   border-radius: 3px;
   font-weight: 500;
+  
 }
 .hover-border-white-nav .navbar-nav .nav-link {
   border: 1px solid transparent;
@@ -2909,6 +2910,7 @@ Register page
   }
   .navbar-light .navbar-nav .nav-item {
     margin-bottom: 3px;
+   
   }
   .navbar-nav .dropdown-toggle:after {
     float: right;
