@@ -3,8 +3,24 @@ ini_set('session.cache_limiter', 'public');
 session_cache_limiter(false);
 session_start();
 include("config.php");
-
+$error = '';
+$msg = '';
+if (isset($_POST['edit'])) {
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $sql = "INSERT INTO req(date, time, name, email, phone) VALUES ('$date','$time','$name','$email','$phone')";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        $msg = "<p class='alert alert-success'>Feedback Send Successfully</p> ";
+    } else {
+        $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -308,28 +324,29 @@ include("config.php");
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <form class="w-100 " action="#" method="post">
-                                
-                                    <div class="row d-flex justify-content-center">
-                                        <div class="form-group">
-                                            <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
-                                       
-                                            <input type="text" name="email" class="form-control mb-3" placeholder="Email Address*">
-                                     
-                                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">   
-                                     </div>
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="form-group">
+
+                                        <input type="date" name="date" class="form-control mb-3" placeholder="Your Name*">
+                                        <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
+                                        <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
+                                        <input type="text" name="email" class="form-control mb-3" placeholder="Email Address*">
+                                        <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
                                     </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" name="edit" class="btn btn-primary" value="edit">
+                                </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send</button>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ if(!isset($_SESSION['uemail']))
 	header("location:login.php");
 }
 ?>  
-  <div class="header">
+  <div class="header" style="background-color: #42f06e;;">
 			
 				<!-- Logo -->
                 <div class="header-left">

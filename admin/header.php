@@ -11,7 +11,7 @@ if(!isset($_SESSION['auser']))
 	header("location:index.php");
 }
 ?>  
-  <div class="header">
+  <div class="header" style="background-color: #42f06e;">
 			
 				<!-- Logo -->
                 <div class="header-left">
