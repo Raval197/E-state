@@ -76,34 +76,54 @@ if (!isset($_SESSION['uemail'])) {
             <div class="full-row">
             <div class="container">
                     
-                    <?php 
+                    <?php
                     if(isset($_POST['update'])){
-                                    $uid=$_SESSION['uid'];           
-                                    $cpass=$_POST['pass'];
-                                    // $cpass= sha1($cpass);
-                                    $npass=$_POST['new_pass'];
-                                    $npass= sha1($npass);
-                                    // $conpass=$_POST['con_pass'];
-                                    // $conpass= sha1($conpass);
-                                    $chn_pass=mysqli_query($con,"SELECT * FROM user WHERE uid = '{$uid}'");
-                                    $chn_pass1=mysqli_fetch_array($chn_pass);
-                                    $data_pwd=$chn_pass1['upass'];
-                                    if($data_pwd == $cpass){
-                                        // if($new_pass == $conpass){
-                                            $update=mysqli_query($con,"UPDATE user SET upass=$npass WHERE uid= '{$uid}'");
-                                            echo"<script>alert('update successfully'); window.location='changepass.php'</script>";
-                                        // }
-                                        // else{
-                                        //     echo"<script>alert('confirm password not match'); window.location='changepass.php'</script>";
-                                        // }
+
+                            $uid=$_SESSION['uid'];  
+                            $sql = "SELECT upass FROM user WHERE uid = '$uid'";
+                            $result = $con->query($sql);
+
+                            if ($result && $result->num_rows > 0) {
+                                $row = $result->fetch_assoc();
+                                $hashedOldPassword = $row['upass'];
+                                $oldPassword=$_POST['pass'];
+                                $newPassword=$_POST['new_pass'];
+                                $confirmPassword=$_POST['con_pass'];
+                        
+                                // Verify the old password
+                                if (sha1($oldPassword) == $hashedOldPassword) {
+                                    // Hash the new password using SHA-1 (for educational purposes only, not recommended for security)
+                                    $hashedNewPassword = sha1($newPassword);
+                        
+                                    // Update the user's password in the database
+                                    $updateSql = "UPDATE user SET upass = '$hashedNewPassword' WHERE uid = '$uid'";
+                                    $updateResult = $con->query($updateSql);
+
+                                    if ($newPassword !== $confirmPassword) {
+                                        echo"<script>alert('New password and confirm password do not match.'); window.location='changepass.php'</script>";
+                                        return;
                                     }
-                                    else{
-                                        
-                                        echo"<script>alert('old password is wrong'); window.location='changepass.php'</script>";
+                        
+                                    // / Check if the password was updated successfully
+                                    if ($updateResult === TRUE) {
+                                        echo"<script>alert('update successfully'); window.location='changepass.php'</script>";
+                                    } else {
+                                        echo"<script>alert('Failed to change password. Please try again. Error: '); window.location='changepass.php'</script>";
                                     }
+                                } else {
+                                
+                                    echo"<script>alert('Old password is incorrect. Please try again.'); window.location='changepass.php'</script>";
                                 }
-                                  
-								?>
+                            } else {
+                                
+                                echo"<script>alert('User not found or database error'); window.location='changepass.php'</script>";
+                                
+                            }
+                    }
+
+                    ?>
+
+
                 <div class=" d-flex justify-content-center">
                     <form action="#" method="post" class="formdiv">
                         <h4 class="text-secondary border-bottom-on-white pb-3 mb-4">Change Password</h4>
@@ -112,7 +132,7 @@ if (!isset($_SESSION['uemail'])) {
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="about-me">Current password</label>
-                                    <input type="password" name="pass"  class="form-control" placeholder="enter current password" maxlength="20">
+                                    <input type="Password" name="pass"  class="form-control" placeholder="enter current password" maxlength="20">
                                 </div>
                                 <div class="form-group">
                                     <label for="about-me">New Password</label>
