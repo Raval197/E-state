@@ -3,6 +3,31 @@ ini_set('session.cache_limiter', 'public');
 session_cache_limiter(false);
 session_start();
 include("config.php");
+$error="";
+$msg="";
+if(isset($_POST['abc']))
+{
+    // $id = $_REQUEST['pid'];
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$phone=$_POST['phone'];
+	$message=$_POST['message'];
+	
+	if(!empty($name) && !empty($email) && !empty($phone) && !empty($message))
+	{
+		
+		$sql="INSERT INTO bcontact (Name,Email,phone,message) VALUES ('$name','$email','$phone','$message')";
+		   $result=mysqli_query($con, $sql);
+		   if($result){
+			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
+		   }
+		   else{
+			   $error = "<p class='alert alert-warning'>Message Not Send Successfully</p> ";
+		   }
+	}else{
+		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+	}
+}
 
 ?>
 <!DOCTYPE html>
@@ -307,8 +332,8 @@ include("config.php");
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal</h5>
+                        <div class="modal-header py-5">
+                            <h3 class="modal-title" id="exampleModalLabel">Contect to builder</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -318,19 +343,27 @@ include("config.php");
                                 
                                     <div class="row d-flex justify-content-center">
                                         <div class="form-group">
+                                            <label for="name">Name:</label>
                                             <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
-                                       
+
+                                            <label for="email">Email:</label>
                                             <input type="text" name="email" class="form-control mb-3" placeholder="Email Address*">
-                                     
-                                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">   
-                                     </div>
+
+                                            <label for="phone">Phone:</label>
+                                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" pattern="[0-9]{10}">  
+
+                                            <label for="message">Message:</label>
+                                            <textarea id="message" class="form-control mb-3" name="message" rows="4" required></textarea> 
+                                             
+                                        </div>
                                     </div>
+                         
+                                 </div>
+                                     <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" name="abc" class="btn btn-primary">Send</button>
+                                     </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send</button>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -99,7 +99,7 @@ if(!isset($_SESSION['uemail']))
                                     $name=$_POST['name'];
                                     $phone=$_POST['phone'];
                                     $email=$_POST['email'];
-                                    $q=mysqli_query($con,"UPDATE user SET  uname = '{$name}', uphone = {$phone}, uemail = '{$email}' WHERE uid = {$uid}");
+                                    $q=mysqli_query($con,"UPDATE user SET  uname = '$name', uphone = $phone, uemail = '$email' WHERE uid = '$uid'");
                                 }
                                     $uid=$_SESSION['uid'];
 									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
@@ -114,17 +114,17 @@ if(!isset($_SESSION['uemail']))
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label for="user-id">Full Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="<?php echo $row['1'];?>">
+                                    <input type="text" name="name" class="form-control" value="<?php echo $row['1'];?>">
                                 </div>                
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="number" name="phone"  class="form-control" placeholder="<?php echo $row['3'];?>" maxlength="10">
+                                    <input type="number" name="phone"  class="form-control" value="<?php echo $row['3'];?>" maxlength="10">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="about-me">Email</label>
-                                    <input type="email" name="email"  class="form-control" placeholder="<?php echo $row['2'];?>" maxlength="20">
+                                    <input type="email" name="email"  class="form-control" value="<?php echo $row['2'];?>" maxlength="20">
                                 </div>
                                 <input type="submit" class="btn btn-info mb-4 m-2" name="insert" value="Edit">
                                 <a href="changepass.php" type="submit" class="btn btn-info mb-4 m-2" name="update">Change Password</a>
