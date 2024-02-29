@@ -3,6 +3,7 @@ ini_set('session.cache_limiter', 'public');
 session_cache_limiter(false);
 session_start();
 include("config.php");
+include("search.php");
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +36,26 @@ include("config.php");
     <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Real Estate PHP</title>
+    <title>E-state PHP</title>
+    <script>
+        $(document).ready(function () {
+            $("#search").on("keyup", function () {
+                var query = $(this).val();
+                if (query !== '') {
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'POST',
+                        data: {query: query},
+                        success: function (data) {
+                            $("#result").html(data);
+                        }
+                    });
+                } else {
+                    $("#result").html('');
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -85,7 +105,8 @@ include("config.php");
                                         </div>
                                         <div class="col-md-8 col-lg-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="city" placeholder="Enter City" required>
+                                                <input type="text" class="form-control" id="search" placeholder="Enter City" required>
+                                                <div id="result"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-lg-2">
@@ -493,6 +514,7 @@ include("config.php");
     <script src="js/validate.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 
 </html>

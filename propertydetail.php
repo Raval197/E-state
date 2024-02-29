@@ -308,7 +308,8 @@ if (isset($_POST['edit'])) {
                                         <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
                                     </li>
                                     <li class="p-2">
-                                        <button type="submit" value="submit" class="btn btn-primary mt-4"> Massage </button>
+                                    
+                                        <a type="submit" value="submit" class="btn btn-primary mt-4"  href="contact.php"> Massage </a>
                                     </li>
                                 </ul>
                             </div>
