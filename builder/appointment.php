@@ -86,11 +86,11 @@ if(!isset($_SESSION['bemail']))
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
+													<th>Date</th>
+													<th>Time</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
-													<th>Subject</th>
-                                                    <th>Message</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -99,7 +99,7 @@ if(!isset($_SESSION['bemail']))
                                             <tbody>
 											<?php
 													
-												$query=mysqli_query($con,"select * from contact");
+												$query=mysqli_query($con,"select * from req");
 												$cnt=1;
 												while($row=mysqli_fetch_row($query))
 													{
@@ -111,7 +111,9 @@ if(!isset($_SESSION['bemail']))
                                                     <td><?php echo $row['3']; ?></td>
                                                     <td><?php echo $row['4']; ?></td>
 													<td><?php echo $row['5']; ?></td>
-                                                    <td><a href="contactdelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-danger">Delete</button></a></td>
+                                                    <td><a href="propertyedit.php?id=<?php echo $row['0'];?>"><button class="btn btn-info">Accept</button></a>
+                                                        <a href="contactdelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-danger">Delete</button></a>
+                                                    </td>
                                                 </tr>
                                                 <?php
 												$cnt=$cnt+1;

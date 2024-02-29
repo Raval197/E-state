@@ -4,7 +4,7 @@ require("config.php");
 
 	session_start();
    
-if(!isset($_SESSION['uemail']))
+if(!isset($_SESSION['bemail']))
 {
 	header("location:login.php");
 }

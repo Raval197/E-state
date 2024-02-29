@@ -26,8 +26,8 @@ if(isset($_REQUEST['login']))
 				
 		   }
 		   elseif($row['utype'] == 'builder'){
-				$_SESSION['uid']=$row['uid'];
-				$_SESSION['uemail']=$email;
+				$_SESSION['bid']=$row['uid'];
+				$_SESSION['bemail']=$email;
 					header("location:./builder/dashboard.php");
 					
 		   }

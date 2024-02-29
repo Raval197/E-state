@@ -3,7 +3,7 @@ session_start();
 require("config.php");
 ////code
  
-if(!isset($_SESSION['uemail']))
+if(!isset($_SESSION['bemail']))
 {
 	header("location:login.php");
 }
@@ -106,8 +106,8 @@ if(!isset($_SESSION['uemail']))
                                         
                                             <tbody>
 												<?php
-													
-													$query=mysqli_query($con,"select * from property");
+													$uid=$_SESSION['bid'];    
+													$query=mysqli_query($con,"select * from property where uid=$uid");
 													while($row=mysqli_fetch_row($query))
 													{
 												?>

@@ -2,7 +2,7 @@
 session_start();
 require("config.php");
 
-if(!isset($_SESSION['uemail']))
+if(!isset($_SESSION['bemail']))
 {
 	header("location:login.php");
 }

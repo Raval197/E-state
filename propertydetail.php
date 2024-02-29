@@ -11,10 +11,11 @@ if (isset($_POST['edit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $sql = "INSERT INTO req(date, time, name, email, phone) VALUES ('$date','$time','$name','$email','$phone')";
+    $message = $_POST['message'];
+    $sql = "INSERT INTO req(date, time, name, email, phone,message) VALUES ('$date','$time','$name','$email','$phone','$message')";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        $msg = "<p class='alert alert-success'>Feedback Send Successfully</p> ";
+        echo"<script>alert('your message send successfully.');</script>";
     } else {
         $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
     }
@@ -323,7 +324,7 @@ if (isset($_POST['edit'])) {
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header m-2" >
                             <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -340,11 +341,12 @@ if (isset($_POST['edit'])) {
                                         <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="text" name="email" class="form-control mb-3" placeholder="Email Address*">
                                         <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
+                                        <textarea name="message" id="" cols="30" rows="3">message</textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" name="edit" class="btn btn-primary" value="edit">
+                                    <input type="submit" name="edit" class="btn btn-primary" value="send">
                                 </div>
                             </form>
                         </div>

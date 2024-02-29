@@ -74,7 +74,7 @@ if(!isset($_SESSION['uemail']))
                         <nav aria-label="breadcrumb" class="float-left float-md-right">
                             <ol class="breadcrumb bg-transparent m-0 p-0">
                                 <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">User Listed Property</li>
+                                <li class="breadcrumb-item active">Notification</li>
                             </ol>
                         </nav>
                     </div>

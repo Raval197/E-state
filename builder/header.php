@@ -1,6 +1,6 @@
 <?php
 require("config.php");
-if(!isset($_SESSION['uemail']))
+if(!isset($_SESSION['bemail']))
 {
 	header("location:login.php");
 }
@@ -33,9 +33,6 @@ if(!isset($_SESSION['uemail']))
 				<!-- Header Right Menu -->
 				<ul class="nav user-menu">
 
-					
-					<!-- User Menu -->
-					<!-- <h4 style="color:white;margin-top:13px;text-transform:capitalize;"><?php echo $_SESSION['auser'];?></h4> -->
 					<li class="nav-item dropdown app-dropdown">
 						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 							<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.png" width="31" alt="Ryan Taylor"></span>
@@ -47,7 +44,7 @@ if(!isset($_SESSION['uemail']))
 									<img src="assets/img/profiles/avatar-01.png" alt="User Image" class="avatar-img rounded-circle">
 								</div>
 								<div class="user-text">
-									<h6><?php echo $_SESSION['uemail'];?></h6>
+									<h6><?php echo $_SESSION['bemail'];?></h6>
 									<p class="text-muted mb-0">Builder</p>
 								</div>
 							</div>
@@ -112,6 +109,15 @@ if(!isset($_SESSION['uemail']))
 								<ul style="display: none;">
 									<li><a href="contactview.php"> Contact </a></li>
 									<li><a href="feedbackview.php"> Feedback </a></li>
+								</ul>
+							</li>
+							<li class="menu-title"> 
+								<span>appointment</span>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-message"></i> <span> your appointment</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="appointment.php"> Appointment </a></li>
 								</ul>
 							</li>
 							<li class="menu-title"> 

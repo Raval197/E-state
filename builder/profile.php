@@ -3,7 +3,7 @@ session_start();
 require("config.php");
 ////code
  
-if(!isset($_SESSION['uemail']))
+if(!isset($_SESSION['bemail']))
 {
 	header("location:login.php");
 }
@@ -66,7 +66,7 @@ if(!isset($_SESSION['uemail']))
 					<div class="row">
 						<?php
 						
-						$id=$_SESSION['uemail'];
+						$id=$_SESSION['bemail'];
 						$sql="select * from user where uemail='$id'";
 						$result=mysqli_query($con,$sql);
 						while($row=mysqli_fetch_array($result))
@@ -115,15 +115,11 @@ if(!isset($_SESSION['uemail']))
 														<p class="col-sm-9"><?php echo $row['1']; ?></p>
 													</div>
 													<div class="row">
-														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Date of Birth</p>
-														<p class="col-sm-9"><?php echo $row['4']; ?></p>
-													</div>
-													<div class="row">
 														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Email ID</p>
 														<p class="col-sm-9"><a href="#"><?php echo $row['2']; ?></a></p>
 													</div>
 													<div class="row">
-														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
+														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Type</p>
 														<p class="col-sm-9"><?php echo $row['5']; ?></p>
 													</div>
 													

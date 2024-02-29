@@ -5,7 +5,7 @@ ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
 
-if (!isset($_SESSION['uemail'])) {
+if (!isset($_SESSION['bemail'])) {
     header("location:login.php");
 }
 ?>
@@ -79,7 +79,7 @@ if (!isset($_SESSION['uemail'])) {
                     <?php
                     if(isset($_POST['update'])){
 
-                            $uid=$_SESSION['uid'];  
+                            $uid=$_SESSION['bid'];  
                             $sql = "SELECT upass FROM user WHERE uid = '$uid'";
                             $result = $con->query($sql);
 
