@@ -101,7 +101,6 @@ if(isset($_POST['insert']))
 		 
 		 
 		<!--	Submit property   -->
-       
         <div class="full-row">
             <div class="container">
                     <div class="row">
@@ -122,7 +121,7 @@ if(isset($_POST['insert']))
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="number" name="phone"  class="form-control" placeholder="Enter Phone" maxlength="10">
+                                    <input type="phone" name="phone"  class="form-control" placeholder="Enter Phone" maxlength="10">
                                 </div>
 
                                 <div class="form-group">

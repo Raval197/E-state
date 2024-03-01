@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2024 at 04:11 AM
+-- Generation Time: Mar 01, 2024 at 12:13 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `about`;
 CREATE TABLE IF NOT EXISTS `about` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
+  `title` varchar(50) NOT NULL,
   `content` longtext NOT NULL,
   `image` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
@@ -77,7 +77,7 @@ INSERT INTO `admin` (`aid`, `auser`, `aemail`, `apass`, `adob`, `aphone`) VALUES
 DROP TABLE IF EXISTS `city`;
 CREATE TABLE IF NOT EXISTS `city` (
   `cid` int(50) NOT NULL AUTO_INCREMENT,
-  `cname` varchar(100) NOT NULL,
+  `cname` varchar(50) NOT NULL,
   `sid` int(50) NOT NULL,
   PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
@@ -124,9 +124,10 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
-  `subject` varchar(100) NOT NULL,
-  `message` varchar(250) NOT NULL,
-  PRIMARY KEY (`cid`)
+  `subject` varchar(50) NOT NULL,
+  `message` longtext NOT NULL,
+  PRIMARY KEY (`cid`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 --
@@ -134,9 +135,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 INSERT INTO `contact` (`cid`, `name`, `email`, `phone`, `subject`, `message`) VALUES
-(1, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'safe', 'it is very safe plateform\r\n'),
-(2, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'saller', 'its help to sale you property easy and safe '),
-(3, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'saller', 'hy');
+(2, 'vishal lalit', 'lrdhingadiya@gmail.com', '1234567890', 'saller', 'its help to sale you property easy and safe ');
 
 -- --------------------------------------------------------
 
@@ -204,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `property` (
   `isFeatured` int(11) DEFAULT NULL,
   PRIMARY KEY (`pid`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `property`
@@ -212,7 +211,29 @@ CREATE TABLE IF NOT EXISTS `property` (
 
 INSERT INTO `property` (`pid`, `title`, `pcontent`, `type`, `bhk`, `stype`, `bedroom`, `bathroom`, `balcony`, `kitchen`, `hall`, `floor`, `size`, `price`, `location`, `city`, `state`, `feature`, `pimage`, `pimage1`, `pimage2`, `pimage3`, `pimage4`, `uid`, `status`, `mapimage`, `topmapimage`, `groundmapimage`, `totalfloor`, `date`, `isFeatured`) VALUES
 (1, 'sudram villa`', '<p>surat olpad</p>', 'house', '1 BHK', 'sale', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'karmala ', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '1-11-2048x1367-1.jpg', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', 2, 'available', '91cf8acc8f538c72f929da7e4b988941.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1 Floor', '2024-02-23 14:11:55', 1),
-(3, 'madhuram villa', '<p>surat</p>', 'apartment', '1 BHK', 'sale', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'karmala ', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '96cdfbdc773234ca0a658dc1521923bd.png', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg', 2, 'available', '91cf8acc8f538c72f929da7e4b988941.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1 Floor', '2024-02-24 09:36:36', 1);
+(3, 'madhuram villa', '<p>surat</p>', 'apartment', '1 BHK', 'sale', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'karmala ', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '96cdfbdc773234ca0a658dc1521923bd.png', '1713ad8e866c96d26a968cbc126f08d8.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg', 2, 'available', '91cf8acc8f538c72f929da7e4b988941.jpg', '96cdfbdc773234ca0a658dc1521923bd.png', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1 Floor', '2024-02-24 09:36:36', 1),
+(4, 'sai villa', '<p>surat</p>', 'house', '1 BHK', 'rent', 1, 2, 1, 1, 1, '1st Floor', 760, 2500000, 'katargam', 'surat', 'Gujarat', '<p>&nbsp;</p>\r\n<!---feature area start--->\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Property Age : </span>10 Years</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Swiming Pool : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Parking : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">GYM : </span>Yes</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Type : </span>Apartment</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Security : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Dining Capacity : </span>10 People</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Church/Temple : </span>No</li>\r\n</ul>\r\n</div>\r\n<div class=\"col-md-4\">\r\n<ul>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">3rd Party : </span>No</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Alivator : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">CCTV : </span>Yes</li>\r\n<li class=\"mb-3\"><span class=\"text-secondary font-weight-bold\">Water Supply : </span>Ground Water / Tank</li>\r\n</ul>\r\n</div>\r\n<!---feature area end---->\r\n<p>&nbsp;</p>', '96cdfbdc773234ca0a658dc1521923bd.png', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg', '1-11-2048x1367-1.jpg', 7, 'available', '1713ad8e866c96d26a968cbc126f08d8.jpg', '147305506957cd095d55b06.jpg', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg', '1 Floor', '2024-02-28 19:09:50', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `req`
+--
+
+DROP TABLE IF EXISTS `req`;
+CREATE TABLE IF NOT EXISTS `req` (
+  `did` int(50) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `time` time(6) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` int(50) NOT NULL,
+  `message` text NOT NULL,
+  `status` text NOT NULL,
+  `uid` int(20) NOT NULL,
+  PRIMARY KEY (`did`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -223,7 +244,7 @@ INSERT INTO `property` (`pid`, `title`, `pcontent`, `type`, `bhk`, `stype`, `bed
 DROP TABLE IF EXISTS `state`;
 CREATE TABLE IF NOT EXISTS `state` (
   `sid` int(50) NOT NULL AUTO_INCREMENT,
-  `sname` varchar(100) NOT NULL,
+  `sname` varchar(50) NOT NULL,
   PRIMARY KEY (`sid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
@@ -254,8 +275,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `upass` varchar(50) NOT NULL,
   `utype` varchar(50) NOT NULL,
   `uimage` varchar(300) NOT NULL,
-  PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`uid`),
+  UNIQUE KEY `uemail` (`uemail`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -264,7 +286,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`uid`, `uname`, `uemail`, `uphone`, `upass`, `utype`, `uimage`) VALUES
 (2, 'vishal lalit', 'lrdhingadiya@gmail.c', '1234567890', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'user', '1-11-2048x1367-1.jpg'),
 (3, 'balo', 'balo@gmail.com', '55555555', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'user', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg'),
-(4, 'raval', 'raval@gmail.com', '1212121212', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'builder', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg');
+(4, 'raval', 'raval@gmail.com', '1212121212', '111111', 'builder', '1675356602_en-idei-club-p-home-interior-ideas-interer-1.jpg'),
+(6, 'abc', 'abc12@gmail.com', '89654345', '123456', 'builder', '1687578910_en-idei-club-p-interior-concept-house-dizain-krasivo-29.jpg'),
+(7, 'lalit', 'Test@123', '1234567890', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'builder', '3b7bbbff3f89ca6e03f67f1aed8c6968.jpg'),
+(8, 'aa', 'aa@gmail.com', '1234567890', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'builder', '6faf8b753d981b76fa951efb02dda601.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

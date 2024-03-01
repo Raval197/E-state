@@ -12,7 +12,9 @@ if (isset($_POST['edit'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
-    $sql = "INSERT INTO req(date, time, name, email, phone,message) VALUES ('$date','$time','$name','$email','$phone','$message')";
+    $uid = $_POST['uid']; 
+    $status = $_POST['status'];
+    $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status')";
     $result = mysqli_query($con, $sql);
     if ($result) {
         echo"<script>alert('your message send successfully.');</script>";
@@ -194,70 +196,12 @@ if (isset($_POST['edit'])) {
                                             <img src="admin/property/<?php echo $row['27']; ?>" alt="Not Available">
                                         </div>
                                     </div>
-
-                                    <!-- <h5 class="mt-5 mb-4 text-secondary double-down-line-left position-relative">Contact Agent</h5>
-                            <div class="agent-contact pt-60">
-                                <div class="row">
-                                    <div class="col-sm-4 col-lg-3"> <img src="admin/user/<?php echo $row['uimage']; ?>" alt="" height="200" width="170"> </div>
-                                    <div class="col-sm-8 col-lg-9">
-                                        <div class="agent-data text-ordinary mt-sm-20">
-                                            <h6 class="text-success text-capitalize"><?php echo $row['uname']; ?></h6>
-                                            <ul class="mb-3">
-                                                <li><?php echo $row['uphone']; ?></li>
-                                                <li><?php echo $row['uemail']; ?></li>
-                                            </ul>
-                                            
-                                            <div class="mt-3 text-secondary hover-text-success">
-                                                <ul>
-                                                    <li class="float-left mr-3"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li class="float-left mr-3"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                    <li class="float-left mr-3"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                                    <li class="float-left mr-3"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                    <li class="float-left mr-3"><a href="#"><i class="fas fa-rss"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                 </div> -->
-                                    <!-- </div> -->
                                 </div>
                             </div>
 
                         <?php } ?>
 
                         <div class="col-lg-4">
-                            <!-- <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4 mt-md-50">Send Message</h4>
-                        <form method="post" action="#">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Enter Phone">
-                                    </div>
-                                </div>
-								<div class="col-md-12">
-                                    <div class="form-group">
-										<textarea class="form-control" placeholder="Enter Message"></textarea>
-                                    </div>
-                                </div>
-								
-                                <div class="col-md-12">
-                                    <div class="form-group mt-4">
-                                        <button type="submit" class="btn btn-success w-100">Search Property</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form> -->
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
                             <form class="d-inline-block w-100" action="calc.php" method="post">
                                 <label class="sr-only">Property Amount</label>
@@ -339,9 +283,11 @@ if (isset($_POST['edit'])) {
                                         <input type="date" name="date" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="text" name="email" class="form-control mb-3" placeholder="Email Address*">
+                                        <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*">
                                         <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
                                         <textarea name="message" id="" cols="30" rows="3">message</textarea>
+                                        <input type="hidden" name="uid" value="1">
+                                        <input type="hidden" name="status" value="Null">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
