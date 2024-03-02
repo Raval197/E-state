@@ -105,7 +105,7 @@ if(!isset($_SESSION['bemail']))
 								<span>Query</span>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-comment"></i> <span> Contact,Feedback </span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-phone"></i> <span> Contact,Feedback </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="contactview.php"> Contact </a></li>
 									<li><a href="feedbackview.php"> Feedback </a></li>
@@ -115,7 +115,7 @@ if(!isset($_SESSION['bemail']))
 								<span>appointment</span>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-message"></i> <span> your appointment</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-comment"></i> <span> Pending Appointment</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
 									<li><a href="appointment.php"> Appointment </a></li>
 								</ul>
