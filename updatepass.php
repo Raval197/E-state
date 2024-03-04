@@ -43,7 +43,7 @@
             font-weight: bold;
             color: #333;
         }
-        input[type="password"] {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -52,17 +52,18 @@
             font-size: 16px;
             color: #333;
         }
-        button[type="submit"] {
+        input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
-            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
         }
-        button[type="submit"]:hover {
+  
+        input[type="submit"]:hover {
             background-color: #3e8e41;
         }
     
@@ -74,58 +75,63 @@
 include("config.php");
 
 
-if(isset($_GET['email']) && isset($_GET['reset_token'])) {
+if(isset($_GET['email']) && isset($_GET['reset_token']))
+{
     date_default_timezone_set('Asia/kolkata');
     $date=date("Y-m-d");
     $email = $_GET['email'];
     $reset_token =$_GET['reset_token'];
     $query="SELECT * from `user` WHERE `uemail` = '$email' AND `resettoken` = '$reset_token' AND `resetexpiry` = '$date'";
     $result = mysqli_query($con, $query);
-        if($result){
-    
-            if (mysqli_num_rows($result) == 1) {
+if($result)
+{
+    if(mysqli_num_rows($result) == 1) 
+    {
                 echo "
                 <form method='POST'>
                 <h3>Create New Password</h3>
-                <input type='password' placeholder='New Password' name='Password'>
-                <button type='submit' name='updatepassword'>UPDATE</button>
+                <input type='text' placeholder='New Password' name='balo' pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' id='pwd' required>
+                <input type='submit' name='updatepassword' value='update'>
                 <input type='hidden' name='email' value='$_GET[email]'>
+                <div id='message'>
+                    <h4>Password must contain the following:</h4>
+                     <p id='length' class='invalid'>Minimum <b>8 characters</b></p>
+                     <p id='letter' class='invalid'>A <b>lowercase and uppercase</b> letter</p>
+                     <p id='number' class='invalid'>A <b>number</b></p>
+                </div>
                 </form>
                 ";
-            } else {
+    }
+    else{
                 echo "
                 <script>
                 alert('Invalid email or reset token!');
-                window.location.href='login.php';
+                window.location.href='login.php';   
                 </script>";
-            }
-        }
-        else 
-        {
-
-        }
-    
+    }
 }
- else 
- {
+else 
+{
     echo "
     <script>
-    alert('Email or reset token not provided!');
-    window.location.href='login.php';
+    alert('Not logged in!');
     </script>";
-    }
-
+}
+}
+    
 ?>
 <?php
 
 
 if(isset($_POST['updatepassword']))
 {
-    $password =md5($_POST['password']);
+    $password1 =$_POST['balo'];
+    $password=sha1($password1);
     $email =$_POST['email'];
-    $update="UPDATE `user` SET `upass`='$password',`resettoken`=NULL,`resetexpiry`=NULL WHERE `email`='$_POST[email]'";
-    $lodu=mysql_query($con, $update);
-    if($lodu)
+
+    $update="UPDATE `user` SET `upass`='$password',`resettoken`=NULL,`resetexpiry`=NULL WHERE `uemail`='$email'";
+    $qty=mysqli_query($con, $update);
+    if($qty)
     {
         echo "
         <script>
@@ -149,4 +155,5 @@ if(isset($_POST['updatepassword']))
 
 
 </body>
+
 </html>

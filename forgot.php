@@ -52,7 +52,7 @@ if(isset($_REQUEST['resetlink']))
 			$update_query = "UPDATE `user` SET  `resettoken` = '$reset_token', `resetexpiry` = '$date' WHERE `uemail` = '$email'";
 			if($update_result = mysqli_query($con, $update_query) ){
 				if( sendMail($_POST['email'],$reset_token)){
-					echo"<script>alert('mail send'); window.location='updatepass.php'</script>";
+					echo"<script>alert('mail send'); window.location='login.php'</script>";
 				}else{
 					echo"<script>alert('mail not send'); window.location='changepass.php'</script>";
 				}
