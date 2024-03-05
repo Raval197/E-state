@@ -13,7 +13,8 @@
                         <ul class="list-text-white d-table">
                             <li><i class="fas fa-user text-success mr-1"></i>
                                 <?php if (isset($_SESSION['uemail'])) { ?>
-                                    <a href="logout.php">Logout</a>&nbsp;&nbsp;<?php } else { ?>
+                                    <a href="logout.php">Logout</a>&nbsp;&nbsp;<?php }
+                                     else { ?>
                                     <a href="login.php">Login</a>&nbsp;&nbsp;
 
                                     |

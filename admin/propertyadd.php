@@ -407,9 +407,9 @@ if(isset($_POST['add']))
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Uid</label>
+													<label class="col-lg-3 col-form-label"></label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="uid" required placeholder="Enter User Id (only number)">
+														<input type="hidden" class="form-control" name="uid" value="1" required placeholder="Enter User Id (only number)">
 													</div>
 												</div>
 												<div class="form-group row">

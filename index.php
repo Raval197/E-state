@@ -83,7 +83,7 @@ include("search.php");
                                     <div class="row">
                                         <div class="col-md-6 col-lg-2">
                                             <div class="form-group">
-                                                <select class="form-control" name="type">
+                                                <select class="form-control" name="type" required>
                                                     <option value="">Select Type</option>
                                                     <option value="apartment">Apartment</option>
                                                     <option value="flat">Flat</option>
@@ -96,7 +96,7 @@ include("search.php");
                                         </div>
                                         <div class="col-md-6 col-lg-2">
                                             <div class="form-group">
-                                                <select class="form-control" name="stype">
+                                                <select class="form-control" name="stype" required>
                                                     <option value="">Select Status</option>
                                                     <option value="rent">Rent</option>
                                                     <option value="sale">Sale</option>
@@ -111,7 +111,7 @@ include("search.php");
                                         </div>
                                         <div class="col-md-4 col-lg-2">
                                             <div class="form-group">
-                                                <button type="submit" name="filter" class="btn btn-success w-100">Search Property</button>
+                                                <input type="submit" name="filter" class="btn btn-success w-100" value="Search Property">
                                             </div>
                                         </div>
                                     </div>

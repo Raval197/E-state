@@ -113,7 +113,7 @@ if (!isset($_SESSION['uemail'])) {
                             <?php
                             $uid = $_SESSION['uid'];
                             
-                            $query = mysqli_query($con, "SELECT * FROM `req`");
+                            $query = mysqli_query($con, "SELECT * FROM `req` WHERE `uid`='$uid'");
                             while ($row = mysqli_fetch_array($query)) {
                                 $status=$row['status'];
                             ?>

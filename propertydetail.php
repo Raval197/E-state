@@ -281,13 +281,13 @@ if (isset($_POST['edit'])) {
                                 <div class="row d-flex justify-content-center">
                                     <div class="form-group">
 
-                                        <input type="date" name="date" class="form-control mb-3" placeholder="Your Name*">
+                                        <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
                                         <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*">
                                         <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
                                         <textarea name="message" id="" cols="30" rows="3">message</textarea>
-                                        <input type="hidden" name="uid" value="1">
+                                        <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
                                         <input type="hidden" name="status" value="Null">
                                     </div>
                                 </div>

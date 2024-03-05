@@ -126,7 +126,7 @@ if(!isset($_SESSION['uemail']))
                                     <label for="about-me">Email</label>
                                     <input type="email" name="email"  class="form-control" value="<?php echo $row['2'];?>" maxlength="20">
                                 </div>
-                                <input type="submit" class="btn btn-info mb-4 m-2" name="insert" value="Edit">
+                                <input type="submit" class="btn btn-info mb-4 m-2" name="insert" value="Save">
                                 <a href="changepass.php" type="submit" class="btn btn-info mb-4 m-2" name="update">Change Password</a>
                             </div>
 							</form>

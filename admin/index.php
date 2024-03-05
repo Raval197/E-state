@@ -78,9 +78,7 @@
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" name="login" type="submit">Login</button>
 									</div>
-								</form>
-								
-																
+								</form>													
 							</div>
                         </div>
                     </div>

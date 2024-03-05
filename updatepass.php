@@ -70,7 +70,7 @@
     </style>
 </head>
 <body>
-<?php 
+ <?php 
 
 include("config.php");
 
