@@ -97,12 +97,12 @@ include("config.php");
 								$stype=$_REQUEST['stype'];
 								$city=$_REQUEST['city'];
 								
-								$sql="SELECT property.*, user.uname FROM `property`,`user` WHERE property.uid=user.uid and type='{$type}' and stype='{$stype}' and city='{$city}'";
-								//SELECT * FROM `property` WHERE type='office' or type='office' and stype='sale' or stype='rent' and city='valsad' OR state='mumbai'
+								$sql="SELECT property.*, user.uname FROM `property`,`user` WHERE property.uid=user.uid AND type='{$type}' AND stype='{$stype}' AND city='{$city}'";
+                                // $sql = "SELECT * FROM property.*,user.uname FROM property,user WHERE property.uid = user.uid AND type = '$type' AND stype = '$stype' AND city='$city'";
 								//SELECT * FROM `property` WHERE type='office' and stype='sale'  and city='valsad' OR state='mumbai'
 								$result=mysqli_query($con,$sql);
 							
-								if(mysqli_num_rows($result)>0)
+								if(mysqli_num_rows($result) > 0)
 								{
 									if($result == true)
 									{

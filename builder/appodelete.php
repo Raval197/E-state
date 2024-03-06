@@ -1,16 +1,17 @@
 <?php
 include("config.php");
-$aid = $_GET['id'];
-$sql = "DELETE FROM req WHERE did = {$aid}";
+$did = $_GET['did'];
+echo"$did";
+$sql = "DELETE FROM req WHERE did='$did'";
 $result = mysqli_query($con, $sql);
-if($result == true)
+if($result)
 {
 	$msg="<p class='alert alert-success'>Property Deleted</p>";
-	header("Location:propertyview.php?msg=$msg");
+	header("Location:appointment.php?msg=$msg");
 }
 else{
 	$msg="<p class='alert alert-warning'>Property Not Deleted</p>";
-	header("Location:propertyview.php?msg=$msg");
+	header("Location:appointment.php?msg=$msg");
 }
 mysqli_close($con);
 ?>
