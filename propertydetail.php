@@ -12,12 +12,12 @@ if (isset($_POST['edit'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
-    $uid = $_POST['uid']; 
+    $uid = $_POST['uid'];
     $status = $_POST['status'];
     $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status')";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo"<script>alert('your message send successfully.');</script>";
+        echo "<script>alert('your message send successfully.');</script>";
     } else {
         $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
     }
@@ -249,11 +249,29 @@ if (isset($_POST['edit'])) {
                                 <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Contect billder</h4>
                                 <ul class="d-flex flex-row">
                                     <li class="p-2">
-                                        <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
+                                        <?php
+                                        $id = $_REQUEST['pid'];
+                                        $query = mysqli_query($con, "SELECT * FROM `property` WHERE pid=$id");
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            $stype = $row['stype'];
+                                            if ($stype == "sale") {
+                                        ?>
+
+                                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
+
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">For Rent </button>
+                                        <?php
+
+                                            }
+                                        }
+                                        ?>
                                     </li>
                                     <li class="p-2">
-                                    
-                                        <a type="submit" value="submit" class="btn btn-primary mt-4"  href="contact.php"> Massage </a>
+
+                                        <a type="submit" value="submit" class="btn btn-primary mt-4" href="contact.php"> Massage </a>
                                     </li>
                                 </ul>
                             </div>
@@ -266,40 +284,48 @@ if (isset($_POST['edit'])) {
 
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header m-2" >
-                            <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="w-100 " action="#" method="post">
+            <?php
+            $uid = $_SESSION['uid'];
+            $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header m-2">
+                                <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="w-100 " action="#" method="post">
 
-                                <div class="row d-flex justify-content-center">
-                                    <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="form-group">
 
-                                        <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*">
-                                        <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
-                                        <textarea name="message" id="" cols="30" rows="3">message</textarea>
-                                        <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
-                                        <input type="hidden" name="status" value="Null">
+                                            <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
+                                            <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
+                                            <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
+                                            <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
+                                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
+                                            <textarea name="message" id="" cols="30" rows="3">message</textarea>
+                                            <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
+                                            <input type="hidden" name="status" value="Null">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" name="edit" class="btn btn-primary" value="send">
-                                </div>
-                            </form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type="submit" name="edit" class="btn btn-primary" value="send">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
 
             <!--	Footer   start-->
             <?php include("include/footer.php"); ?>

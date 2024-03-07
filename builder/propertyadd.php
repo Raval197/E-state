@@ -477,6 +477,7 @@ $state_qry = mysqli_query($con, $states);
 	<!-- Custom JS -->
 	<script src="assets/js/script.js"></script>
 	<script>
+		
 
     $('#state').on('change', function() {
         var state_id = this.value;
