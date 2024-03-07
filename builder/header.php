@@ -115,9 +115,10 @@ if(!isset($_SESSION['bemail']))
 								<span>appointment</span>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-comment"></i> <span> Pending Appointment</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-comment"></i> <span>Appointment</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="appointment.php"> Appointment </a></li>
+									<li><a href="appointment.php">pending Appointment </a></li>
+									<li><a href="viewappoinment.php">view Appointment </a></li>
 								</ul>
 							</li>
 							<li class="menu-title"> 

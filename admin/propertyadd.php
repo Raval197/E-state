@@ -83,6 +83,9 @@ if(isset($_POST['add']))
 			$error="<p class='alert alert-warning'>Something went wrong. Please try again</p>";
 		}
 }
+
+$states= "SELECT * FROM `state`";
+$state_qry = mysqli_query($con, $states);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -264,18 +267,25 @@ if(isset($_POST['add']))
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">City</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="city" required placeholder="Enter City">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">State</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="state" required placeholder="Enter State">
-													</div>
-												</div>
+											<label class="col-lg-3 col-form-label">state</label>
+											<div class="col-lg-9">
+												<select class="form-control" id="state" name="state">
+													<option selected disabled>Select state</option>
+													<?php while ($row = mysqli_fetch_assoc($state_qry)) : ?>
+														<option value="<?php echo $row['sid']; ?>"> <?php echo $row['sname']; ?> </option>
+													<?php endwhile; ?>
+												</select>
 											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">city</label>
+											<div class="col-lg-9">
+												<select class="form-control" id="city" name="city">
+													<option selected disabled>Select City</option>
+												</select>
+											</div>
+										</div>
+									</div>
 											<div class="col-xl-6">
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Total Floor</label>
@@ -471,7 +481,25 @@ if(isset($_POST['add']))
 		
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
-		
+		<script>
+
+    $('#state').on('change', function() {
+        var state_id = this.value;
+        // console.log(country_id);
+        $.ajax({
+            url: 'state.php',
+            type: "POST",
+            data: {
+                state_data: state_id
+            },
+            success: function(result) {
+                $('#city').html(result);
+                 console.log(result);
+            }
+        })
+    });
+</script>
+
     </body>
 
 </html>

@@ -43,6 +43,7 @@ if(isset($_REQUEST['reg']))
 	}
 	
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +74,24 @@ if(isset($_REQUEST['reg']))
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/login.css">
+<script>
+      function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+	  function alphaOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 65 && key <= 122) || key == 8 || key == 32);
+      };
+
+      function checklen() {
+         var pass1 = document.getElementById("password");
+         if (pass1.value.length < 6) {
+            alert("Password must be at least 6 characters long. Try again!");
+            return false;
+         }
+      }
+   </script>
 
 <!--	Title
 	=========================================================-->
@@ -132,16 +151,16 @@ if(isset($_REQUEST['reg']))
 								<!-- Form -->
 								<form method="post" enctype="multipart/form-data">
 									<div class="form-group">
-										<input type="text"  name="name" class="form-control" placeholder="Your Name*">
+										<input type="text"  name="name" class="form-control" placeholder="Your Name*"minlength="3" onkeydown="return alphaOnly(event);">
 									</div>
 									<div class="form-group">
 										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
 									</div>
 									<div class="form-group">
-										<input type="text"  name="phone" class="form-control" placeholder="Your Phone*" maxlength="10">
+										<input type="text"  name="phone" class="form-control" placeholder="Your Phone*"  maxlength="10" onkeydown="return digitOnly(event);">
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password*">
+										<input type="password" name="pass" id="password"  class="form-control" placeholder="Your Password*" minlength="6" >
 									</div>
 
 									 <div class="form-check-inline">
@@ -165,7 +184,7 @@ if(isset($_REQUEST['reg']))
 										<input class="form-control" name="uimage" type="file">
 									</div>
 									
-									<button class="btn btn-success" name="reg" value="Register" type="submit">Register</button>
+									<button class="btn btn-success" id="submit" name="reg" value="Register" type="submit">Register</button>
 									
 								</form>
 								
