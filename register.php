@@ -151,7 +151,7 @@ if(isset($_REQUEST['reg']))
 								<!-- Form -->
 								<form method="post" enctype="multipart/form-data">
 									<div class="form-group">
-										<input type="text"  name="name" class="form-control" placeholder="Your Name*" onkeydown="return alphaOnly(event);">
+										<input type="text"  name="name" class="form-control" placeholder="Your Name*"minlength="3" onkeydown="return alphaOnly(event);">
 									</div>
 									<div class="form-group">
 										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
@@ -160,7 +160,7 @@ if(isset($_REQUEST['reg']))
 										<input type="text"  name="phone" class="form-control" placeholder="Your Phone*"  maxlength="10" onkeydown="return digitOnly(event);">
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password*" >
+										<input type="password" name="pass" id="password"  class="form-control" placeholder="Your Password*" minlength="6" >
 									</div>
 
 									 <div class="form-check-inline">
@@ -184,7 +184,7 @@ if(isset($_REQUEST['reg']))
 										<input class="form-control" name="uimage" type="file">
 									</div>
 									
-									<button class="btn btn-success" name="reg" value="Register" type="submit">Register</button>
+									<button class="btn btn-success" id="submit" name="reg" value="Register" type="submit">Register</button>
 									
 								</form>
 								
