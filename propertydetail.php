@@ -216,7 +216,7 @@ if (isset($_POST['edit'])) {
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" name="month" placeholder="Duration month">
+                                    <input type="text" class="form-control" name="month" placeholder="Duration Year">
                                 </div>
                                 <label class="sr-only">Interest Rate</label>
                                 <div class="input-group mb-2 mr-sm-2">

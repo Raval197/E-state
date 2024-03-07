@@ -105,7 +105,7 @@ include("search.php");
                                         </div>
                                         <div class="col-md-8 col-lg-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="search" name="city" placeholder="Enter City" required>
+                                                <input type="text" class="form-control" id="search" placeholder="Enter City" required>
                                                 <div id="result"></div>
                                             </div>
                                         </div>
@@ -186,7 +186,7 @@ include("search.php");
                                     <div class="row">
 
                                         <?php 
-                                          
+                                        $uid=$_SESSION['uid'];   
                                         $query = mysqli_query($con, "SELECT property.*, user.uname,user.utype,user.uimage FROM `property`,`user` WHERE property.uid=user.uid ORDER BY date DESC LIMIT 9");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>

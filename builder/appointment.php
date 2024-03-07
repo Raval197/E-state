@@ -108,7 +108,7 @@ echo "<script>alert('Form Details Updated Successfully');</script>";
 								<tbody>
 									<?php
 
-									$query = mysqli_query($con, "select * from req where status=0");
+									$query = mysqli_query($con, "select * from req");
 									$cnt = 1;
 									while ($row = mysqli_fetch_array($query)) {
 									?>
@@ -120,23 +120,17 @@ echo "<script>alert('Form Details Updated Successfully');</script>";
 											<td><?php echo $row['email']; ?></td>
 											<td><?php echo $row['phone']; ?></td>
 											<td><?php echo $row['email']; ?></td>
-											<td rowspan="2">
+											<td>
 												<?php
 												if($row['status']==0){
-													echo'<p> <a href="status.php?id='.$row['did'].'&status=1 "class="btn btn-info">Accept</a></p>';
-
+													echo'<p> <a href="status.php?id='.$row['did'].'&status=1 "class="btn btn-info">Aeccept</a></p>';
 		}
 												else{
-													echo'<p> <a href="status.php?id='.$row['did'].'&status=0" class="btn btn-danger">cancle</a></p>';
+													echo'<p> <a href="status.php?id='.$row['did'].'&status=0" class="btn btn-danger">Cancle</a></p>';
 		
 												}
-												?>
-												</td>
-												<td>
-												<?php
-												echo'<p><a href="appodelete.php?did='.$row['did'].'&status=1 "class="btn btn-danger">Reject</a></p>';
-												?>
-												</td>
+											?>
+ 											</td>
 										</tr>
 									<?php
 										$cnt = $cnt + 1;

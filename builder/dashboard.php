@@ -72,20 +72,18 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
-											<i class="fe fe-home"></i>
+										<span class="dash-widget-icon bg-primary">
+											<i class="fe fe-users"></i>
 										</span>
 										
 									</div>
 									<div class="dash-widget-info">
 										
-									<h3><?php $sql = "SELECT * FROM property";
+										<h3><?php $sql = "SELECT * FROM user WHERE utype = 'user'";
 										$query = $con->query($sql);
                 						echo "$query->num_rows";?></h3>
 										
-										<h6 class="text-muted">Properties</h6>
-									
-											<div class="progress-bar bg-info w-50"></div>
+										<h6 class="text-muted">Registered Users</h6>
 										<div class="progress progress-sm">
 											<div class="progress-bar bg-primary w-50"></div>
 										</div>
@@ -143,18 +141,18 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-									<span class="dash-widget-icon bg-success">
-											<i class="fe fe-users"></i>
+										<span class="dash-widget-icon bg-info">
+											<i class="fe fe-home"></i>
 										</span>
 										
 									</div>
 									<div class="dash-widget-info">
 										
-									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'builder'";
+									<h3><?php $sql = "SELECT * FROM property";
 										$query = $con->query($sql);
                 						echo "$query->num_rows";?></h3>
 										
-										<h6 class="text-muted">Buyer</h6>
+										<h6 class="text-muted">Properties</h6>
 										<div class="progress progress-sm">
 											<div class="progress-bar bg-info w-50"></div>
 										</div>
@@ -187,7 +185,29 @@ if(!isset($_SESSION['bemail']))
 								</div>
 							</div>
 						</div>
-						
+						<div class="col-xl-3 col-sm-6 col-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="dash-widget-header">
+										<span class="dash-widget-icon bg-success">
+											<i class="fe fe-users"></i>
+										</span>
+										
+									</div>
+									<div class="dash-widget-info">
+										
+									<h3><?php $sql = "SELECT * FROM user WHERE utype = 'builder'";
+										$query = $con->query($sql);
+                						echo "$query->num_rows";?></h3>
+										
+										<h6 class="text-muted">Buyer</h6>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-success w-50"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 				</div>			
 			</div>
 			<!-- /Page Wrapper -->
