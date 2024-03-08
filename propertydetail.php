@@ -12,16 +12,17 @@ if (isset($_POST['edit'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
-    $uid = $_POST['uid']; 
+    $uid = $_POST['uid'];
     $status = $_POST['status'];
     $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status')";
     $result = mysqli_query($con, $sql);
     if ($result) {
-        echo"<script>alert('your message send successfully.');</script>";
+        echo "<script>alert('your message send successfully.');</script>";
     } else {
         $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,6 @@ if (isset($_POST['edit'])) {
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--	Title
 	=========================================================-->
@@ -125,24 +125,15 @@ if (isset($_POST['edit'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-4 justify-content-between">
+                                <div class="row mb-4">
                                     <div class="col-md-6">
                                         <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
                                         <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
                                         <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                         <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                        <i class="fa-solid fa-circle-info pl-4 position-relative">
-                                            <div class="position-absolute top-10 right-0 balo">
-                                                <!-- <div class="">
-                                                    <p>hellooooo</p>
-                                                </div> -->
-                                            </div>
-                                        </i>
                                         <div class="text-left text-md-right">Price</div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="property-details">
@@ -259,11 +250,29 @@ if (isset($_POST['edit'])) {
                                 <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Contect billder</h4>
                                 <ul class="d-flex flex-row">
                                     <li class="p-2">
-                                        <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
+                                        <?php
+                                        $id = $_REQUEST['pid'];
+                                        $query = mysqli_query($con, "SELECT * FROM `property` WHERE pid=$id");
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            $stype = $row['stype'];
+                                            if ($stype == "sale") {
+                                        ?>
+
+                                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
+
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">For Rent </button>
+                                        <?php
+
+                                            }
+                                        }
+                                        ?>
                                     </li>
                                     <li class="p-2">
-                                    
-                                        <a type="submit" value="submit" class="btn btn-primary mt-4"  href="contact.php"> Massage </a>
+
+                                        <a type="submit" value="submit" class="btn btn-primary mt-4" href="contact.php"> Massage </a>
                                     </li>
                                 </ul>
                             </div>
@@ -276,40 +285,48 @@ if (isset($_POST['edit'])) {
 
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header m-2" >
-                            <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="w-100 " action="#" method="post">
+            <?php
+            $uid = $_SESSION['uid'];
+            $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header m-2">
+                                <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="w-100 " action="#" method="post">
 
-                                <div class="row d-flex justify-content-center">
-                                    <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="form-group">
 
-                                        <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*">
-                                        <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*">
-                                        <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10">
-                                        <textarea name="message" id="" cols="30" rows="3">message</textarea>
-                                        <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
-                                        <input type="hidden" name="status" value="Null">
+                                            <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
+                                            <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
+                                            <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
+                                            <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
+                                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
+                                            <textarea name="message" id="" cols="30" rows="3">message</textarea>
+                                            <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
+                                            <input type="hidden" name="status" value="Null">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <input type="submit" name="edit" class="btn btn-primary" value="send">
-                                </div>
-                            </form>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type="submit" name="edit" class="btn btn-primary" value="send">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
 
             <!--	Footer   start-->
             <?php include("include/footer.php"); ?>

@@ -4,13 +4,14 @@ session_cache_limiter(false);
 session_start();
 include("config.php");
 include("search.php");
-
+$states = "SELECT * FROM `state`";
+$state_qry = mysqli_query($con, $states);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,15 +39,17 @@ include("search.php");
 
     <title>E-state PHP</title>
     <script>
-        $(document).ready(function () {
-            $("#search").on("keyup", function () {
+        $(document).ready(function() {
+            $("#search").on("keyup", function() {
                 var query = $(this).val();
                 if (query !== '') {
                     $.ajax({
                         url: 'search.php',
                         method: 'POST',
-                        data: {query: query},
-                        success: function (data) {
+                        data: {
+                            query: query
+                        },
+                        success: function(data) {
                             $("#result").html(data);
                         }
                     });
@@ -103,9 +106,24 @@ include("search.php");
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-8 col-lg-6">
+                                        <div class="col-md-8 col-lg-2">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="search" name="city" placeholder="Enter City" required>
+                                                <select class="form-control" id="search" name="city">
+                                                    <option selected disabled>Select state</option>
+                                                    <?php while ($row = mysqli_fetch_assoc($state_qry)) : ?>
+                                                        <option value="<?php echo $row['sid']; ?>"> <?php echo $row['sname']; ?> </option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                                <!-- <input type="text" class="form-control" id="search" name="city" placeholder="Enter City" required> -->
+                                                <div id="result"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-lg-2">
+                                            <div class="form-group">
+                                                <select class="form-control" id="city" name="city">
+                                                    <option selected disabled>Select City</option>
+                                                </select>
+                                                <!-- <input type="text" class="form-control" id="search" name="city" placeholder="Enter City" required> -->
                                                 <div id="result"></div>
                                             </div>
                                         </div>
@@ -185,8 +203,8 @@ include("search.php");
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home">
                                     <div class="row">
 
-                                        <?php 
-                                          
+                                        <?php
+
                                         $query = mysqli_query($con, "SELECT property.*, user.uname,user.utype,user.uimage FROM `property`,`user` WHERE property.uid=user.uid ORDER BY date DESC LIMIT 9");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
@@ -515,6 +533,24 @@ include("search.php");
     <script src="js/jquery.cookie.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+
+$('#search').on('change', function() {
+    var state_id = this.value;
+    // console.log(country_id);
+    $.ajax({
+        url: './builder/state.php',
+        type: "POST",
+        data: {
+            state_data: state_id
+        },
+        success: function(result) {
+            $('#city').html(result);
+             console.log(result);
+        }
+    })
+});
+</script>
 </body>
 
 </html>
