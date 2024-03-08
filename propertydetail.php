@@ -127,7 +127,7 @@ if (isset($_POST['edit'])) {
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-md-6">
-                                        <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
+                                        <div class=""><button type="button" class="bg-success d-table px-3 py-2 rounded text-white text-capitalize" data-toggle="modal" data-target="#see">For <?php echo $row['5']; ?></button></div>
                                         <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
                                         <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
                                     </div>
@@ -135,6 +135,7 @@ if (isset($_POST['edit'])) {
                                         <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
                                         <div class="text-left text-md-right">Price</div>
                                     </div>
+
                                 </div>
                                 <div class="property-details">
                                     <div class="bg-gray property-quantity px-4 pt-4 w-100">
@@ -282,9 +283,57 @@ if (isset($_POST['edit'])) {
             </div>
 
             <!-- Button trigger modal -->
+            <!-- modal see charges -->
+            <?php
+            $id = $_REQUEST['pid'];
+            $query = mysqli_query($con, "SELECT * FROM `property` WHERE  pid='$id'");
+            while ($row = mysqli_fetch_array($query)) {
+                $amount = $row['13'];
+                $deposit = $amount * 3;
+                $maintanance = 500;
+                $totle = $amount + $deposit + $maintanance;
+            ?>
+                <div class="modal fade" id="see" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header m-2">
+                                <h5 class="modal-title" id="exampleModalLabel">Other Charges</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="w-100 " action="#" method="post">
+                                    <div class="d-flex justify-content-between">
+                                        <p>Amount</p>
+                                        <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p>Security Deposite</p>
+                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $deposit ?></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p>Maintanunce</p>
+                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $maintanance ?></div>
+                                    </div>
 
+                                    <div class="d-flex justify-content-between">
+                                        <p>Total Amount</p>
+                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $totle ?></div>
+                                        <input type="text" id="amt" value="<?php echo $totle ?>">
+                                        <input type="text" id="amt" value="<?php echo $row['1']; ?>">
+                                        <input type="text" id="amt" value="<?php echo $id ?>">
+                                    </div>
 
-            <!-- Modal -->
+                                    <div class="text-success text-left h6 my-2 text-md-right"><a href="javascript:void(0)" data-productid="<?php echo $id?>" data-productname="<?php echo $row['1'];?>" data-amount="<?php echo $totle?>" type="submit" name="submit" id="pay" class="btn btn-success btn-block">Pay</a></div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <!-- Modal request -->
             <?php
             $uid = $_SESSION['uid'];
             $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
@@ -362,7 +411,57 @@ if (isset($_POST['edit'])) {
             $('#myInput').trigger('focus')
         })
     </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        $("#pay").click(function() {
+            // var name = jQuery('#amt').val();
+            // var name = jQuery('#name').val();
+            var amount = $(this).attr('data-amount');
+            var productid = $(this).attr('data-productid');
+            var productname = $(this).attr('data-productname'); 
 
+            var options = {
+                "key": "rzp_test_YrkwoYBUUy52Ww", // Enter the Key ID generated from the Dashboard
+                "amount": amount * 100,
+                "currency": "INR",
+                "name": "Estate",
+                "description": "productname",
+                "image": "https://example.com/your_logo",
+                "handler": function(response) {
+                    var paymentid=response.Razorpay_payment_id;
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: 'abc.php',
+                        data: {product_id:productid,payment_id:paymentid},
+                        success:function(response){
+                                if(response == "done"){
+                                    alert('success');
+                                }
+                                else{
+                                    alert('error');
+                                }
+                        }
+                    })
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function(response) {
+                alert(response.error.code);
+                alert(response.error.description);
+                alert(response.error.source);
+                alert(response.error.step);
+                alert(response.error.reason);
+                alert(response.error.metadata.order_id);
+                alert(response.error.metadata.payment_id);
+            });
+            rzp1.open();
+            e.preventDefault();
+        });
+    </script>
 </body>
 
 </html>
