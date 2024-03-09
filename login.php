@@ -97,10 +97,10 @@ if(isset($_REQUEST['login']))
 								<!-- Form -->
 								<form method="post">
 									<div class="form-group">
-										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
+										<input type="email"  name="email" class="form-control" placeholder="Your Email*" requied>
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password">
+										<input type="password" name="pass"  class="form-control" placeholder="Your Password"  minlength="6" required>
 									</div>
 									<div>
 										<button class="btn btn-success" name="login" value="Login" type="submit">Login</button>
