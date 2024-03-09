@@ -436,7 +436,7 @@ var options = {
 			data:{product_id:productid,payment_id:paymentid},
 			success:function(finalresponse)
 			{
-				if(response=='done')
+				if(finalresponse=='done')
 				{
                     alert('Payment successfully');
 				}
