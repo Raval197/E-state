@@ -466,8 +466,6 @@ $state_qry = mysqli_query($con, $states);
 				</div>			
 			</div>
 			<!-- /Main Wrapper -->
-
-		
 		<!-- jQuery -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>
 		<script src="assets/plugins/tinymce/tinymce.min.js"></script>
@@ -487,7 +485,7 @@ $state_qry = mysqli_query($con, $states);
         var state_id = this.value;
         // console.log(country_id);
         $.ajax({
-            url: 'state.php',
+            url: '../builder/state.php',
             type: "POST",
             data: {
                 state_data: state_id

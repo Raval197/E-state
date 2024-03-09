@@ -1,6 +1,6 @@
 <?php
-ini_set('session.cache_limiter', 'public');
-session_cache_limiter(false);
+// ini_set('session.cache_limiter', 'public');
+//  session_cache_limiter(false);
 session_start();
 include("config.php");
 $error = '';
@@ -320,12 +320,10 @@ if (isset($_POST['edit'])) {
                                     <div class="d-flex justify-content-between">
                                         <p>Total Amount</p>
                                         <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $totle ?></div>
-                                        <input type="text" id="amt" value="<?php echo $totle ?>">
-                                        <input type="text" id="amt" value="<?php echo $row['1']; ?>">
-                                        <input type="text" id="amt" value="<?php echo $id ?>">
                                     </div>
 
-                                    <div class="text-success text-left h6 my-2 text-md-right"><a href="javascript:void(0)" data-productid="<?php echo $id?>" data-productname="<?php echo $row['1'];?>" data-amount="<?php echo $totle?>" type="submit" name="submit" id="pay" class="btn btn-success btn-block">Pay</a></div>
+                                    <div class="text-success text-left h6 my-2 text-md-right">  <a href="javascript:void(0)" data-productid="<?php echo $row['0'];?>" data-productname="<?php echo $row['1'];?>" data-amount="<?php echo $totle?>" class="btn btn-primary buynow">Buy Now</a>
+    </div>
 
                                 </form>
                             </div>
@@ -383,7 +381,7 @@ if (isset($_POST['edit'])) {
 
 
             <!-- Scroll to top -->
-            <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a>
+            <a href="" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a>
             <!-- End Scroll To top -->
         </div>
     </div>
@@ -391,8 +389,9 @@ if (isset($_POST['edit'])) {
 
     <!--	Js Link
 ============================================================-->
-    <script src="js/jquery.min.js"></script>
-    <!--jQuery Layer Slider -->
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <!-- jQuery Layer Slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/greensock.js"></script>
     <script src="js/layerslider.transitions.js"></script>
     <script src="js/layerslider.kreaturamedia.jquery.js"></script>
@@ -400,10 +399,10 @@ if (isset($_POST['edit'])) {
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/tmpl.js"></script>
+    <!-- <script src="js/tmpl.js"></script> -->
     <script src="js/jquery.dependClass-0.1.js"></script>
     <script src="js/draggable-0.1.js"></script>
-    <script src="js/jquery.slider.js"></script>
+    <!-- <script src="js/jquery.slider.js"></script> -->
     <script src="js/wow.js"></script>
     <script src="js/custom.js"></script>
     <script>
@@ -411,57 +410,54 @@ if (isset($_POST['edit'])) {
             $('#myInput').trigger('focus')
         })
     </script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
-        $("#pay").click(function() {
-            // var name = jQuery('#amt').val();
-            // var name = jQuery('#name').val();
-            var amount = $(this).attr('data-amount');
-            var productid = $(this).attr('data-productid');
-            var productname = $(this).attr('data-productname'); 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
 
-            var options = {
-                "key": "rzp_test_YrkwoYBUUy52Ww", // Enter the Key ID generated from the Dashboard
-                "amount": amount * 100,
-                "currency": "INR",
-                "name": "Estate",
-                "description": "productname",
-                "image": "https://example.com/your_logo",
-                "handler": function(response) {
-                    var paymentid=response.Razorpay_payment_id;
-                    
-                    $.ajax({
-                        type: 'POST',
-                        url: 'abc.php',
-                        data: {product_id:productid,payment_id:paymentid},
-                        success:function(response){
-                                if(response == "done"){
-                                    alert('success');
-                                }
-                                else{
-                                    alert('error');
-                                }
-                        }
-                    })
-                },
-                "theme": {
-                    "color": "#3399cc"
-                }
-            };
-            var rzp1 = new Razorpay(options);
-            rzp1.on('payment.failed', function(response) {
-                alert(response.error.code);
-                alert(response.error.description);
-                alert(response.error.source);
-                alert(response.error.step);
-                alert(response.error.reason);
-                alert(response.error.metadata.order_id);
-                alert(response.error.metadata.payment_id);
-            });
-            rzp1.open();
-            e.preventDefault();
-        });
-    </script>
+$(".buynow").click(function()
+{
+
+var amount=$(this).attr('data-amount');	
+var productid=$(this).attr('data-productid');	
+var productname=$(this).attr('data-productname');	
+	
+var options = {
+    "key": "rzp_test_zHhNFsppG7bIjH", // Enter the Key ID generated from the Dashboard
+    "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "name": "The Digital Oceans",
+    "description": productname,
+    "image": "https://example.com/your_logo",
+    "handler": function (response){
+        var paymentid=response.razorpay_payment_id;
+		
+		$.ajax({
+			url:"payment-process.php",
+			type:"POST",
+			data:{product_id:productid,payment_id:paymentid},
+			success:function(finalresponse)
+			{
+				if(response=='done')
+				{
+                    alert('Payment successfully');
+				}
+				else 
+				{
+					alert('Please check console.log to find error');
+					console.log(finalresponse);
+				}
+			}
+		})
+        
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+ rzp1.open();
+ e.preventDefault();
+});
+</script>
 </body>
 
 </html>
