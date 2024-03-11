@@ -19,12 +19,10 @@ if (isset($_POST['edit'])) {
     if ($result) {
         echo "<script>alert('your message send successfully.');</script>";
     } else {
-        $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p> ";
+        $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p>";
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -127,7 +125,7 @@ if (isset($_POST['edit'])) {
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-md-6">
-                                        <div class=""><button type="button" class="bg-success d-table px-3 py-2 rounded text-white text-capitalize" data-toggle="modal" data-target="#see">For <?php echo $row['5']; ?></button></div>
+                                        <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
                                         <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
                                         <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
                                     </div>
@@ -264,7 +262,7 @@ if (isset($_POST['edit'])) {
                                             <?php
                                             } else {
                                             ?>
-                                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">For Rent </button>
+                                                <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#see">For Rent </button>
                                         <?php
 
                                             }
@@ -293,7 +291,7 @@ if (isset($_POST['edit'])) {
                 $maintanance = 500;
                 $totle = $amount + $deposit + $maintanance;
             ?>
-                <div class="modal fade" id="see" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="see" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:60px">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header m-2">
@@ -323,7 +321,7 @@ if (isset($_POST['edit'])) {
                                     </div>
 
                                     <div class="text-success text-left h6 my-2 text-md-right">  <a href="javascript:void(0)" data-productid="<?php echo $row['0'];?>" data-productname="<?php echo $row['1'];?>" data-amount="<?php echo $totle?>" class="btn btn-primary buynow">Buy Now</a>
-    </div>
+                                 </div>
 
                                 </form>
                             </div>
@@ -337,7 +335,7 @@ if (isset($_POST['edit'])) {
             $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
             while ($row = mysqli_fetch_array($query)) {
             ?>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:60px">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header m-2">
@@ -352,12 +350,12 @@ if (isset($_POST['edit'])) {
                                     <div class="row d-flex justify-content-center">
                                         <div class="form-group">
 
-                                            <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*">
-                                            <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*">
+                                            <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*" required>
+                                            <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*" required>
                                             <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
                                             <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
                                             <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
-                                            <textarea name="message" id="" cols="30" rows="3">message</textarea>
+                                            <textarea name="message" id="" cols="30" rows="3">I am intrested in this property.</textarea>
                                             <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
                                             <input type="hidden" name="status" value="Null">
                                         </div>

@@ -18,9 +18,10 @@ session_start();
 
 $paymentid=$_POST['payment_id'];
 $productid=$_POST['product_id'];
+$id=$_SESSION['uid'];
 $dt=date('Y-m-d h:i:s');
 
-$sql="insert into payment (`product_id`, `payment_id`, `aded_date`) values ('".$productid."','".$paymentid."','".$dt."')";
+$sql="insert into payment (`product_id`, `payment_id`, `aded_date`,`uid`) values ('".$productid."','".$paymentid."','".$dt."','".$id."')";
 
 $result=mysqli_query($conn,$sql);
 

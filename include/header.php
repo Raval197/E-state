@@ -50,11 +50,13 @@
                                         <a class="nav-link dropdown-toggle" style="color: black;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="profile.php">Profile</a> </li>
-                                            <li class="nav-item"> <a class="nav-link" style="color: black;" href="changepass.php">Change Password</a> </li>
+                                            <li class="nav-item"> <a class="nav-link" style="color: black;" href="payment-history.php">Payments</a> </li>
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="feedback.php">Feedback</a> </li>
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="feature.php">Notification</a> </li>
                                         </ul>
-                                    </li>
+                                        
+                                    </li>					
+				</ul>
                                 <?php } else { ?>
                                     <li class="nav-item"> <a class="nav-link" style="color: black;" href="login.php">Login/Register</a> </li>
                                 <?php } ?>

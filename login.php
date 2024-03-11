@@ -22,6 +22,7 @@ if(isset($_REQUEST['login']))
 				$_SESSION['uid']=$row['uid'];
 				$_SESSION['uemail']=$email;
 				header("location:index.php");
+				alert('login successfully');
 				
 				
 		   }

@@ -122,6 +122,15 @@ if(!isset($_SESSION['bemail']))
 								</ul>
 							</li>
 							<li class="menu-title"> 
+								<span>payment</span>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="fe fe-money"></i> <span>Payment</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="payment.php">payment </a></li>
+								</ul>
+							</li>
+							<li class="menu-title"> 
 								<span>setting</span>
 							</li>
 							<li class="submenu">
