@@ -120,7 +120,7 @@ echo "<script>alert('Form Details Updated Successfully');</script>";
 											<td><?php echo $row['email']; ?></td>
 											<td><?php echo $row['phone']; ?></td>
 											<td><?php echo $row['email']; ?></td>
-											<td rowspan="2">
+											<td>
 												<?php
 												if($row['status']==0){
 													echo'<p> <a href="status.php?id='.$row['did'].'&status=1 "class="btn btn-info">Accept</a></p>';
