@@ -90,7 +90,7 @@ if(!isset($_SESSION['auser']))
                                                     <th>Email</th>
                                                     <th>Date Of Birth</th>
                                                     <th>Contact</th>
-                                                    <th>Action</th>
+                                                   
                                                 </tr>
                                             </thead>
                                         
@@ -109,7 +109,7 @@ if(!isset($_SESSION['auser']))
                                                     <td><?php echo $row['2']; ?></td>
                                                     <td><?php echo $row['4']; ?></td>
                                                     <td><?php echo $row['5']; ?></td>
-                                                    <td><a href="admindelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-danger">Delete</button></a></td>
+                                                    
                                                 </tr>
                                                 <?php
 												$cnt=$cnt+1;
