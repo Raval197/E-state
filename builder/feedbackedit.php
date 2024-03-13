@@ -60,6 +60,13 @@ if(isset($_POST['update']))
 			<script src="assets/js/html5shiv.min.js"></script>
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<script>
+			 function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+		</script>
+
     </head>
     <body>
 	
@@ -117,7 +124,7 @@ if(isset($_POST['update']))
 												<div class="form-group row">
 													<label class="col-lg-2 col-form-label">Status</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="status" required="" value="<?php echo $row['3']; ?>">
+														<input type="text" class="form-control" name="status" required=""  onkeydown="return digitOnly(event);" value="">
 														<small>Enter [1] to set as testimonial & [0] to cancel it.</small>
 													</div>
 												</div>

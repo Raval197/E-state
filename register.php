@@ -214,9 +214,7 @@ if(isset($_REQUEST['reg']))
 	<!--	login  -->
         
         
-        <!--	Footer   start-->
-		<?php include("include/footer.php");?>
-		<!--	Footer   start-->
+   
         
         <!-- Scroll to top --> 
         <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 

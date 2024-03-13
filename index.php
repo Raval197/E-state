@@ -207,6 +207,7 @@ $state_qry = mysqli_query($con, $states);
 
                                         $query = mysqli_query($con, "SELECT property.*, user.uname,user.utype,user.uimage FROM `property`,`user` WHERE property.uid=user.uid ORDER BY date DESC LIMIT 9");
                                         while ($row = mysqli_fetch_array($query)) {
+                                        if($row['status'] == "available"){
                                         ?>
 
                                             <div class="col-md-6 col-lg-4">
@@ -238,7 +239,10 @@ $state_qry = mysqli_query($con, $states);
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php } ?>
+                                        <?php }
+                                    else{
+                                        
+                                    }} ?>
 
                                     </div>
                                 </div>
@@ -534,23 +538,22 @@ $state_qry = mysqli_query($con, $states);
     <script src="js/custom.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-
-$('#search').on('change', function() {
-    var state_id = this.value;
-    // console.log(country_id);
-    $.ajax({
-        url: './builder/state.php',
-        type: "POST",
-        data: {
-            state_data: state_id
-        },
-        success: function(result) {
-            $('#city').html(result);
-             console.log(result);
-        }
-    })
-});
-</script>
+        $('#search').on('change', function() {
+            var state_id = this.value;
+            // console.log(country_id);
+            $.ajax({
+                url: './builder/state.php',
+                type: "POST",
+                data: {
+                    state_data: state_id
+                },
+                success: function(result) {
+                    $('#city').html(result);
+                    console.log(result);
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

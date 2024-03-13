@@ -2,10 +2,15 @@
 // ini_set('session.cache_limiter', 'public');
 //  session_cache_limiter(false);
 session_start();
+if(!isset($_SESSION['uemail']))
+{
+	header("location:login.php");
+}
 include("config.php");
 $error = '';
 $msg = '';
 if (isset($_POST['edit'])) {
+    $id = $_REQUEST['pid'];
     $date = $_POST['date'];
     $time = $_POST['time'];
     $name = $_POST['name'];
@@ -14,12 +19,13 @@ if (isset($_POST['edit'])) {
     $message = $_POST['message'];
     $uid = $_POST['uid'];
     $status = $_POST['status'];
-    $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status')";
+
+    $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status,pid) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status','$id')";
     $result = mysqli_query($con, $sql);
     if ($result) {
         echo "<script>alert('your message send successfully.');</script>";
     } else {
-        $error = "<p class='alert alert-warning'>Feedback Not Send Successfully</p>";
+        echo "<script>alert('request is already send.');</script>";
     }
 }
 ?>
@@ -99,6 +105,8 @@ if (isset($_POST['edit'])) {
                         $id = $_REQUEST['pid'];
                         $query = mysqli_query($con, "SELECT property.*, user.* FROM `property`,`user` WHERE property.uid=user.uid and pid='$id'");
                         while ($row = mysqli_fetch_array($query)) {
+
+                            if($row['status'] == "available"){
                         ?>
 
                             <div class="col-lg-8">
@@ -199,7 +207,9 @@ if (isset($_POST['edit'])) {
                                 </div>
                             </div>
 
-                        <?php } ?>
+                        <?php } else{
+                                        
+                                    } } ?>
 
                         <div class="col-lg-4">
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
@@ -254,7 +264,7 @@ if (isset($_POST['edit'])) {
                                         $query = mysqli_query($con, "SELECT * FROM `property` WHERE pid=$id");
                                         while ($row = mysqli_fetch_array($query)) {
                                             $stype = $row['stype'];
-                                            if ($stype == "sale") {
+                                            if ($stype == "buy") {
                                         ?>
 
                                                 <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">Request Book tour </button>
@@ -422,9 +432,9 @@ var productname=$(this).attr('data-productname');
 var options = {
     "key": "rzp_test_zHhNFsppG7bIjH", // Enter the Key ID generated from the Dashboard
     "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "name": "The Digital Oceans",
+    "name": "E-state",
     "description": productname,
-    "image": "https://example.com/your_logo",
+    "image": "./admin/assets/img/t2.png",
     "handler": function (response){
         var paymentid=response.razorpay_payment_id;
 		
@@ -434,7 +444,7 @@ var options = {
 			data:{product_id:productid,payment_id:paymentid},
 			success:function(finalresponse)
 			{
-				if(finalresponse=='done')
+				if(finalresponse == "done")
 				{
                     alert('Payment successfully');
 				}

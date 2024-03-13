@@ -2,6 +2,10 @@
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
+if(!isset($_SESSION['uemail']))
+{
+	header("location:login.php");
+}
 include("config.php");
 ///code								
 ?>
@@ -66,6 +70,7 @@ include("config.php");
 							$query=mysqli_query($con,"SELECT property.*, user.uname,user.utype,user.uimage FROM `property`,`user` WHERE property.uid=user.uid");
 								while($row=mysqli_fetch_array($query))
 								{
+                                    if($row['status'] == "available"){
 							?>
 									
                             <div class="col-md-6">
@@ -87,7 +92,10 @@ include("config.php");
                                     </div>
                                 </div>
                             </div>
-                            <?php } ?>
+                            <?php } 
+                            else {
+
+                            } } ?>
                             
                         </div>
                     </div>
@@ -108,7 +116,7 @@ include("config.php");
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                 </div>
-                                <input type="text" class="form-control" name="month" placeholder="Duration Year">
+                                <input type="text" class="form-control" name="month" placeholder="Duration Month">
                             </div>
                             <label class="sr-only">Interest Rate</label>
                             <div class="input-group mb-2 mr-sm-2">

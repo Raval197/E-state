@@ -107,8 +107,8 @@ echo "<script>alert('Form Details Updated Successfully');</script>";
 
 								<tbody>
 									<?php
-
-									$query = mysqli_query($con, "select * from req where status=1");
+									$uid=$_SESSION['bid'];
+									$query = mysqli_query($con, "select * from req where status=1 AND uid=$uid");
 									$cnt = 1;
 									while ($row = mysqli_fetch_array($query)) {
 									?>

@@ -100,9 +100,11 @@ if (!isset($_SESSION['uemail'])) {
                         <thead>
                             <tr class="bg-dark">
                                 <th class="text-white font-weight-bolder">Property Name</th>
+                                <th class="text-white font-weight-bolder">image</th>
                                 <th class="text-white font-weight-bolder">Date/Time</th>
                                 <th class="text-white font-weight-bolder">Amount</th>
                                 <th class="text-white font-weight-bolder">Payment_id</th>
+                                <th class="text-white font-weight-bolder">status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -119,9 +121,11 @@ if (!isset($_SESSION['uemail'])) {
                             ?>
                                 <tr>
                                     <td><?php echo $row['title']; ?></td>
+                                    <td><img src="builder/property/<?php echo $row['18'];?>" height="100px" width="100px" alt="pimage"></td>
                                     <td><?php echo $row['aded_date']; ?></td>
                                     <td><?php echo $totle ?></td>
-                                    <td><?php echo $row['payment_id']; ?></td>                                    
+                                    <td><?php echo $row['payment_id']; ?></td>
+                                    <td> <button type="button" class="btn btn-success">succes</button></td>                                    
                                 </tr>
                             <?php } ?>
                         </tbody>

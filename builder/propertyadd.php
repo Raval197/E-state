@@ -183,7 +183,7 @@ $state_qry = mysqli_query($con, $states);
 												<select class="form-control" required name="stype">
 													<option value="">Select Status</option>
 													<option value="rent">Rent</option>
-													<option value="sale">Sale</option>
+													<option value="buy">buy</option>
 												</select>
 											</div>
 										</div>

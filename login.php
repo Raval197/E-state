@@ -22,10 +22,9 @@ if(isset($_REQUEST['login']))
 				$_SESSION['uid']=$row['uid'];
 				$_SESSION['uemail']=$email;
 				header("location:index.php");
-				alert('login successfully');
-				
-				
+				echo "<script>alert('Login Successfully');</script>";			
 		   }
+
 		   elseif($row['utype'] == 'builder'){
 				$_SESSION['bid']=$row['uid'];
 				$_SESSION['bemail']=$email;

@@ -27,6 +27,11 @@ $result=mysqli_query($conn,$sql);
 
 if($result)
 {
+	$query="UPDATE property SET status='1' WHERE pid=$productid";
+	$query_run=mysqli_query($conn,$query);
+if($query_run){
+	echo" update successfully";
+}
 	echo 'done';
 	$_SESSION['paymentid']=$paymentid;
 }

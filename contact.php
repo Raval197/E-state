@@ -2,6 +2,7 @@
 ini_set('session.cache_limiter', 'public');
 session_cache_limiter(false);
 session_start();
+
 include("config.php");
 $error="";
 $msg="";
@@ -113,19 +114,24 @@ if(isset($_POST['send']))
 								<?php echo $msg; ?><?php echo $error; ?>
 							</div>
 						</div>
+						<?php
+            $uid = $_SESSION['uid'];
+            $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
 						<div class="row">
 							<div class="col-md-12">
 								<form class="w-100" action="#" method="post">
 									<div class="row">
 										<div class="row mb-4">
 											<div class="form-group col-lg-6">
-												<input type="text"  name="name" class="form-control" placeholder="Your Name*">
+												<input type="text"  name="name" class="form-control" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
 											</div>
 											<div class="form-group col-lg-6">
-												<input type="text"  name="email" class="form-control" placeholder="Email Address*">
+												<input type="text"  name="email" class="form-control" placeholder="Email Address*" value="<?php echo $row['uemail'] ?>">
 											</div>
 											<div class="form-group col-lg-6">
-												<input type="text"  name="phone" class="form-control" placeholder="Phone" maxlength="10">
+												<input type="text"  name="phone" class="form-control" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
 											</div>
 											<div class="form-group col-lg-6">
 												<input type="text" name="subject"  class="form-control" placeholder="Subject">
@@ -141,6 +147,8 @@ if(isset($_POST['send']))
 								</form>
 							</div>
 						</div>
+						<?php
+						}?>
 						</div>
 					</div>
                 </div>

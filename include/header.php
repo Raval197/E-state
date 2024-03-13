@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		
+		<!-- Feathericon CSS -->
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+    <title>Document</title>
+</head>
+<body>
+
 <header id="header" class="transparent-header-modern fixed-header-bg-white w-100">
     <div class="top-header bg-secondary">
         <div class="container">
@@ -5,7 +18,7 @@
                 <div class="col-md-8">
                     <ul class="top-contact list-text-white  d-table">
                         <li><a href="#"><i class="fas fa-phone-alt text-success mr-1"></i>+91 8128914882</a></li>
-                        <li><a href="#"><i class="fas fa-envelope text-success mr-1"></i>essen@realestatest.com</a></li>
+                        <li><a href="#"><i class="fas fa-envelope text-success mr-1"></i>estate@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -53,9 +66,43 @@
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="payment-history.php">Payments</a> </li>
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="feedback.php">Feedback</a> </li>
                                             <li class="nav-item"> <a class="nav-link" style="color: black;" href="feature.php">Notification</a> </li>
+                                           
                                         </ul>
                                         
                                     </li>					
+				</ul>
+                <?php
+                $uid=$_SESSION['uid'];
+									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
+									while($row=mysqli_fetch_array($query))
+									{
+								?>
+                <ul class="nav user-menu">
+
+					<li class="nav-item dropdown app-dropdown">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+						</a>
+						
+						<div class="dropdown-menu">
+							<div class="user-header">
+								<div class="avatar avatar-sm">
+									<img src="assets/img/profiles/avatar-01.png" alt="User Image" class="avatar-img rounded-circle">
+								</div>
+								<div class="user-text">
+									<h6><?php echo $_SESSION['bemail'];?></h6>
+									<p class="text-muted mb-0">User</p>
+								</div>
+							</div>
+							<a class="dropdown-item" href="profile.php">Profile</a>
+							<a class="dropdown-item" href="logout.php">Logout</a>
+						</div>
+					</li>
+                    <?php
+                                    }
+                    ?>
+					<!-- /User Menu -->
+					
 				</ul>
                                 <?php } else { ?>
                                     <li class="nav-item"> <a class="nav-link" style="color: black;" href="login.php">Login/Register</a> </li>
@@ -72,3 +119,6 @@
         </div>
     </div>
 </header>
+    
+</body>
+</html>
