@@ -1,7 +1,7 @@
 <?php
 include("config.php");
-$cid = $_GET['id'];
-$sql = "DELETE FROM contact WHERE cid = {$cid}";
+$mid = $_GET['id'];
+$sql = "DELETE FROM message WHERE id = {$mid}";
 $result = mysqli_query($con, $sql);
 if($result == true)
 {

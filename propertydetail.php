@@ -2,9 +2,8 @@
 // ini_set('session.cache_limiter', 'public');
 //  session_cache_limiter(false);
 session_start();
-if(!isset($_SESSION['uemail']))
-{
-	header("location:login.php");
+if (!isset($_SESSION['uemail'])) {
+    header("location:login.php");
 }
 include("config.php");
 $error = '';
@@ -106,110 +105,110 @@ if (isset($_POST['edit'])) {
                         $query = mysqli_query($con, "SELECT property.*, user.* FROM `property`,`user` WHERE property.uid=user.uid and pid='$id'");
                         while ($row = mysqli_fetch_array($query)) {
 
-                            if($row['status'] == "available"){
+                            if ($row['status'] == "available") {
                         ?>
 
-                            <div class="col-lg-8">
+                                <div class="col-lg-8">
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;">
-                                            <!-- Slide 1-->
-                                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['18']; ?>" class="ls-bg" alt="" /> </div>
-
-                                            <!-- Slide 2-->
-                                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['19']; ?>" class="ls-bg" alt="" /> </div>
-
-                                            <!-- Slide 3-->
-                                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['20']; ?>" class="ls-bg" alt="" /> </div>
-
-                                            <!-- Slide 4-->
-                                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['21']; ?>" class="ls-bg" alt="" /> </div>
-
-                                            <!-- Slide 5-->
-                                            <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['22']; ?>" class="ls-bg" alt="" /> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-md-6">
-                                        <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
-                                        <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
-                                        <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
-                                        <div class="text-left text-md-right">Price</div>
-                                    </div>
-
-                                </div>
-                                <div class="property-details">
-                                    <div class="bg-gray property-quantity px-4 pt-4 w-100">
-                                        <ul>
-                                            <li><span class="text-secondary"><?php echo $row['12']; ?></span> Sqft</li>
-                                            <li><span class="text-secondary"><?php echo $row['6']; ?></span> Bedroom</li>
-                                            <li><span class="text-secondary"><?php echo $row['7']; ?></span> Bathroom</li>
-                                            <li><span class="text-secondary"><?php echo $row['8']; ?></span> Balcony</li>
-                                            <li><span class="text-secondary"><?php echo $row['10']; ?></span> Hall</li>
-                                            <li><span class="text-secondary"><?php echo $row['9']; ?></span> Kitchen</li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="text-secondary my-4">Description</h4>
-                                    <p><?php echo $row['2']; ?></p>
-
-                                    <h5 class="mt-5 mb-4 text-secondary">Property Summary</h5>
-                                    <div class="table-striped font-14 pb-2">
-                                        <table class="w-100">
-                                            <tbody>
-                                                <tr>
-                                                    <td>BHK :</td>
-                                                    <td class="text-capitalize"><?php echo $row['4']; ?></td>
-                                                    <td>Property Type :</td>
-                                                    <td class="text-capitalize"><?php echo $row['3']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Floor :</td>
-                                                    <td class="text-capitalize"><?php echo $row['11']; ?></td>
-                                                    <td>Total Floor :</td>
-                                                    <td class="text-capitalize"><?php echo $row['28']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>City :</td>
-                                                    <td class="text-capitalize"><?php echo $row['15']; ?></td>
-                                                    <td>State :</td>
-                                                    <td class="text-capitalize"><?php echo $row['16']; ?></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <h5 class="mt-5 mb-4 text-secondary">Features</h5>
                                     <div class="row">
-                                        <?php echo $row['17']; ?>
+                                        <div class="col-md-12">
+                                            <div id="single-property" style="width:1200px; height:700px; margin:30px auto 50px;">
+                                                <!-- Slide 1-->
+                                                <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['18']; ?>" class="ls-bg" alt="" /> </div>
+
+                                                <!-- Slide 2-->
+                                                <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['19']; ?>" class="ls-bg" alt="" /> </div>
+
+                                                <!-- Slide 3-->
+                                                <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['20']; ?>" class="ls-bg" alt="" /> </div>
+
+                                                <!-- Slide 4-->
+                                                <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['21']; ?>" class="ls-bg" alt="" /> </div>
+
+                                                <!-- Slide 5-->
+                                                <div class="ls-slide" data-ls="duration:7500; transition2d:5; kenburnszoom:in; kenburnsscale:1.2;"> <img width="1920" height="1080" src="admin/property/<?php echo $row['22']; ?>" class="ls-bg" alt="" /> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
+                                            <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
+                                            <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
+                                            <div class="text-left text-md-right">Price</div>
+                                        </div>
 
                                     </div>
+                                    <div class="property-details">
+                                        <div class="bg-gray property-quantity px-4 pt-4 w-100">
+                                            <ul>
+                                                <li><span class="text-secondary"><?php echo $row['12']; ?></span> Sqft</li>
+                                                <li><span class="text-secondary"><?php echo $row['6']; ?></span> Bedroom</li>
+                                                <li><span class="text-secondary"><?php echo $row['7']; ?></span> Bathroom</li>
+                                                <li><span class="text-secondary"><?php echo $row['8']; ?></span> Balcony</li>
+                                                <li><span class="text-secondary"><?php echo $row['10']; ?></span> Hall</li>
+                                                <li><span class="text-secondary"><?php echo $row['9']; ?></span> Kitchen</li>
+                                            </ul>
+                                        </div>
+                                        <h4 class="text-secondary my-4">Description</h4>
+                                        <p><?php echo $row['2']; ?></p>
 
-                                    <h5 class="mt-5 mb-4 text-secondary">Floor Plans</h5>
-                                    <div class="accordion" id="accordionExample">
-                                        <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Floor Plans </button>
-                                        <div id="collapseOne" class="collapse show p-4" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <img src="admin/property/<?php echo $row['25']; ?>" alt="Not Available">
+                                        <h5 class="mt-5 mb-4 text-secondary">Property Summary</h5>
+                                        <div class="table-striped font-14 pb-2">
+                                            <table class="w-100">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BHK :</td>
+                                                        <td class="text-capitalize"><?php echo $row['4']; ?></td>
+                                                        <td>Property Type :</td>
+                                                        <td class="text-capitalize"><?php echo $row['3']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Floor :</td>
+                                                        <td class="text-capitalize"><?php echo $row['11']; ?></td>
+                                                        <td>Total Floor :</td>
+                                                        <td class="text-capitalize"><?php echo $row['28']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>City :</td>
+                                                        <td class="text-capitalize"><?php echo $row['15']; ?></td>
+                                                        <td>State :</td>
+                                                        <td class="text-capitalize"><?php echo $row['16']; ?></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Basement Floor</button>
-                                        <div id="collapseTwo" class="collapse p-4" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                            <img src="admin/property/<?php echo $row['26']; ?>" alt="Not Available">
+                                        <h5 class="mt-5 mb-4 text-secondary">Features</h5>
+                                        <div class="row">
+                                            <?php echo $row['17']; ?>
+
                                         </div>
-                                        <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Ground Floor</button>
-                                        <div id="collapseThree" class="collapse p-4" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                            <img src="admin/property/<?php echo $row['27']; ?>" alt="Not Available">
+
+                                        <h5 class="mt-5 mb-4 text-secondary">Floor Plans</h5>
+                                        <div class="accordion" id="accordionExample">
+                                            <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Floor Plans </button>
+                                            <div id="collapseOne" class="collapse show p-4" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <img src="admin/property/<?php echo $row['25']; ?>" alt="Not Available">
+                                            </div>
+                                            <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Basement Floor</button>
+                                            <div id="collapseTwo" class="collapse p-4" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                <img src="admin/property/<?php echo $row['26']; ?>" alt="Not Available">
+                                            </div>
+                                            <button class="bg-gray hover-bg-success hover-text-white text-ordinary py-3 px-4 mb-1 w-100 text-left rounded position-relative collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Ground Floor</button>
+                                            <div id="collapseThree" class="collapse p-4" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                <img src="admin/property/<?php echo $row['27']; ?>" alt="Not Available">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        <?php } else{
-                                        
-                                    } } ?>
+                        <?php } else {
+                            }
+                        } ?>
 
                         <div class="col-lg-4">
                             <h4 class="double-down-line-left text-secondary position-relative pb-4 my-4">Instalment Calculator</h4>
@@ -281,7 +280,7 @@ if (isset($_POST['edit'])) {
                                     </li>
                                     <li class="p-2">
 
-                                        <a type="submit" value="submit" class="btn btn-primary mt-4" href="contact.php"> Massage </a>
+                                        <button class="btn btn-primary mt-4" data-toggle="modal" data-target="#message">Message </button>
                                     </li>
                                 </ul>
                             </div>
@@ -330,8 +329,8 @@ if (isset($_POST['edit'])) {
                                         <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $totle ?></div>
                                     </div>
 
-                                    <div class="text-success text-left h6 my-2 text-md-right">  <a href="javascript:void(0)" data-productid="<?php echo $row['0'];?>" data-productname="<?php echo $row['1'];?>" data-amount="<?php echo $totle?>" class="btn btn-primary buynow">Buy Now</a>
-                                 </div>
+                                    <div class="text-success text-left h6 my-2 text-md-right"> <a href="javascript:void(0)" data-productid="<?php echo $row['0']; ?>" data-productname="<?php echo $row['1']; ?>" data-amount="<?php echo $totle ?>" class="btn btn-primary buynow">Buy Now</a>
+                                    </div>
 
                                 </form>
                             </div>
@@ -382,6 +381,63 @@ if (isset($_POST['edit'])) {
             <?php
             }
             ?>
+            <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top:60px">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header m-2">
+                            <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <?php
+
+
+
+
+                            if (isset($_POST['ka'])) {
+                                $id = $_POST['pid'];
+                                $email = $_POST['email'];
+                                $message = $_POST['message'];
+                                $uid = $_POST['uid'];
+                                    $sql = "INSERT INTO message(email,message,uid,pid) VALUES ('$email','$message','$uid','$id')";
+                                    $result = mysqli_query($con, $sql);
+                                    if ($result) {
+                                        echo "<script>alert('your message send successfully.');</script>";
+                                    } else {
+                                        echo "<script>alert('request is already send.');</script>";
+                                    }
+                            }
+                            ?>
+                            <form class="w-100 " action="#" method="post">
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>" required>
+                                        <textarea name="message" id="" cols="30" rows="3" placeholder="Enter Message"></textarea>
+
+                                        <input type="hidden" name="pid" value="<?php echo $id ?>">
+                                        <?php
+                                        $id = $_REQUEST['pid'];
+                                        $query = mysqli_query($con, "SELECT * FROM property WHERE pid=$id");
+
+                                        while ($row = mysqli_fetch_array($query)) {
+                                        ?>
+                                            <input type="hidden" name="uid" value="<?php echo $row['uid'] ?>">
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" name="ka" class="btn btn-primary" value="send">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!--	Footer   start-->
             <?php include("include/footer.php"); ?>
@@ -418,54 +474,51 @@ if (isset($_POST['edit'])) {
             $('#myInput').trigger('focus')
         })
     </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        $(".buynow").click(function() {
 
-$(".buynow").click(function()
-{
+            var amount = $(this).attr('data-amount');
+            var productid = $(this).attr('data-productid');
+            var productname = $(this).attr('data-productname');
 
-var amount=$(this).attr('data-amount');	
-var productid=$(this).attr('data-productid');	
-var productname=$(this).attr('data-productname');	
-	
-var options = {
-    "key": "rzp_test_zHhNFsppG7bIjH", // Enter the Key ID generated from the Dashboard
-    "amount": amount*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "name": "E-state",
-    "description": productname,
-    "image": "./admin/assets/img/t2.png",
-    "handler": function (response){
-        var paymentid=response.razorpay_payment_id;
-		
-		$.ajax({
-			url:"payment-process.php",
-			type:"POST",
-			data:{product_id:productid,payment_id:paymentid},
-			success:function(finalresponse)
-			{
-				if(finalresponse == "done")
-				{
-                    alert('Payment successfully');
-				}
-				else 
-				{
-					alert('Please check console.log to find error');
-					console.log(finalresponse);
-				}
-			}
-		})
-        
-    },
-    "theme": {
-        "color": "#3399cc"
-    }
-};
-var rzp1 = new Razorpay(options);
- rzp1.open();
- e.preventDefault();
-});
-</script>
+            var options = {
+                "key": "rzp_test_zHhNFsppG7bIjH", // Enter the Key ID generated from the Dashboard
+                "amount": amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                "name": "E-state",
+                "description": productname,
+                "image": "./admin/assets/img/t2.png",
+                "handler": function(response) {
+                    var paymentid = response.razorpay_payment_id;
+
+                    $.ajax({
+                        url: "payment-process.php",
+                        type: "POST",
+                        data: {
+                            product_id: productid,
+                            payment_id: paymentid
+                        },
+                        success: function(finalresponse) {
+                            if (finalresponse == "done") {
+                                alert('Payment successfully');
+                            } else {
+                                alert('Please check console.log to find error');
+                                console.log(finalresponse);
+                            }
+                        }
+                    })
+
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        });
+    </script>
 </body>
 
 </html>

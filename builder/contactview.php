@@ -86,32 +86,26 @@ if(!isset($_SESSION['bemail']))
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name</th>
                                                     <th>Email</th>
-                                                    <th>Phone</th>
-													<th>Subject</th>
                                                     <th>Message</th>
                                                     <th>Action</th>
+                                                    
                                                 </tr>
                                             </thead>
                                         
                                         
                                             <tbody>
 											<?php
-													 
-												$query=mysqli_query($con,"select * from contact");
-												$cnt=1;
-												while($row=mysqli_fetch_row($query))
-													{
+													 $id=$_SESSION['bid'];
+													 $query = mysqli_query($con, "SELECT * FROM message WHERE uid=$id");
+													 $cnt = 1;
+													 while ($row = mysqli_fetch_array($query)) {
 											?>
                                                 <tr>
                                                     <td><?php echo $cnt; ?></td>
-                                                    <td><?php echo $row['1']; ?></td>
-                                                    <td><?php echo $row['2']; ?></td>
-                                                    <td><?php echo $row['3']; ?></td>
-                                                    <td><?php echo $row['4']; ?></td>
-													<td><?php echo $row['5']; ?></td>
-                                                    <td><a href="contactdelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-danger">Delete</button></a></td>
+                                                    <td><?php echo $row['email']; ?></td>
+                                                    <td><?php echo $row['message']; ?></td>
+                                                    <td><a href="contactdelete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-danger">Delete</button></a></td>
                                                 </tr>
                                                 <?php
 												$cnt=$cnt+1;

@@ -13,7 +13,7 @@ if(!isset($_SESSION['bemail']))
 						<img src="assets/img/t1.png" alt="Logo">
 					</a>
 					<a href="dashboard.php" class="logo logo-small">
-						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+						<img src="assets/img/t2.png" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -105,9 +105,9 @@ if(!isset($_SESSION['bemail']))
 								<span>Query</span>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-phone"></i> <span> Contact </span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-phone"></i> <span> Message </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="contactview.php"> Contact </a></li>
+									<li><a href="contactview.php"> Message </a></li>
 									<!-- <li><a href="feedbackview.php"> Feedback </a></li> -->
 								</ul>
 							</li>

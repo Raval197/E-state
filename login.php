@@ -14,28 +14,36 @@ if(isset($_REQUEST['login']))
 	{
 		$sql = "SELECT * FROM user where uemail='$email' && upass='$pass'";
 		$result=mysqli_query($con, $sql);
-		// $row=mysqli_fetch_array($result);
 		if(mysqli_num_rows($result) > 0){
 
 			$row = mysqli_fetch_array($result);
 		   if($row['utype'] == 'user'){
 				$_SESSION['uid']=$row['uid'];
 				$_SESSION['uemail']=$email;
-				header("location:index.php");
-				echo "<script>alert('Login Successfully');</script>";			
+				?> <script>
+				window.location.assign('index.php');
+				alert("login successfully");
+				</script>
+					<?php		
 		   }
 
 		   elseif($row['utype'] == 'builder'){
 				$_SESSION['bid']=$row['uid'];
 				$_SESSION['bemail']=$email;
-					header("location:./builder/dashboard.php");
-					
+					?> <script>
+				// header("location:index.php");
+				window.location.assign('./builder/dashboard.php');
+				alert("login successfully");
+				</script>
+					<?php		
 		   }
-		
 		   else{
-			   $error = "<p class='alert alert-warning'>Email or Password doesnot match!</p> ";
+			   $error = "<script>alert('Email or password ot match');</script>";
 		   }
 		
+	}
+	else{
+		$error = "<p class='alert alert-danger'>Email Or Password is wrong</p>";
 	}
 }else{
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
@@ -97,10 +105,10 @@ if(isset($_REQUEST['login']))
 								<!-- Form -->
 								<form method="post">
 									<div class="form-group">
-										<input type="email"  name="email" class="form-control" placeholder="Your Email*" requied>
+										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
 									</div>
 									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password"  minlength="6" required>
+										<input type="password" name="pass"  class="form-control" placeholder="Your Password"  minlength="6">
 									</div>
 									<div>
 										<button class="btn btn-success" name="login" value="Login" type="submit">Login</button>
