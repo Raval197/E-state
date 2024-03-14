@@ -151,7 +151,7 @@ if(isset($_REQUEST['reg']))
 								<!-- Form -->
 								<form method="post" enctype="multipart/form-data">
 									<div class="form-group">
-										<input type="text"  name="name" class="form-control" placeholder="Your Name*"minlength="3" onkeydown="return alphaOnly(event);">
+										<input type="text"  name="name" class="form-control" placeholder="Your Name*" minlength="3" onkeydown="return alphaOnly(event);">
 									</div>
 									<div class="form-group">
 										<input type="email"  name="email" class="form-control" placeholder="Your Email*">

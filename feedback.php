@@ -101,6 +101,12 @@ if(isset($_POST['insert']))
 		 
 		 
 		<!--	Submit property   -->
+        <?php
+        $uid=$_SESSION['uid'];
+									$query=mysqli_query($con,"SELECT * FROM `user` WHERE uid='$uid'");
+									while($row=mysqli_fetch_array($query))
+									{
+                                        ?>
         <div class="full-row">
             <div class="container">
                     <div class="row">
@@ -116,12 +122,12 @@ if(isset($_POST['insert']))
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label for="user-id">Full Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter Full Name">
+                                    <input type="text" name="name" value="<?php echo $row['1'];?>"  class="form-control" placeholder="Enter Full Name" >
                                 </div>                
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="phone" name="phone"  class="form-control" placeholder="Enter Phone" maxlength="10">
+                                    <input type="phone" name="phone" value="<?php echo $row['3'];?>"   class="form-control" placeholder="Enter Phone" maxlength="10">
                                 </div>
 
                                 <div class="form-group">
@@ -131,11 +137,15 @@ if(isset($_POST['insert']))
                                 <input type="submit" class="btn btn-info mb-4" name="insert" value="Send Feedback">
                             </div>
 							</form>
+<<<<<<< Updated upstream
                             <div class="col-lg-1"></div>
                             <div class="col-lg-5 col-md-12" style="margin-top: 60px;">
                                 <div class="user-info mt-md-50"> <img src="images/building/fe.webp" height="400px" alt="userimage"></div>
                             </div>
 
+=======
+                            <?php } ?>
+>>>>>>> Stashed changes
                 </div>      
             </div>
         </div>

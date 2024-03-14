@@ -36,7 +36,7 @@ if(isset($_POST['update']))
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>LM HOMES | About</title>
+        <title>ESTATE HOMES | About</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -63,7 +63,7 @@ if(isset($_POST['update']))
 		<script>
 			 function digitOnly(event) {
          var key = event.keyCode;
-         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+         return ((key >= 48 && key <= 49) || key == 8 || key == 32);
       };
 		</script>
     </head>
@@ -123,7 +123,7 @@ if(isset($_POST['update']))
 												<div class="form-group row">
 													<label class="col-lg-2 col-form-label">Status</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="status" onkeydown="return digitOnly(event);" required="" value="<?php echo $row['3']; ?>">
+														<input type="text" class="form-control" name="status" onkeydown="return digitOnly(event);" maxlength="1" required="" value="<?php echo $row['3']; ?>">
 														<small>Enter [1] to set as testimonial & [0] to cancel it.</small>
 													</div>
 												</div>

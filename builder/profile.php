@@ -112,15 +112,15 @@ if(!isset($_SESSION['bemail']))
 												<div class="card-body">
 													<div class="row">
 														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Name</p>
-														<p class="col-sm-9"><?php echo $row['1']; ?></p>
+														<input type="text" class="col-sm-9"> <?php echo $row['1']; ?></input>
 													</div>
 													<div class="row">
 														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Email ID</p>
-														<p class="col-sm-9"><a href="#"><?php echo $row['2']; ?></a></p>
+														<input  type="text" class="col-sm-9"> <?php echo $row['2']; ?></input>
 													</div>
 													<div class="row">
 														<p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Type</p>
-														<p class="col-sm-9"><?php echo $row['5']; ?></p>
+														<input  type="text" class="col-sm-9" minlenth=""> <?php echo $row['5']; ?></input>
 													</div>
 													
 												</div>

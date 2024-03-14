@@ -350,7 +350,7 @@ if(isset($_POST['add']))
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Image</label>
 													<div class="col-lg-9">
-														<input class="form-control" name="aimage" type="file" required="">
+														<input class="form-control" name="aimage" type="file"  required="">
 														<img src="property/<?php echo $row['18'];?>" alt="pimage" height="150" width="180">
 													</div>
 												</div>

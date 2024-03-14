@@ -72,7 +72,7 @@ $state_qry = mysqli_query($con, $states);
             <!--	Header end  -->
 
             <!--	Banner Start   -->
-            <div class="overlay-black w-100 slider-banner1 position-relative" style="background-image: url('images/banner/rshmpg.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <div class="overlay-black w-100 slider-banner1 position-relative" style="background-image: url('images/banner/main.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
                 <!-- <video controls src="./images/building/abc.mp4" muted="" playsinline="" autoplay="" width="640" height="360" loop="1" preload="auto">
                     <source  width="100%" height="100%" type="video/mp4">
                 </video> -->
@@ -410,7 +410,7 @@ $state_qry = mysqli_query($con, $states);
                                 <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/1.jpg" alt="">
                                     <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
                                         <?php
-                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Olisphis'");
+                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Surat'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
                                             <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
@@ -425,7 +425,7 @@ $state_qry = mysqli_query($con, $states);
                                 <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/2.jpg" alt="">
                                     <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
                                         <?php
-                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Awrerton'");
+                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Mumbai'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
                                             <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
@@ -440,7 +440,7 @@ $state_qry = mysqli_query($con, $states);
                                 <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/3.jpg" alt="">
                                     <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
                                         <?php
-                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Floson'");
+                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Chennai'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
                                             <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
@@ -455,7 +455,7 @@ $state_qry = mysqli_query($con, $states);
                                 <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/4.jpg" alt="">
                                     <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
                                         <?php
-                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Ulmore'");
+                                        $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Udaipur'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
                                             <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
