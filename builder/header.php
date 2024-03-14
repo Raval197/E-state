@@ -13,7 +13,7 @@ if(!isset($_SESSION['bemail']))
 						<img src="assets/img/t1.png" alt="Logo">
 					</a>
 					<a href="dashboard.php" class="logo logo-small">
-						<img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+						<img src="assets/img/t2.png" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->
