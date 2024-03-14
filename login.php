@@ -7,7 +7,6 @@ if (isset($_REQUEST['login'])) {
 	$email = $_REQUEST['email'];
 	$pass = $_REQUEST['pass'];
 	// $type=$_REQUEST['utype'];
-<<<<<<< Updated upstream
 	$pass= sha1($pass);
 	
 	if(!empty($email) && !empty($pass))
@@ -49,42 +48,6 @@ if (isset($_REQUEST['login'])) {
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
 	}
 }
-=======
-	$pass = sha1($pass);
-  
-	if (!empty($email) && !empty($pass)) {
-	  $sql = "SELECT * FROM user where uemail='$email' && upass='$pass'";
-	  $result = mysqli_query($con, $sql);
-	  // $row=mysqli_fetch_array($result);
-	  if (mysqli_num_rows($result) > 0) {
-  
-		$row = mysqli_fetch_array($result);
-		if ($row['utype'] == 'user') {
-		  $_SESSION['uid'] = $row['uid'];
-		  $_SESSION['uemail'] = $email;
-		  echo "<script>alert('Login Successfully');</script>";
-		  header("location:index.php");
-		  
-		}
-  
-		elseif($row['utype'] == 'builder') {
-		  $_SESSION['bid'] = $row['uid'];
-		  $_SESSION['bemail'] = $email;
-		  header("location:./builder/dashboard.php");
-		  echo "<script>alert('Login Successfully');</script>";
-  
-		}
-  
-		else {
-		  $error = "<p class='alert alert-warning'>Email or Password doesnot match!</p> ";
-		}
-  
-	  }
-	} else {
-	  $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
-  }
->>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
