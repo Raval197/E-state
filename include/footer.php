@@ -28,9 +28,9 @@
                                             <div class="footer-widget footer-nav mb-4">
                                                 <h4 class="widget-title text-white double-down-line-left position-relative">Quick Links</h4>
                                                 <ul class="hover-text-primary">
-                                                    <li><a href="../about.php" class="text-white">About Us</a></li>
-                                                    <li><a href="../property.php" class="text-white">Featured Property</a></li>
-                                                    <li><a href="../feedback.php" class="text-white">Feedback</a></li>
+                                                    <li><a href="./about.php" class="text-white">About Us</a></li>
+                                                    <li><a href="./property.php" class="text-white">Featured Property</a></li>
+                                                    <li><a href="./feedback.php" class="text-white">Feedback</a></li>
                                                     <!-- <li><a href="agent.php" class="text-white">Our Agents</a></li> -->
                                                 </ul>
                                             </div>

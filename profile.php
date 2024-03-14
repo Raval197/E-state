@@ -119,7 +119,7 @@ if(!isset($_SESSION['uemail']))
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="number" name="phone"  class="form-control" value="<?php echo $row['3'];?>" maxlength="10">
+                                    <input type="text" name="phone"  class="form-control" value="<?php echo $row['3'];?>" maxlength="10">
                                 </div>
 
                                 <div class="form-group">

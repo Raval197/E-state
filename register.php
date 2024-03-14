@@ -154,10 +154,10 @@ if(isset($_REQUEST['reg']))
 										<input type="text"  name="name" class="form-control" placeholder="Your Name*" minlength="3" onkeydown="return alphaOnly(event);">
 									</div>
 									<div class="form-group">
-										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
+										<input type="email"  name="email" class="form-control" maxlength="30" placeholder="Your Email*">
 									</div>
 									<div class="form-group">
-										<input type="text"  name="phone" class="form-control" placeholder="Your Phone*"  maxlength="10" onkeydown="return digitOnly(event);">
+										<input type="text"  name="phone" class="form-control" minlength="10" placeholder="Your Phone*"  maxlength="10" onkeydown="return digitOnly(event);">
 									</div>
 									<div class="form-group">
 										<input type="password" name="pass" id="password"  class="form-control" placeholder="Your Password*" minlength="6" >

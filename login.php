@@ -160,7 +160,6 @@ Forget Password ?
             </div>
         </div>
 	<!--	login  -->
-		<?php include("include/footer.php");?>
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 

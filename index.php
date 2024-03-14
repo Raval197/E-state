@@ -281,7 +281,7 @@ $state_qry = mysqli_query($con, $states);
                                     <li class="mb-4 text-white d-flex">
                                         <i class="flaticon-seller flat-medium float-left d-table mr-4 text-success" aria-hidden="true"></i>
                                         <div class="pl-2">
-                                            <h5 class="mb-3">Experienced Agents</h5>
+                                            <h5 class="mb-3">Experienced builder</h5>
                                             <p>This is a dummy text for filling out spaces. This is just a dummy text for filling out blank spaces.</p>
                                         </div>
                                     </li>

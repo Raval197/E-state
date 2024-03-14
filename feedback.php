@@ -137,19 +137,15 @@ if(isset($_POST['insert']))
                                 <input type="submit" class="btn btn-info mb-4" name="insert" value="Send Feedback">
                             </div>
 							</form>
-<<<<<<< Updated upstream
                             <div class="col-lg-1"></div>
                             <div class="col-lg-5 col-md-12" style="margin-top: 60px;">
                                 <div class="user-info mt-md-50"> <img src="images/building/fe.webp" height="400px" alt="userimage"></div>
                             </div>
 
-=======
-                            <?php } ?>
->>>>>>> Stashed changes
                 </div>      
             </div>
         </div>
-        
+        <?php } ?>
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>
 		<!--	Footer   start-->
