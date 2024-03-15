@@ -11,15 +11,15 @@ if(!isset($_SESSION['auser']))
 	header("location:index.php");
 }
 ?>  
-  <div class="header" style="background-color: #42f06e;">
+  <div class="header" style="background-color: #01A2E2;">
 			
 				<!-- Logo -->
                 <div class="header-left">
                     <a href="dashboard.php" class="logo">
-						<img src="assets/img/t1.png" alt="Logo">
+						<img src="assets/img/finallogo.png" alt="Logo">
 					</a>
 					<a href="dashboard.php" class="logo logo-small">
-						<img src="assets/img/t2.png" alt="Logo" width="30" height="30">
+						<img src="assets/img/finallogo2.png" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->

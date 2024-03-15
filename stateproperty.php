@@ -102,7 +102,7 @@ include("config.php");
                             <div class="col-md-6">
                                 <div class="featured-thumb hover-zoomer mb-4">
                                     <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage">
-                                        <div class="sale bg-success text-white">For <?php echo $row['5'];?></div>
+                                        <div class="sale bg-primary text-white">For <?php echo $row['5'];?></div>
                                         <div class="price text-primary text-capitalize">$<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> Sqft</span></div>
                                         
                                     </div>
@@ -180,7 +180,7 @@ include("config.php");
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

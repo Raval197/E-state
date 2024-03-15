@@ -110,7 +110,7 @@ if (isset($_REQUEST['login'])) {
 										<input type="password" name="pass"  class="form-control" placeholder="Your Password"  minlength="6">
 									</div>
 									<div>
-										<button class="btn btn-success" name="login" value="Login" type="submit">Login</button>
+										<button class="btn btn-primary rounded" name="login" value="Login" type="submit">Login</button>
 									</div>
 								</form>
 								
@@ -163,7 +163,7 @@ Forget Password ?
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

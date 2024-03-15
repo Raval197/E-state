@@ -2,10 +2,10 @@
 Theme Color All Codes Variable
 ==================================*/
 :root {
-	 --theme-ordinary-color: #74777b;  /* theme ordinay font color ok*/
+	 --theme-ordinary-color: #787b74;  /* theme ordinay font color ok*/
 }
 :root {
-	 --theme-primary-color: #17c788;  /* theme primary color ok*/
+	 --theme-primary-color: #01A2E2;  /* theme primary color ok*/
 }
 :root {
 	 --theme-secondary-color: #0d1432;  /* theme secondary color ok*/
@@ -49,6 +49,3 @@ Font Variable
 :root {
 	 --theme-highlight-font: 'Comfortaa', cursive;  /* Font used in title or special area ok*/
 }
-
-
-

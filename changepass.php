@@ -182,7 +182,7 @@ if(!isset($_SESSION['uemail']))
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

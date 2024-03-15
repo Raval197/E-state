@@ -77,17 +77,17 @@ include("config.php");
                                 <div class="featured-thumb hover-zoomer mb-4">
                                     <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18'];?>" alt="pimage" style="height: 300px;">
                                         
-                                        <div class="sale bg-success text-white">For <?php echo $row['5'];?></div>
+                                        <div class="sale bg-primary text-white">For <?php echo $row['5'];?></div>
                                         <div class="price text-primary text-capitalize">₹<?php echo $row['13'];?> <span class="text-white"><?php echo $row['12'];?> Sqft</span></div>
                                         
                                     </div>
                                     <div class="featured-thumb-data shadow-one">
                                         <div class="p-4">
                                             <h5 class="text-secondary hover-text-success mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0'];?>"><?php echo $row['1'];?></a></h5>
-                                            <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-success"></i> <?php echo $row['14'];?></span> </div>
+                                            <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?php echo $row['14'];?></span> </div>
                                         <div class="px-4 pb-4 d-inline-block w-100">
-                                            <div class="float-left text-capitalize"><i class="fas fa-user text-success mr-1"></i>By : <?php echo $row['uname'];?></div>
-                                            <div class="float-right"><i class="far fa-calendar-alt text-success mr-1"></i> <?php echo date('d-m-Y', strtotime($row['date']));?></div>
+                                            <div class="float-left text-capitalize"><i class="fas fa-user text-primary mr-1"></i>By : <?php echo $row['uname'];?></div>
+                                            <div class="float-right"><i class="far fa-calendar-alt text-primary mr-1"></i> <?php echo date('d-m-Y', strtotime($row['date']));?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -109,21 +109,21 @@ include("config.php");
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">₹</div>
                                 </div>
-                                <input type="text" class="form-control" name="amount" placeholder="Property Price">
+                                <input type="text" class="form-control" name="amount" placeholder="Property Price" Required>
                             </div>
                             <label class="sr-only">Month</label>
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                 </div>
-                                <input type="text" class="form-control" name="month" placeholder="Duration Month">
+                                <input type="text" class="form-control" name="month" placeholder="Duration Month" Required>
                             </div>
                             <label class="sr-only">Interest Rate</label>
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">%</div>
                                 </div>
-                                <input type="text" class="form-control" name="interest" placeholder="Interest Rate">
+                                <input type="text" class="form-control" name="interest" placeholder="Interest Rate" Required>
                             </div>
                             <button type="submit" value="submit" name="calc" class="btn btn-danger mt-4">Calculate Instalment</button>
                         </form>
@@ -161,7 +161,7 @@ include("config.php");
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

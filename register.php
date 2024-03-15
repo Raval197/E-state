@@ -184,7 +184,7 @@ if(isset($_REQUEST['reg']))
 										<input class="form-control" name="uimage" type="file">
 									</div>
 									
-									<button class="btn btn-success" id="submit" name="reg" value="Register" type="submit">Register</button>
+									<button class="btn btn-primary rounded" id="submit" name="reg" value="Register" type="submit">Register</button>
 									
 								</form>
 								
@@ -217,7 +217,7 @@ if(isset($_REQUEST['reg']))
    
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

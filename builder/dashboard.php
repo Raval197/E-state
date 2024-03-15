@@ -72,7 +72,7 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-info">
+										<span class="dash-widget-icon bg-primary">
 											<i class="fe fe-home"></i>
 										</span>
 										
@@ -97,7 +97,7 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-success">
+										<span class="dash-widget-icon"style="background-color:#1ab412;">
 											<i class="fe fe-users"></i>
 										</span>
 										
@@ -110,7 +110,7 @@ if(!isset($_SESSION['bemail']))
 										
 										<h6 class="text-muted">Builder</h6>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-success w-50"></div>
+											<div class="progress-bar w-50"style="background-color:#1ab412;"></div>
 										</div>
 									</div>
 								</div>
@@ -143,7 +143,7 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-									<span class="dash-widget-icon bg-success">
+									<span class="dash-widget-icon bg-info">
 											<i class="fe fe-users"></i>
 										</span>
 										
@@ -168,7 +168,7 @@ if(!isset($_SESSION['bemail']))
 							<div class="card">
 								<div class="card-body">
 									<div class="dash-widget-header">
-										<span class="dash-widget-icon bg-success">
+										<span class="dash-widget-icon"style="background-color: #cfb616;">
 											<i class="fe fe-quote-left"></i>
 										</span>
 										
@@ -181,7 +181,7 @@ if(!isset($_SESSION['bemail']))
 										
 										<h6 class="text-muted">On Sale</h6>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-info w-50"></div>
+											<div class="progress-bar w-50"style="background-color: #cfb616;"></div>
 										</div>
 									</div>
 								</div>

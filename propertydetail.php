@@ -132,12 +132,12 @@ if (isset($_POST['edit'])) {
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-md-6">
-                                            <div class="bg-success d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
+                                            <div class="bg-primary d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
                                             <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
-                                            <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-success font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
+                                            <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-primary font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
+                                            <div class="text-primary text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
                                             <div class="text-left text-md-right">Price</div>
                                         </div>
 
@@ -218,21 +218,21 @@ if (isset($_POST['edit'])) {
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">₹ </div>
                                     </div>
-                                    <input type="text" class="form-control" name="amount" placeholder="Property Price">
+                                    <input type="text" class="form-control" name="amount" placeholder="Property Price" Required>
                                 </div>
                                 <label class="sr-only">Month</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" name="month" placeholder="Duration month">
+                                    <input type="text" class="form-control" name="month" placeholder="Duration month" Required>
                                 </div>
                                 <label class="sr-only">Interest Rate</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">%</div>
                                     </div>
-                                    <input type="text" class="form-control" name="interest" placeholder="Interest Rate">
+                                    <input type="text" class="form-control" name="interest" placeholder="Interest Rate" Required>
                                 </div>
                                 <button type="submit" value="submit" name="calc" class="btn btn-danger mt-4">Calclute Instalment</button>
                             </form>
@@ -313,20 +313,20 @@ if (isset($_POST['edit'])) {
                                 <form class="w-100 " action="#" method="post">
                                     <div class="d-flex justify-content-between">
                                         <p>Amount</p>
-                                        <div class="text-success text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
+                                        <div class="text-primary text-left h5 my-2 text-md-right">₹<?php echo $row['13']; ?></div>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <p>Security Deposite</p>
-                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $deposit ?></div>
+                                        <div class="text-primary text-left h6 my-2 text-md-right">₹<?php echo $deposit ?></div>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <p>Maintanunce</p>
-                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $maintanance ?></div>
+                                        <div class="text-primary text-left h6 my-2 text-md-right">₹<?php echo $maintanance ?></div>
                                     </div>
 
                                     <div class="d-flex justify-content-between">
                                         <p>Total Amount</p>
-                                        <div class="text-success text-left h6 my-2 text-md-right">₹<?php echo $totle ?></div>
+                                        <div class="text-primary text-left h6 my-2 text-md-right">₹<?php echo $totle ?></div>
                                     </div>
 
                                     <div class="text-success text-left h6 my-2 text-md-right"> <a href="javascript:void(0)" data-productid="<?php echo $row['0']; ?>" data-productname="<?php echo $row['1']; ?>" data-amount="<?php echo $totle ?>" class="btn btn-primary buynow">Buy Now</a>
@@ -415,7 +415,7 @@ if (isset($_POST['edit'])) {
                                 <div class="row d-flex justify-content-center">
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>" required>
-                                        <textarea name="message" id="" cols="30" rows="3" placeholder="Enter Message"></textarea>
+                                        <textarea name="message" id="" cols="30" rows="3" placeholder="Enter Message" Required></textarea>
 
                                         <input type="hidden" name="pid" value="<?php echo $id ?>">
                                         <?php

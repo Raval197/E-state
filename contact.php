@@ -142,7 +142,7 @@ if(isset($_POST['send']))
 												</div>
 											</div>
 										</div>
-										<button type="submit" value="send message" name="send" class="btn btn-success">Send Message</button>
+										<button type="submit" value="send message" name="send" class="btn btn-primary rounded">Send Message</button>
 									</div>
 								</form>
 							</div>
@@ -165,7 +165,7 @@ if(isset($_POST['send']))
 		<!--	Footer   start-->
         
         <!-- Scroll to top --> 
-        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
+        <a href="#" class="bg-primary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
         <!-- End Scroll To top --> 
     </div>
 </div>

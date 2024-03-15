@@ -1051,7 +1051,7 @@ button:focus {
 .down-angle-white::before {
   border-left: 15px solid transparent;
   border-right: 40px solid transparent;
-  border-top: 35px solid #17c788;
+  border-top: 35px solid #383434;
 }
 .circle,
 .circle img {
