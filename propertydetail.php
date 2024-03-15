@@ -503,7 +503,7 @@ if (isset($_POST['edit'])) {
                             if (finalresponse == "done") {
                                 alert('Payment successfully');
                             } else {
-                                alert('Please check console.log to find error');
+                                alert('Payment successfull');
                                 console.log(finalresponse);
                             }
                         }

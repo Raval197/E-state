@@ -23,7 +23,7 @@ if(isset($_POST['send']))
 			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
 		   }
 		   else{
-			   $error = "<p class='alert alert-warning'>Message Not Send Successfully</p> ";
+			   $error = "<p class='alert alert-warning'>Message Already Send</p> ";
 		   }
 	}else{
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";

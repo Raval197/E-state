@@ -104,7 +104,6 @@ if(!isset($_SESSION['auser']))
 							<li class="submenu">
 								<a href="#"><i class="fe fe-user"></i> <span> All Users </span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="adminlist.php"> Admin </a></li>
 									<li><a href="userlist.php"> Users </a></li>
 									<!-- <li><a href="useragent.php"> Agent </a></li> -->
 									<li><a href="userbuilder.php"> Builder </a></li>

@@ -59,10 +59,10 @@ if(!isset($_SESSION['bemail']))
 					<div class="page-header py-5">
 						<div class="row">
 							<div class="col">
-								<h3 class="page-title">Contact</h3>
+								<h3 class="page-title">Message</h3>
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-									<li class="breadcrumb-item active">Contact</li>
+									<li class="breadcrumb-item active">Message</li>
 								</ul>
 							</div>
 						</div>
@@ -73,7 +73,7 @@ if(!isset($_SESSION['bemail']))
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Contact List</h4>
+									<h4 class="card-title">Message List</h4>
 									<?php 
 											if(isset($_GET['msg']))	
 											echo $_GET['msg'];
