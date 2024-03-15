@@ -114,17 +114,17 @@ if(!isset($_SESSION['uemail']))
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label for="user-id">Full Name</label>
-                                    <input type="text" name="name" class="form-control" value="<?php echo $row['1'];?>">
+                                    <input type="text" name="name" class="form-control" value="<?php echo $row['1'];?>" maxlength="10" onkeydown="return alphaOnly(event);">
                                 </div>                
                                 
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="text" name="phone"  class="form-control" value="<?php echo $row['3'];?>" maxlength="10">
+                                    <input type="text" name="phone"  class="form-control" value="<?php echo $row['3'];?>" minlenght="10" maxlength="10" onkeydown="return digitOnly(event);">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="about-me">Email</label>
-                                    <input type="email" name="email"  class="form-control" value="<?php echo $row['2'];?>" maxlength="20">
+                                    <input type="email" name="email"  class="form-control" value="<?php echo $row['2'];?>"  maxlength="20">
                                 </div>
                                 <input type="submit" class="btn btn-info mb-4 m-2" name="insert" value="Save">
                                 <a href="changepass.php" type="submit" class="btn btn-info mb-4 m-2" name="update">Change Password</a>
@@ -181,5 +181,23 @@ if(!isset($_SESSION['uemail']))
 <script src="js/jquery.slider.js"></script> 
 <script src="js/wow.js"></script> 
 <script src="js/custom.js"></script>
+<script>
+      function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+	  function alphaOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 65 && key <= 122) || key == 8 || key == 32);
+      };
+
+      function checklen() {
+         var pass1 = document.getElementById("password");
+         if (pass1.value.length < 6) {
+            alert("Password must be at least 6 characters long. Try again!");
+            return false;
+         }
+      }
+   </script>
 </body>
 </html>
