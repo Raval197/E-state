@@ -14,17 +14,27 @@ if(isset($_POST['insert']))
 	$city=$_POST['city'];
 	
 	if(!empty($state) && !empty($city)){
-		$sql="insert into city (cname,sid) values('$city','$state')";
-		$result=mysqli_query($con,$sql);
-		if($result)
-			{
-				$msg="<p class='alert alert-success'>City Inserted Successfully</p>";
-						
-			}
-			else
-			{
-				$error="<p class='alert alert-warning'>* City Not Inserted</p>";
-			}
+		$sql = "SELECT * FROM city WHERE sid = '$state' AND cname = '$city'";
+        $result = $con->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Data already exists, handle accordingly (e.g., display an error message)
+            $error = "<p class='alert alert-warning'>* State and city is already exist</p>";
+        } else {
+			$sql="insert into city (cname,sid) values('$city','$state')";
+			$result=mysqli_query($con,$sql);
+			if($result)
+				{
+					$msg="<p class='alert alert-success'>City Inserted Successfully</p>";
+							
+				}
+				else
+				{
+					$error="<p class='alert alert-warning'>* City Not Inserted</p>";
+				}
+        }
+		
+	
 	}
 	else{
 		$error = "<p class='alert alert-warning'>* Fill all the Fields</p>";

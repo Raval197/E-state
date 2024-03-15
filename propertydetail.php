@@ -359,7 +359,7 @@ if (isset($_POST['edit'])) {
                                     <div class="row d-flex justify-content-center">
                                         <div class="form-group">
 
-                                            <input type="date" name="date" min="2024-03-05" class="form-control mb-3" placeholder="Your Name*" required>
+                                            <input type="date" name="date" min="2024-03-16" class="form-control mb-3" placeholder="Your Name*" required>
                                             <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*" required>
                                             <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
                                             <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
