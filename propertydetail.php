@@ -9,7 +9,8 @@ include("config.php");
 $error = '';
 $msg = '';
 if (isset($_POST['edit'])) {
-    $id = $_REQUEST['pid'];
+    $pid=$_REQUEST['pid'];
+    $id = $_SESSION['uid'];     
     $date = $_POST['date'];
     $time = $_POST['time'];
     $name = $_POST['name'];
@@ -18,8 +19,7 @@ if (isset($_POST['edit'])) {
     $message = $_POST['message'];
     $uid = $_POST['uid'];
     $status = $_POST['status'];
-
-    $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status,pid) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status','$id')";
+    $sql = "INSERT INTO req(date, time, name, email, phone,message,uid,status,pid,bid) VALUES ('$date','$time','$name','$email','$phone','$message','$uid','$status','$id','$pid')";
     $result = mysqli_query($con, $sql);
     if ($result) {
         echo "<script>alert('your message send successfully.');</script>";
@@ -365,7 +365,13 @@ if (isset($_POST['edit'])) {
                                             <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
                                             <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
                                             <textarea name="message" id="" cols="30" rows="3">I am intrested in this property.</textarea>
-                                            <input type="hidden" name="uid" value="<?php echo $_SESSION['uid'] ?>">
+                                            <?php
+                                            $a=mysqli_query($con,"SELECT * FROM property WHERE pid=$id");
+                                            while ($row = mysqli_fetch_array($a)) {
+                                                
+                                                ?>
+                                                <input type="hidden" name="uid" value="<?php echo $row['uid'] ?>">
+                                            <?php } ?>
                                             <input type="hidden" name="status" value="Null">
                                         </div>
                                     </div>
@@ -385,7 +391,7 @@ if (isset($_POST['edit'])) {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header m-2">
-                            <h5 class="modal-title" id="exampleModalLabel">Book Appoinment</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">send message</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -424,7 +430,7 @@ if (isset($_POST['edit'])) {
 
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <input type="hidden" name="uid" value="<?php echo $row['uid'] ?>">
+                                            <input type="text" name="uid" value="<?php echo $row['uid']; ?>">x
                                         <?php } ?>
                                     </div>
                                 </div>

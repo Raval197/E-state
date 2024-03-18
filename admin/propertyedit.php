@@ -38,7 +38,6 @@ if(isset($_POST['add']))
 	
 	$totalfloor=$_POST['totalfl'];
 
-	$isFeatured=$_POST['isFeatured'];
 	
 	$aimage=$_FILES['aimage']['name'];
 	$aimage1=$_FILES['aimage1']['name'];
@@ -76,7 +75,7 @@ if(isset($_POST['add']))
 	size='{$asize}', price='{$price}', location='{$loc}', city='{$city}', state='{$state}', feature='{$feature}',
 	pimage='{$aimage}', pimage1='{$aimage1}', pimage2='{$aimage2}', pimage3='{$aimage3}', pimage4='{$aimage4}',
 	uid='{$uid}', status='{$status}', mapimage='{$fimage}', topmapimage='{$fimage1}', groundmapimage='{$fimage2}', 
-	totalfloor='{$totalfloor}', isFeatured='{$isFeatured}' WHERE pid = {$pid}";
+	totalfloor='{$totalfloor}' WHERE pid = {$pid}";
 	
 	$result=mysqli_query($con,$sql);
 	if($result == true)
@@ -427,7 +426,7 @@ if(isset($_POST['add']))
 
 										<hr>
 
-										<div class="row">
+										<!-- <div class="row">
 											<div class="col-md-6">
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label"><b>Is Featured?</b></label>
@@ -440,7 +439,7 @@ if(isset($_POST['add']))
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 
 										
 											<input type="submit" value="Submit" class="btn btn-primary"name="add" style="margin-left:200px;">

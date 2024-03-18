@@ -113,7 +113,7 @@ if (!isset($_SESSION['uemail'])) {
                             <?php
                             $uid = $_SESSION['uid'];
                             
-                            $query = mysqli_query($con, "SELECT * FROM `req` WHERE `uid`='$uid'");
+                            $query = mysqli_query($con, "SELECT * FROM `req` WHERE `pid`='$uid'");
                             while ($row = mysqli_fetch_array($query)) {
                                 $status=$row['status'];
                             ?>
@@ -135,7 +135,7 @@ if (!isset($_SESSION['uemail'])) {
 																			if($status=="1")
 																				{
 																			?>
-																			 <button type="button" class="btn btn-success" ><span  class="fa fa-check-circle" aria-hidden="true"></span> Accepted</button> 
+																			 <button type="button" class="btn btn-primary" ><span  class="fa fa-check-circle" aria-hidden="true"></span> Accepted</button> 
 																			<?php 
 																			} 
 																			?>

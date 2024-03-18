@@ -152,28 +152,28 @@ $state_qry = mysqli_query($con, $states);
                             <div class="col-lg-3 col-md-6">
                                 <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s">
                                     <i class="flaticon-rent text-primary flat-medium" aria-hidden="true"></i>
-                                    <h5 class="text-secondary hover-text-success py-3 m-0"><a href="#">Selling Service</a></h5>
+                                    <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Selling Service</a></h5>
                                     <p>This is a dummy text for filling out spaces. Just some random words...</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s">
                                     <i class="flaticon-for-rent text-primary flat-medium" aria-hidden="true"></i>
-                                    <h5 class="text-secondary hover-text-success py-3 m-0"><a href="#">Rental Service</a></h5>
+                                    <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Rental Service</a></h5>
                                     <p>This is a dummy text for filling out spaces. Just some random words...</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s">
                                     <i class="flaticon-list text-primary flat-medium" aria-hidden="true"></i>
-                                    <h5 class="text-secondary hover-text-success py-3 m-0"><a href="#">Property Listing</a></h5>
+                                    <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Property Listing</a></h5>
                                     <p>This is a dummy text for filling out spaces. Just some random words...</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s">
                                     <i class="flaticon-diagram text-primary flat-medium" aria-hidden="true"></i>
-                                    <h5 class="text-secondary hover-text-success py-3 m-0"><a href="#">Legal Investment</a></h5>
+                                    <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Legal Investment</a></h5>
                                     <p>This is a dummy text for filling out spaces. Just some random words...</p>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ $state_qry = mysqli_query($con, $states);
                                                     </div>
                                                     <div class="featured-thumb-data shadow-one">
                                                         <div class="p-3">
-                                                            <h5 class="text-secondary hover-text-success mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0']; ?>"><?php echo $row['1']; ?></a></h5>
+                                                            <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0']; ?>"><?php echo $row['1']; ?></a></h5>
                                                             <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?php echo $row['14']; ?></span>
                                                         </div>
                                                         <div class="bg-gray quantity px-4 pt-4">
@@ -413,7 +413,7 @@ $state_qry = mysqli_query($con, $states);
                                         $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Surat'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
+                                            <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
                                             <span><?php
                                                     $total = $row[0];
                                                     echo $total; ?> Properties Listed</span>
@@ -428,7 +428,7 @@ $state_qry = mysqli_query($con, $states);
                                         $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Mumbai'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
+                                            <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
                                             <span><?php
                                                     $total = $row[0];
                                                     echo $total; ?> Properties Listed</span>
@@ -443,7 +443,7 @@ $state_qry = mysqli_query($con, $states);
                                         $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='Chennai'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
+                                            <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
                                             <span><?php
                                                     $total = $row[0];
                                                     echo $total; ?> Properties Listed</span>
@@ -458,7 +458,7 @@ $state_qry = mysqli_query($con, $states);
                                         $query = mysqli_query($con, "SELECT count(state), property.* FROM property where city='baga beach'");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <h4 class="hover-text-success text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
+                                            <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17'] ?>"><?php echo $row['state']; ?></a></h4>
                                             <span><?php
                                                     $total = $row[0];
                                                     echo $total; ?> Properties Listed</span>

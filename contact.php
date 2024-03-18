@@ -4,31 +4,31 @@ session_cache_limiter(false);
 session_start();
 
 include("config.php");
-$error="";
-$msg="";
-if(isset($_POST['send']))
-{
-	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$phone=$_POST['phone'];
-	$subject=$_POST['subject'];
-	$message=$_POST['message'];
+// $error="";
+// $msg="";
+// if(isset($_POST['send']))
+// {
+// 	$name=$_POST['name'];
+// 	$email=$_POST['email'];
+// 	$phone=$_POST['phone'];
+// 	$subject=$_POST['subject'];
+// 	$message=$_POST['message'];
 	
-	if(!empty($name) && !empty($email) && !empty($phone) && !empty($subject) && !empty($message))
-	{
+// 	if(!empty($name) && !empty($email) && !empty($phone) && !empty($subject) && !empty($message))
+// 	{
 		
-		$sql="INSERT INTO contact (name,email,phone,subject,message) VALUES ('$name','$email','$phone','$subject','$message')";
-		   $result=mysqli_query($con, $sql);
-		   if($result){
-			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
-		   }
-		   else{
-			   $error = "<p class='alert alert-warning'>Message Already Send</p> ";
-		   }
-	}else{
-		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
-}
+// 		$sql="INSERT INTO contact (name,email,phone,subject,message) VALUES ('$name','$email','$phone','$subject','$message')";
+// 		   $result=mysqli_query($con, $sql);
+// 		   if($result){
+// 			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
+// 		   }
+// 		   else{
+// 			   $error = "<p class='alert alert-warning'>Message Already Send</p> ";
+// 		   }
+// 	}else{
+// 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+// 	}
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,45 +110,15 @@ if(isset($_POST['send']))
 						<div class="container">
                         <div class="row">
 							<div class="col-lg-12">
-								<h2 class="text-secondary double-down-line text-center mb-5">Get In Touch</h2>
-								<?php echo $msg; ?><?php echo $error; ?>
+								
 							</div>
 						</div>
-						<?php
-            $uid = $_SESSION['uid'];
-            $query = mysqli_query($con, "SELECT * FROM `user` WHERE uid='$uid'");
-            while ($row = mysqli_fetch_array($query)) {
-            ?>
 						<div class="row">
 							<div class="col-md-12">
-								<form class="w-100" action="#" method="post">
-									<div class="row">
-										<div class="row mb-4">
-											<div class="form-group col-lg-6">
-												<input type="text"  name="name" class="form-control" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="text"  name="email" class="form-control" placeholder="Email Address*" value="<?php echo $row['uemail'] ?>">
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="text"  name="phone" class="form-control" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="text" name="subject"  class="form-control" placeholder="Subject">
-											</div>
-											<div class="col-lg-12">
-												<div class="form-group">
-													<textarea name="message" class="form-control" rows="5" placeholder="Type Comments..."></textarea>
-												</div>
-											</div>
-										</div>
-										<button type="submit" value="send message" name="send" class="btn btn-primary rounded">Send Message</button>
-									</div>
-								</form>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5644.408542716626!2d-117.1523848363907!3d32.73426737275872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d95495497f80c9%3A0x5df0f4372635e247!2sSan%20Diego%20Zoo!5e0!3m2!1sen!2snp!4v1658568764228!5m2!1sen!2snp" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 							</div>
 						</div>
-						<?php
-						}?>
+						
 						</div>
 					</div>
                 </div>
@@ -156,9 +126,6 @@ if(isset($_POST['send']))
         </div>
         <!--	Contact Inforamtion -->
         
-        <!--	Map -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5644.408542716626!2d-117.1523848363907!3d32.73426737275872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d95495497f80c9%3A0x5df0f4372635e247!2sSan%20Diego%20Zoo!5e0!3m2!1sen!2snp!4v1658568764228!5m2!1sen!2snp" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		<!--	Map -->
         
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>

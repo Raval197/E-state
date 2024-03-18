@@ -111,16 +111,7 @@ if(!isset($_SESSION['bemail']))
 									<!-- <li><a href="feedbackview.php"> Feedback </a></li> -->
 								</ul>
 							</li>
-							<li class="menu-title"> 
-								<span>Query</span>
-							</li>
-							<li class="submenu">
-								<a href="#"><i class="fe fe-phone"></i> <span>contact </span> <span class="menu-arrow"></span></a>
-								<ul style="display: none;">
-									<li><a href="feedbackview.php"> contact </a></li>
-									<!-- <li><a href="feedbackview.php"> Feedback </a></li> -->
-								</ul>
-							</li>
+							
 							<li class="menu-title"> 
 								<span>appointment</span>
 							</li>

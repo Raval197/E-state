@@ -44,7 +44,6 @@ if (isset($_POST['add'])) {
 	$fimage1 = $_FILES['fimage1']['name'];
 	$fimage2 = $_FILES['fimage2']['name'];
 
-	$isFeatured = $_POST['isFeatured'];
 
 	$temp_name  = $_FILES['aimage']['tmp_name'];
 	$temp_name1 = $_FILES['aimage1']['tmp_name'];
@@ -66,9 +65,9 @@ if (isset($_POST['add'])) {
 	move_uploaded_file($temp_name6, "property/$fimage1");
 	move_uploaded_file($temp_name7, "property/$fimage2");
 
-	$sql = "INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,floor,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage,totalfloor,isFeatured)
+	$sql = "INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,floor,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage,totalfloor)
 	VALUES('$title','$content','$ptype','$bhk','$stype','$bed','$bath','$balc','$kitc','$hall','$floor','$asize','$price',
-	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2','$totalfloor','$isFeatured')";
+	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2','$totalfloor')";
 	$result = mysqli_query($con, $sql);
 	if ($result) {
 		$msg = "<p class='alert alert-success'>Property Inserted Successfully</p>";
@@ -434,12 +433,12 @@ $state_qry = mysqli_query($con, $states);
 
 								<hr>
 
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-md-6">
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label"><b>Is Featured?</b></label>
 											<div class="col-lg-9">
-												<select class="form-control" required name="isFeatured">
+												<select class="form-control" name="isFeatured">
 													<option value="">Select...</option>
 													<option value="0">No</option>
 													<option value="1">Yes</option>
@@ -447,7 +446,7 @@ $state_qry = mysqli_query($con, $states);
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 
 								<input type="submit" value="Submit" class="btn btn-primary" name="add" style="margin-left:200px;">
