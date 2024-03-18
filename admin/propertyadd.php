@@ -194,13 +194,27 @@ $state_qry = mysqli_query($con, $states);
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bathroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bath" required placeholder="Enter Bathroom (only no 1 to 10)">
-													</div>
+													<select class="form-control" required name="bath" placeholder="Enter Bathroom  (only no 1 to 5)" >
+														<option value="">Select Bathroom</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+														</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Kitchen</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="kitc" required placeholder="Enter Kitchen (only no 1 to 10)">
+													<select class="form-control" required name="kitc" placeholder="Enter kitchen  (only no 1 to 5)" >
+														<option value="">Select bed</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
 													</div>
 												</div>
 												
@@ -225,19 +239,40 @@ $state_qry = mysqli_query($con, $states);
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="bed" required placeholder="Enter Bedroom  (only no 1 to 10)">
+													<select class="form-control" required name="bed" placeholder="Enter Bedroom  (only no 1 to 5)" >
+														<option value="">Select bed</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Balcony</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="balc" required placeholder="Enter Balcony  (only no 1 to 10)">
+													<select class="form-control" required name="balc" placeholder="Enter Balcony  (only no 1 to 5)" >
+														<option value="">Select Balcony</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
 													</div>
 												</div>
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Hall</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="hall" required placeholder="Enter Hall  (only no 1 to 10)">
+													<select class="form-control" required name="hall" placeholder="Enter Hall  (only no 1 to 5)" >
+														<option value="">Select Hall</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
 													</div>
 												</div>
 												
@@ -262,7 +297,7 @@ $state_qry = mysqli_query($con, $states);
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Price</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" required placeholder="Enter Price">
+														<input type="text" class="form-control" name="price" maxlength="10" required placeholder="Enter Price "onkeydown="return digitOnly(event);">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -312,7 +347,7 @@ $state_qry = mysqli_query($con, $states);
 												<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Area Size</label>
 													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" required placeholder="Enter Area Size (in sqrt)">
+														<input type="text" class="form-control" name="asize" maxlength="4" required placeholder="Enter Area Size (in sqrt)" onkeydown="return digitOnly(event);">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -479,6 +514,7 @@ $state_qry = mysqli_query($con, $states);
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
 		<script>
+			
 
     $('#state').on('change', function() {
         var state_id = this.value;
@@ -496,6 +532,25 @@ $state_qry = mysqli_query($con, $states);
         })
     });
 </script>
+<script>
+      function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+	  function alphaOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 65 && key <= 122) || key == 8 || key == 32);
+      };
+
+      function checklen() {
+         var pass1 = document.getElementById("password");
+         if (pass1.value.length < 6) {
+            alert("Password must be at least 6 characters long. Try again!");
+            return false;
+         }
+      }
+   </script>
+
 
     </body>
 

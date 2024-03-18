@@ -145,7 +145,7 @@ if(isset($_POST['insert']))
                 </div>      
             </div>
         </div>
-        <?php } ?>
+        <?php }?>
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>
 		<!--	Footer   start-->
