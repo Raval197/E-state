@@ -84,7 +84,7 @@ if (isset($_REQUEST['login'])) {
 
 <!--	Title
 	=========================================================-->
-<title>Real Estate PHP</title>
+<title>Estate</title>
 </head>
 <body>
 <div id="page-wrapper">

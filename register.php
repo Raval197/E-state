@@ -95,7 +95,7 @@ if(isset($_REQUEST['reg']))
 
 <!--	Title
 	=========================================================-->
-<title>Real Estate PHP</title>
+<title>Estate</title>
 </head>
 <body>
 

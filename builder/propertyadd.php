@@ -12,62 +12,62 @@ $error = "";
 $msg = "";
 if (isset($_POST['add'])) {
 
-	$title = $_POST['title'];
-	$content = $_POST['content'];
-	$ptype = $_POST['ptype'];
-	$bhk = $_POST['bhk'];
-	$bed = $_POST['bed'];
-	$balc = $_POST['balc'];
-	$hall = $_POST['hall'];
-	$stype = $_POST['stype'];
-	$bath = $_POST['bath'];
-	$kitc = $_POST['kitc'];
-	$floor = $_POST['floor'];
-	$price = $_POST['price'];
-	$city = $_POST['city'];
-	$asize = $_POST['asize'];
-	$loc = $_POST['loc'];
-	$state = $_POST['state'];
-	$status = $_POST['status'];
-	$uid = $_POST['uid'];
-	$feature = $_POST['feature'];
+	$title=$_POST['title'];
+	$content=$_POST['content'];
+	$ptype=$_POST['ptype'];
+	$bhk=$_POST['bhk'];
+	$bed=$_POST['bed'];
+	$balc=$_POST['balc'];
+	$hall=$_POST['hall'];
+	$stype=$_POST['stype'];
+	$bath=$_POST['bath'];
+	$kitc=$_POST['kitc'];
+	// $floor=$_POST['floor'];
+	$price=$_POST['price'];
+	$city=$_POST['city'];
+	$asize=$_POST['asize'];
+	$loc=$_POST['loc'];
+	$state=$_POST['state'];
+	$status=$_POST['status'];
+	$uid=$_POST['uid'];
+	$feature=$_POST['feature'];
+	
+	// $totalfloor=$_POST['totalfl'];
+	
+	$aimage=$_FILES['aimage']['name'];
+	$aimage1=$_FILES['aimage1']['name'];
+	$aimage2=$_FILES['aimage2']['name'];
+	$aimage3=$_FILES['aimage3']['name'];
+	$aimage4=$_FILES['aimage4']['name'];
+	
+	$fimage=$_FILES['fimage']['name'];
+	$fimage1=$_FILES['fimage1']['name'];
+	$fimage2=$_FILES['fimage2']['name'];
 
-	$totalfloor = $_POST['totalfl'];
-
-	$aimage = $_FILES['aimage']['name'];
-	$aimage1 = $_FILES['aimage1']['name'];
-	$aimage2 = $_FILES['aimage2']['name'];
-	$aimage3 = $_FILES['aimage3']['name'];
-	$aimage4 = $_FILES['aimage4']['name'];
-
-	$fimage = $_FILES['fimage']['name'];
-	$fimage1 = $_FILES['fimage1']['name'];
-	$fimage2 = $_FILES['fimage2']['name'];
-
-
-	$temp_name  = $_FILES['aimage']['tmp_name'];
-	$temp_name1 = $_FILES['aimage1']['tmp_name'];
-	$temp_name2 = $_FILES['aimage2']['tmp_name'];
-	$temp_name3 = $_FILES['aimage3']['tmp_name'];
-	$temp_name4 = $_FILES['aimage4']['tmp_name'];
-
-	$temp_name5 = $_FILES['fimage']['tmp_name'];
-	$temp_name6 = $_FILES['fimage1']['tmp_name'];
-	$temp_name7 = $_FILES['fimage2']['tmp_name'];
-
-	move_uploaded_file($temp_name, "property/$aimage");
-	move_uploaded_file($temp_name1, "property/$aimage1");
-	move_uploaded_file($temp_name2, "property/$aimage2");
-	move_uploaded_file($temp_name3, "property/$aimage3");
-	move_uploaded_file($temp_name4, "property/$aimage4");
-
-	move_uploaded_file($temp_name5, "property/$fimage");
-	move_uploaded_file($temp_name6, "property/$fimage1");
-	move_uploaded_file($temp_name7, "property/$fimage2");
-
-	$sql = "INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,floor,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage,totalfloor)
-	VALUES('$title','$content','$ptype','$bhk','$stype','$bed','$bath','$balc','$kitc','$hall','$floor','$asize','$price',
-	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2','$totalfloor')";
+	
+	$temp_name  =$_FILES['aimage']['tmp_name'];
+	$temp_name1 =$_FILES['aimage1']['tmp_name'];
+	$temp_name2 =$_FILES['aimage2']['tmp_name'];
+	$temp_name3 =$_FILES['aimage3']['tmp_name'];
+	$temp_name4 =$_FILES['aimage4']['tmp_name'];
+	
+	$temp_name5 =$_FILES['fimage']['tmp_name'];
+	$temp_name6 =$_FILES['fimage1']['tmp_name'];
+	$temp_name7 =$_FILES['fimage2']['tmp_name'];
+	
+	move_uploaded_file($temp_name,"property/$aimage");
+	move_uploaded_file($temp_name1,"property/$aimage1");
+	move_uploaded_file($temp_name2,"property/$aimage2");
+	move_uploaded_file($temp_name3,"property/$aimage3");
+	move_uploaded_file($temp_name4,"property/$aimage4");
+	
+	move_uploaded_file($temp_name5,"property/$fimage");
+	move_uploaded_file($temp_name6,"property/$fimage1");
+	move_uploaded_file($temp_name7,"property/$fimage2");
+	
+	$sql="INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage)
+	VALUES('$title','$content','$ptype','$bhk','$stype','$bed','$bath','$balc','$kitc','$hall','$asize','$price',
+	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2')";
 	$result = mysqli_query($con, $sql);
 	if ($result) {
 		$msg = "<p class='alert alert-success'>Property Inserted Successfully</p>";
@@ -169,7 +169,6 @@ $state_qry = mysqli_query($con, $states);
 													<option value="">Select Type</option>
 													<option value="apartment">Apartment</option>
 													<option value="flat">Flat</option>
-													<option value="building">Building</option>
 													<option value="house">House</option>
 													<option value="villa">Villa</option>
 													<option value="office">Office</option>
@@ -189,7 +188,7 @@ $state_qry = mysqli_query($con, $states);
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">Bathroom</label>
 											<div class="col-lg-9">
-											<select class="form-control" required name="bath" placeholder="Enter Bathroom  (only no 1 to 5)" >
+											<select class="form-control" required name="bath" id="bath" placeholder="Enter Bathroom  (only no 1 to 5)" >
 														<option value="">Select Bathroom</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -202,7 +201,7 @@ $state_qry = mysqli_query($con, $states);
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">Kitchen</label>
 											<div class="col-lg-9">
-											<select class="form-control" required name="kitc" placeholder="Enter kitchen  (only no 1 to 5)" >
+											<select class="form-control" required name="kitc" id="kitchan" placeholder="Enter kitchen  (only no 1 to 5)" >
 														<option value="">Select bed</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -218,23 +217,20 @@ $state_qry = mysqli_query($con, $states);
 										<div class="form-group row mb-3">
 											<label class="col-lg-3 col-form-label">BHK</label>
 											<div class="col-lg-9">
-												<select class="form-control" required name="bhk">
+												<select class="form-control" required name="bhk" id="bhk">
 													<option value="">Select BHK</option>
 													<option value="1 BHK">1 BHK</option>
 													<option value="2 BHK">2 BHK</option>
 													<option value="3 BHK">3 BHK</option>
 													<option value="4 BHK">4 BHK</option>
 													<option value="5 BHK">5 BHK</option>
-													<option value="1,2 BHK">1,2 BHK</option>
-													<option value="2,3 BHK">2,3 BHK</option>
-													<option value="2,3,4 BHK">2,3,4 BHK</option>
 												</select>
 											</div>
 										</div>
 										<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-													<select class="form-control" required name="bed" placeholder="Enter Bedroom  (only no 1 to 5)" >
+													<select class="form-control" id="bed" required name="bed" placeholder="Enter Bedroom  (only no 1 to 5)" >
 														<option value="">Select bed</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -251,31 +247,18 @@ $state_qry = mysqli_query($con, $states);
 														<option value="">Select Balcony</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
 													</select>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Hall</label>
-													<div class="col-lg-9">
-													<select class="form-control" required name="hall" placeholder="Enter Hall  (only no 1 to 5)" >
-														<option value="">Select Hall</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-													</div>
+												<input type="hidden" name="hall" value="1">
 												</div>
 									</div>
 								</div>
 								<h4 class="card-title">Price & Location</h4>
 								<div class="row">
 									<div class="col-xl-6">
-										<div class="form-group row">
+										<!-- <div class="form-group row">
 											<label class="col-lg-3 col-form-label">Floor</label>
 											<div class="col-lg-9">
 												<select class="form-control" required name="floor">
@@ -287,7 +270,7 @@ $state_qry = mysqli_query($con, $states);
 													<option value="5th Floor">5th Floor</option>
 												</select>
 											</div>
-										</div>
+										</div> -->
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">Price</label>
 											<div class="col-lg-9">
@@ -315,7 +298,7 @@ $state_qry = mysqli_query($con, $states);
 										</div>
 									</div>
 									<div class="col-xl-6">
-										<div class="form-group row">
+										<!-- <div class="form-group row">
 											<label class="col-lg-3 col-form-label">Total Floor</label>
 											<div class="col-lg-9">
 												<select class="form-control" required name="totalfl">
@@ -337,7 +320,7 @@ $state_qry = mysqli_query($con, $states);
 													<option value="15 Floor">15 Floor</option>
 												</select>
 											</div>
-										</div>
+										</div> -->
 										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">Area Size</label>
 											<div class="col-lg-9">
@@ -545,6 +528,140 @@ $state_qry = mysqli_query($con, $states);
          }
       }
    </script>
+   <script>
+    document.getElementById('bhk').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('bed');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bed</option>';
+        
+        if(country === '1 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }
+		else if (country === '4 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</script>
+<script>
+    document.getElementById('bed').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('bath');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bath</option>';
+        
+        if(country === '1') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }else if (country === '4') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</script>
+<script>
+    document.getElementById('bhk').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('kitchan');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bath</option>';
+        
+        if(country === '1 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }
+		else if (country === '4 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</Script>
+
+
+
 
 
 </body>

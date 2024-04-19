@@ -5,7 +5,7 @@ require("config.php");
  
 if(!isset($_SESSION['bemail']))
 {
-	header("location:login.php");
+	header("location:../login.php");
 }
 
 //// code insert

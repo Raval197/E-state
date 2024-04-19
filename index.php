@@ -37,7 +37,7 @@ $state_qry = mysqli_query($con, $states);
     <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>E-state PHP</title>
+    <title>E-state</title>
     <script>
         $(document).ready(function() {
             $("#search").on("keyup", function() {
@@ -212,23 +212,22 @@ $state_qry = mysqli_query($con, $states);
 
                                             <div class="col-md-6 col-lg-4">
                                                 <div class="featured-thumb hover-zoomer mb-4">
-                                                    <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['18']; ?>" alt="pimage" style="height: 300px;">
+                                                    <div class="overlay-black overflow-hidden position-relative"> <img src="admin/property/<?php echo $row['pimage']; ?>" alt="pimage" style="height: 300px;">
                                                         <div class="featured bg-primary text-white">New</div>
-                                                        <div class="sale bg-primary text-white text-capitalize">For <?php echo $row['5']; ?></div>
-                                                        <div class="price text-primary"><b>₹<?php echo $row['13']; ?> </b><span class="text-white"><?php echo $row['12']; ?> Sqft</span></div>
+                                                        <div class="sale bg-primary text-white text-capitalize">For <?php echo $row['stype']; ?></div>
+                                                        <div class="price text-primary"><b>₹<?php echo $row['price']; ?> </b><span class="text-white"><?php echo $row['size']; ?> Sqft</span></div>
                                                     </div>
                                                     <div class="featured-thumb-data shadow-one">
                                                         <div class="p-3">
-                                                            <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['0']; ?>"><?php echo $row['1']; ?></a></h5>
-                                                            <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?php echo $row['14']; ?></span>
+                                                            <h5 class="text-secondary hover-text-primary mb-2 text-capitalize"><a href="propertydetail.php?pid=<?php echo $row['pid']; ?>"><?php echo $row['title']; ?></a></h5>
+                                                            <span class="location text-capitalize"><i class="fas fa-map-marker-alt text-primary"></i> <?php echo $row['location']; ?></span>
                                                         </div>
                                                         <div class="bg-gray quantity px-4 pt-4">
                                                             <ul>
-                                                                <li><span><?php echo $row['12']; ?></span> Sqft</li>
+                                                                <li><span><?php echo $row['4']; ?></span> BHK</li>
                                                                 <li><span><?php echo $row['6']; ?></span> Beds</li>
-                                                                <li><span><?php echo $row['7']; ?></span> Baths</li>
-                                                                <li><span><?php echo $row['9']; ?></span> Kitchen</li>
-                                                                <li><span><?php echo $row['8']; ?></span> Balcony</li>
+                                                                <li><span><?php echo $row['8']; ?></span> Bathroom</li>
+                                                                <li><span><?php echo $row['9']; ?></span> kitchan</li>
 
                                                             </ul>
                                                         </div>

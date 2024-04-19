@@ -59,6 +59,24 @@ if (isset($_POST['edit'])) {
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+      function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+	  function alphaOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 65 && key <= 122) || key == 8 || key == 32);
+      };
+
+      function checklen() {
+         var pass1 = document.getElementById("password");
+         if (pass1.value.length < 6) {
+            alert("Password must be at least 6 characters long. Try again!");
+            return false;
+         }
+      }
+   </script>
 
     <!--	Title
 	=========================================================-->
@@ -132,7 +150,7 @@ if (isset($_POST['edit'])) {
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-md-6">
-                                            <div class="bg-primary d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['5']; ?></div>
+                                            <div class="bg-primary d-table px-3 py-2 rounded text-white text-capitalize">For <?php echo $row['stype']; ?></div>
                                             <h5 class="mt-2 text-secondary text-capitalize"><?php echo $row['1']; ?></h5>
                                             <span class="mb-sm-20 d-block text-capitalize"><i class="fas fa-map-marker-alt text-primary font-12"></i> &nbsp;<?php echo $row['14']; ?></span>
                                         </div>
@@ -148,9 +166,6 @@ if (isset($_POST['edit'])) {
                                                 <li><span class="text-secondary"><?php echo $row['12']; ?></span> Sqft</li>
                                                 <li><span class="text-secondary"><?php echo $row['6']; ?></span> Bedroom</li>
                                                 <li><span class="text-secondary"><?php echo $row['7']; ?></span> Bathroom</li>
-                                                <li><span class="text-secondary"><?php echo $row['8']; ?></span> Balcony</li>
-                                                <li><span class="text-secondary"><?php echo $row['10']; ?></span> Hall</li>
-                                                <li><span class="text-secondary"><?php echo $row['9']; ?></span> Kitchen</li>
                                             </ul>
                                         </div>
                                         <h4 class="text-secondary my-4">Description</h4>
@@ -218,21 +233,21 @@ if (isset($_POST['edit'])) {
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">₹ </div>
                                     </div>
-                                    <input type="text" class="form-control" name="amount" placeholder="Property Price" required>
+                                    <input type="text" class="form-control" name="amount" placeholder="Property Price" required onkeydown="return digitOnly(event);">
                                 </div>
                                 <label class="sr-only">Month</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                     </div>
-                                    <input type="text" class="form-control" name="month" placeholder="Duration month" required>
+                                    <input type="text" class="form-control" name="month" placeholder="Duration month" required onkeydown="return digitOnly(event);">
                                 </div>
                                 <label class="sr-only">Interest Rate</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">%</div>
                                     </div>
-                                    <input type="text" class="form-control" name="interest" placeholder="Interest Rate"required>
+                                    <input type="text" class="form-control" name="interest" placeholder="Interest Rate"required onkeydown="return digitOnly(event);">
                                 </div>
                                 <button type="submit" value="submit" name="calc" class="btn btn-danger mt-4">Calclute Instalment</button>
                             </form>
@@ -359,8 +374,19 @@ if (isset($_POST['edit'])) {
                                     <div class="row d-flex justify-content-center">
                                         <div class="form-group">
 
-                                            <input type="date" name="date" min="2024-03-16" class="form-control mb-3" placeholder="Your Name*" required>
-                                            <input type="time" name="time" class="form-control mb-3" placeholder="Your Name*" required>
+                                            <input type="date" name="date" min="2024-04-10" class="form-control mb-3" placeholder="Your Name*" required>
+                                            <select name="time" class="form-control mb-3" id="" required>
+                                                <option value="">8:00 AM</option>
+                                                <option value="">9:00 AM</option>
+                                                <option value="">10:00 AM</option>
+                                                <option value="">11:00 AM</option>
+                                                <option value="">12:00 PM</option>
+                                                <option value="">1:00 PM</option>
+                                                <option value="">2:00 PM</option>
+                                                <option value="">3:00 PM</option>
+                                                <option value="">4:00 PM</option>
+                                                <option value="">5:00 PM</option>
+                                            </select>
                                             <input type="text" name="name" class="form-control mb-3" placeholder="Your Name*" value="<?php echo $row['uname'] ?>">
                                             <input type="email" name="email" class="form-control mb-3" placeholder="Email Address*" value="<?php echo $_SESSION['uemail'] ?>">
                                             <input type="text" name="phone" class="form-control mb-3" placeholder="Phone" maxlength="10" value="<?php echo $row['uphone'] ?>">
@@ -430,7 +456,7 @@ if (isset($_POST['edit'])) {
 
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
-                                            <input type="text" name="uid" value="<?php echo $row['uid']; ?>">x
+                                            <input type="hidden" name="uid" value="<?php echo $row['uid']; ?>">
                                         <?php } ?>
                                     </div>
                                 </div>

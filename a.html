@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dependent Dropdowns</title>
+</head>
+<body>
+
+<select id="mainDropdown" onchange="populateDropdowns()">
+  <option value="category1">Category 1</option>
+  <option value="category2">Category 2</option>
+</select>
+
+<select id="subDropdown1"></select>
+<select id="subDropdown2"></select>
+
+<script>
+function populateDropdowns() {
+  var mainDropdown = document.getElementById("mainDropdown");
+  var subDropdown1 = document.getElementById("subDropdown1");
+  var subDropdown2 = document.getElementById("subDropdown2");
+
+  var selectedValue = mainDropdown.value;
+
+  // Clear previous options
+  subDropdown1.innerHTML = "";
+  subDropdown2.innerHTML = "";
+
+  // Populate sub-dropdowns based on selected value
+  if (selectedValue === "category1") {
+    var options = ["Option 1A", "Option 1B", "Option 1C"];
+    populateOptions(subDropdown1, options);
+  } else if (selectedValue === "category2") {
+    var options = ["Option 2A", "Option 2B", "Option 2C"];
+    populateOptions(subDropdown2, options);
+  }
+}
+
+function populateOptions(dropdown, options) {
+  options.forEach(function(option) {
+    var opt = document.createElement("option");
+    opt.textContent = option;
+    opt.value = option;
+    dropdown.appendChild(opt);
+  });
+}
+
+// Initially populate the dropdowns
+populateDropdowns();
+</script>
+
+</body>
+</html>

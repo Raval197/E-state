@@ -38,7 +38,24 @@ include("config.php");
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script>
+      function digitOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 48 && key <= 57) || key == 8 || key == 32);
+      };
+	  function alphaOnly(event) {
+         var key = event.keyCode;
+         return ((key >= 65 && key <= 122) || key == 8 || key == 32);
+      };
 
+      function checklen() {
+         var pass1 = document.getElementById("password");
+         if (pass1.value.length < 6) {
+            alert("Password must be at least 6 characters long. Try again!");
+            return false;
+         }
+      }
+   </script>
 <!--	Title
 	=========================================================-->
 <title>E-state PHP</title>
@@ -171,21 +188,21 @@ include("config.php");
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">$</div>
                                 </div>
-                                <input type="text" class="form-control" name="amount" placeholder="Property Price" required>
+                                <input type="text" class="form-control" name="amount" placeholder="Property Price" required onkeydown="return digitOnly(event);">
                             </div>
                             <label class="sr-only">Month</label>
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                                 </div>
-                                <input type="text" class="form-control" name="month" placeholder="Duration month" required>
+                                <input type="text" class="form-control" name="month" placeholder="Duration month" required onkeydown="return digitOnly(event);">
                             </div>
                             <label class="sr-only">Interest Rate</label>
                             <div class="input-group mb-2 mr-sm-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">%</div>
                                 </div>
-                                <input type="text" class="form-control" name="interest" placeholder="Interest Rate" required>
+                                <input type="text" class="form-control" name="interest" placeholder="Interest Rate" required onkeydown="return digitOnly(event);">
                             </div>
                             <button type="submit" value="submit" name="calc" class="btn btn-danger mt-4">Calculate Instalment</button>
                         </form>

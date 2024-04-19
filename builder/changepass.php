@@ -6,7 +6,7 @@ session_cache_limiter(false);
 session_start();
 
 if (!isset($_SESSION['bemail'])) {
-    header("location:login.php");
+    header("location:../login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -132,7 +132,7 @@ if (!isset($_SESSION['bemail'])) {
                             <div class="col-md-10">
                                 <div class="form-group">
                                     <label for="about-me">Current password</label>
-                                    <input type="Password" name="pass"  class="form-control" placeholder="enter current password" maxlength="20">
+                                    <input type="Password" name="pass"  class="form-control" placeholder="enter current password" maxlength="10">
                                 </div>
                                 <div class="form-group">
                                     <label for="about-me">New Password</label>

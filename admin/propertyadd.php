@@ -25,7 +25,7 @@ if(isset($_POST['add']))
 	$stype=$_POST['stype'];
 	$bath=$_POST['bath'];
 	$kitc=$_POST['kitc'];
-	$floor=$_POST['floor'];
+	// $floor=$_POST['floor'];
 	$price=$_POST['price'];
 	$city=$_POST['city'];
 	$asize=$_POST['asize'];
@@ -35,7 +35,7 @@ if(isset($_POST['add']))
 	$uid=$_POST['uid'];
 	$feature=$_POST['feature'];
 	
-	$totalfloor=$_POST['totalfl'];
+	// $totalfloor=$_POST['totalfl'];
 	
 	$aimage=$_FILES['aimage']['name'];
 	$aimage1=$_FILES['aimage1']['name'];
@@ -68,9 +68,9 @@ if(isset($_POST['add']))
 	move_uploaded_file($temp_name6,"property/$fimage1");
 	move_uploaded_file($temp_name7,"property/$fimage2");
 	
-	$sql="INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,floor,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage,totalfloor)
-	VALUES('$title','$content','$ptype','$bhk','$stype','$bed','$bath','$balc','$kitc','$hall','$floor','$asize','$price',
-	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2','$totalfloor')";
+	$sql="INSERT INTO property (title,pcontent,type,bhk,stype,bedroom,bathroom,balcony,kitchen,hall,size,price,location,city,state,feature,pimage,pimage1,pimage2,pimage3,pimage4,uid,status,mapimage,topmapimage,groundmapimage)
+	VALUES('$title','$content','$ptype','$bhk','$stype','$bed','$bath','$balc','$kitc','$hall','$asize','$price',
+	'$loc','$city','$state','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$uid','$status','$fimage','$fimage1','$fimage2')";
 	$result=mysqli_query($con,$sql);
 	if($result)
 		{
@@ -115,86 +115,85 @@ $state_qry = mysqli_query($con, $states);
     </head>
     <body>
 
-		
-			<!-- Header -->
-			<?php include("header.php"); ?>
-			<!-- /Sidebar -->
-			
-			<!-- Page Wrapper -->
-            <div class="page-wrapper">
-                <div class="content container-fluid">
-				
-					<!-- Page Header -->
-					<div class="page-header py-5">
-						<div class="row">
-							<div class="col">
-								<h3 class="page-title">Property</h3>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-									<li class="breadcrumb-item active">Property</li>
-								</ul>
-							</div>
-						</div>
+
+	<!-- Header -->
+	<?php include("header.php"); ?>
+	<!-- /Sidebar -->
+
+	<!-- Page Wrapper -->
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+
+			<!-- Page Header -->
+			<div class="page-header py-5">
+				<div class="row">
+					<div class="col">
+						<h3 class="page-title">Property</h3>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+							<li class="breadcrumb-item active">Property</li>
+						</ul>
 					</div>
-					<!-- /Page Header -->
-					
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<h4 class="card-title">Add Property Details</h4>
-								</div>
-								<form method="post" enctype="multipart/form-data">
-								<div class="card-body">
-									<h5 class="card-title">Property Detail</h5>
-									<?php echo $error; ?>
-									<?php echo $msg; ?>
-									
-										<div class="row">
-											<div class="col-xl-12">
-												<div class="form-group row">
-													<label class="col-lg-2 col-form-label">Title</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="title" required placeholder="Enter Title">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-2 col-form-label">Content</label>
-													<div class="col-lg-9">
-														<textarea class="tinymce form-control" name="content" rows="10" cols="30"></textarea>
-													</div>
-												</div>
-												
+				</div>
+			</div>
+			<!-- /Page Header -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Add Property Details</h4>
+						</div>
+						<form method="post" enctype="multipart/form-data">
+							<div class="card-body">
+								<h5 class="card-title">Property Detail</h5>
+								<?php echo $error; ?>
+								<?php echo $msg; ?>
+
+								<div class="row">
+									<div class="col-xl-12">
+										<div class="form-group row">
+											<label class="col-lg-2 col-form-label">Title</label>
+											<div class="col-lg-9">
+												<input type="text" class="form-control" name="title" required placeholder="Enter Title">
 											</div>
-											<div class="col-xl-6">
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Property Type</label>
-													<div class="col-lg-9">
-														<select class="form-control" required name="ptype">
-															<option value="">Select Type</option>
-															<option value="apartment">Apartment</option>
-															<option value="flat">Flat</option>
-															<option value="building">Building</option>
-															<option value="house">House</option>
-															<option value="villa">Villa</option>
-															<option value="office">Office</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Selling Type</label>
-													<div class="col-lg-9">
-														<select class="form-control" required name="stype">
-															<option value="">Select Status</option>
-															<option value="rent">Rent</option>
-															<option value="buy">buy</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Bathroom</label>
-													<div class="col-lg-9">
-													<select class="form-control" required name="bath" placeholder="Enter Bathroom  (only no 1 to 5)" >
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-2 col-form-label">Content</label>
+											<div class="col-lg-9">
+												<textarea class="tinymce form-control" name="content" rows="10" cols="30"></textarea>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-xl-6">
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Property Type</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="ptype">
+													<option value="">Select Type</option>
+													<option value="apartment">Apartment</option>
+													<option value="flat">Flat</option>
+													<option value="house">House</option>
+													<option value="villa">Villa</option>
+													<option value="office">Office</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Selling Type</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="stype">
+													<option value="">Select Status</option>
+													<option value="rent">Rent</option>
+													<option value="buy">buy</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Bathroom</label>
+											<div class="col-lg-9">
+											<select class="form-control" required name="bath" id="bath" placeholder="Enter Bathroom  (only no 1 to 5)" >
 														<option value="">Select Bathroom</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -202,12 +201,12 @@ $state_qry = mysqli_query($con, $states);
 														<option value="4">4</option>
 														<option value="5">5</option>
 													</select>
-														</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Kitchen</label>
-													<div class="col-lg-9">
-													<select class="form-control" required name="kitc" placeholder="Enter kitchen  (only no 1 to 5)" >
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Kitchen</label>
+											<div class="col-lg-9">
+											<select class="form-control" required name="kitc" id="kitchan" placeholder="Enter kitchen  (only no 1 to 5)" >
 														<option value="">Select bed</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -215,31 +214,28 @@ $state_qry = mysqli_query($con, $states);
 														<option value="4">4</option>
 														<option value="5">5</option>
 													</select>
-													</div>
-												</div>
-												
-											</div>   
-											<div class="col-xl-6">
-												<div class="form-group row mb-3">
-													<label class="col-lg-3 col-form-label">BHK</label>
-													<div class="col-lg-9">
-														<select class="form-control" required name="bhk">
-															<option value="">Select BHK</option>
-															<option value="1 BHK">1 BHK</option>
-															<option value="2 BHK">2 BHK</option>
-															<option value="3 BHK">3 BHK</option>
-															<option value="4 BHK">4 BHK</option>
-															<option value="5 BHK">5 BHK</option>
-															<option value="1,2 BHK">1,2 BHK</option>
-															<option value="2,3 BHK">2,3 BHK</option>
-															<option value="2,3,4 BHK">2,3,4 BHK</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
+											</div>
+										</div>
+
+									</div>
+									<div class="col-xl-6">
+										<div class="form-group row mb-3">
+											<label class="col-lg-3 col-form-label">BHK</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="bhk" id="bhk">
+													<option value="">Select BHK</option>
+													<option value="1 BHK">1 BHK</option>
+													<option value="2 BHK">2 BHK</option>
+													<option value="3 BHK">3 BHK</option>
+													<option value="4 BHK">4 BHK</option>
+													<option value="5 BHK">5 BHK</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
 													<label class="col-lg-3 col-form-label">Bedroom</label>
 													<div class="col-lg-9">
-													<select class="form-control" required name="bed" placeholder="Enter Bedroom  (only no 1 to 5)" >
+													<select class="form-control" id="bed" required name="bed" placeholder="Enter Bedroom  (only no 1 to 5)" >
 														<option value="">Select bed</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
@@ -256,51 +252,37 @@ $state_qry = mysqli_query($con, $states);
 														<option value="">Select Balcony</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
 													</select>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Hall</label>
-													<div class="col-lg-9">
-													<select class="form-control" required name="hall" placeholder="Enter Hall  (only no 1 to 5)" >
-														<option value="">Select Hall</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-													</div>
+												<input type="hidden" name="hall" value="1">
 												</div>
-												
+									</div>
+								</div>
+								<h4 class="card-title">Price & Location</h4>
+								<div class="row">
+									<div class="col-xl-6">
+										<!-- <div class="form-group row">
+											<label class="col-lg-3 col-form-label">Floor</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="floor">
+													<option value="">Select Floor</option>
+													<option value="1st Floor">1st Floor</option>
+													<option value="2nd Floor">2nd Floor</option>
+													<option value="3rd Floor">3rd Floor</option>
+													<option value="4th Floor">4th Floor</option>
+													<option value="5th Floor">5th Floor</option>
+												</select>
+											</div>
+										</div> -->
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Price</label>
+											<div class="col-lg-9">
+											<input type="text" class="form-control" name="price" maxlength="10" required placeholder="Enter Price "onkeydown="return digitOnly(event);">
 											</div>
 										</div>
-										<h4 class="card-title">Price & Location</h4>
-										<div class="row">
-											<div class="col-xl-6">
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Floor</label>
-													<div class="col-lg-9">
-														<select class="form-control" required name="floor">
-															<option value="">Select Floor</option>
-															<option value="1st Floor">1st Floor</option>
-															<option value="2nd Floor">2nd Floor</option>
-															<option value="3rd Floor">3rd Floor</option>
-															<option value="4th Floor">4th Floor</option>
-															<option value="5th Floor">5th Floor</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Price</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="price" maxlength="10" required placeholder="Enter Price "onkeydown="return digitOnly(event);">
-													</div>
-												</div>
-												<div class="form-group row">
+										<div class="form-group row">
 											<label class="col-lg-3 col-form-label">state</label>
 											<div class="col-lg-9">
 												<select class="form-control" id="state" name="state">
@@ -320,52 +302,52 @@ $state_qry = mysqli_query($con, $states);
 											</div>
 										</div>
 									</div>
-											<div class="col-xl-6">
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Total Floor</label>
-													<div class="col-lg-9">
-														<select class="form-control" required name="totalfl">
-															<option value="">Select Floor</option>
-															<option value="1 Floor">1 Floor</option>
-															<option value="2 Floor">2 Floor</option>
-															<option value="3 Floor">3 Floor</option>
-															<option value="4 Floor">4 Floor</option>
-															<option value="5 Floor">5 Floor</option>
-															<option value="6 Floor">6 Floor</option>
-															<option value="7 Floor">7 Floor</option>
-															<option value="8 Floor">8 Floor</option>
-															<option value="9 Floor">9 Floor</option>
-															<option value="10 Floor">10 Floor</option>
-															<option value="11 Floor">11 Floor</option>
-															<option value="12 Floor">12 Floor</option>
-															<option value="13 Floor">13 Floor</option>
-															<option value="14 Floor">14 Floor</option>
-															<option value="15 Floor">15 Floor</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Area Size</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="asize" maxlength="4" required placeholder="Enter Area Size (in sqrt)" onkeydown="return digitOnly(event);">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Address</label>
-													<div class="col-lg-9">
-														<input type="text" class="form-control" name="loc" required placeholder="Enter Address">
-													</div>
-												</div>
-												
+									<div class="col-xl-6">
+										<!-- <div class="form-group row">
+											<label class="col-lg-3 col-form-label">Total Floor</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="totalfl">
+													<option value="">Select Floor</option>
+													<option value="1 Floor">1 Floor</option>
+													<option value="2 Floor">2 Floor</option>
+													<option value="3 Floor">3 Floor</option>
+													<option value="4 Floor">4 Floor</option>
+													<option value="5 Floor">5 Floor</option>
+													<option value="6 Floor">6 Floor</option>
+													<option value="7 Floor">7 Floor</option>
+													<option value="8 Floor">8 Floor</option>
+													<option value="9 Floor">9 Floor</option>
+													<option value="10 Floor">10 Floor</option>
+													<option value="11 Floor">11 Floor</option>
+													<option value="12 Floor">12 Floor</option>
+													<option value="13 Floor">13 Floor</option>
+													<option value="14 Floor">14 Floor</option>
+													<option value="15 Floor">15 Floor</option>
+												</select>
+											</div>
+										</div> -->
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Area Size</label>
+											<div class="col-lg-9">
+												<input type="text" class="form-control" name="asize"maxlength="4" required placeholder="Enter Area Size (in sqrt)">
 											</div>
 										</div>
-										
 										<div class="form-group row">
-											<label class="col-lg-2 col-form-label">Feature</label>
+											<label class="col-lg-3 col-form-label">Address</label>
 											<div class="col-lg-9">
-											<p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Change <b>Yes</b> Or <b>No</b> or Details and Do Not Add More Details</p>
-											
-											<textarea class="tinymce form-control" name="feature" rows="10" cols="30">
+												<input type="text" class="form-control" name="loc" required placeholder="Enter Address">
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-lg-2 col-form-label">Feature</label>
+									<div class="col-lg-9">
+										<p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Change <b>Yes</b> Or <b>No</b> or Details and Do Not Add More Details</p>
+
+										<textarea class="tinymce form-control" name="feature" rows="10" cols="30">
 												<!---feature area start--->
 												<div class="col-md-4">
 														<ul>
@@ -394,133 +376,134 @@ $state_qry = mysqli_query($con, $states);
 													</div>
 												<!---feature area end---->
 											</textarea>
-											</div>
-										</div>
-												
-										<h4 class="card-title">Image & Status</h4>
-										<div class="row">
-											<div class="col-xl-6">
-												
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Image</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="aimage" type="file" required="">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Image 2</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="aimage2" type="file" required="">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Image 4</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="aimage4" type="file" required="">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Status</label>
-													<div class="col-lg-9">
-														<select class="form-control"  required name="status">
-															<option value="">Select Status</option>
-															<option value="available">Available</option>
-															<option value="sold out">Sold Out</option>
-														</select>
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Basement Floor Plan Image</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="fimage1" type="file">
-													</div>
-												</div>
-											</div>
-											<div class="col-xl-6">
-												
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Image 1</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="aimage1" type="file" required="">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">image 3</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="aimage3" type="file" required="">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label"></label>
-													<div class="col-lg-9">
-														<input type="hidden" class="form-control" name="uid" value="1" required placeholder="Enter User Id (only number)">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Floor Plan Image</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="fimage" type="file">
-													</div>
-												</div>
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label">Ground Floor Plan Image</label>
-													<div class="col-lg-9">
-														<input class="form-control" name="fimage2" type="file">
-													</div>
-												</div>
-											</div>
-										</div>
-
-										<hr>
-
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group row">
-													<label class="col-lg-3 col-form-label"><b>Is Featured?</b></label>
-													<div class="col-lg-9">
-														<select class="form-control"  required name="isFeatured">
-															<option value="">Select...</option>
-															<option value="0">No</option>
-															<option value="1">Yes</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-
-										
-											<input type="submit" value="Submit" class="btn btn-primary"name="add" style="margin-left:200px;">
-										
+									</div>
 								</div>
-								</form>
+
+								<h4 class="card-title">Image & Status</h4>
+								<div class="row">
+									<div class="col-xl-6">
+
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Image</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="aimage" type="file" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Image 2</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="aimage2" type="file" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Image 4</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="aimage4" type="file" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Status</label>
+											<div class="col-lg-9">
+												<select class="form-control" required name="status">
+													<option value="">Select Status</option>
+													<option value="available">Available</option>
+													<option value="sold out">Sold Out</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Basement Floor Plan Image</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="fimage1" type="file">
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-6">
+
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Image 1</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="aimage1" type="file" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">image 3</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="aimage3" type="file" required="">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label"></label>
+											<div class="col-lg-9">
+												<input type="hidden" class="form-control" name="uid" value="1" placeholder="Enter User Id (only number)">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Floor Plan Image</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="fimage" type="file">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label">Ground Floor Plan Image</label>
+											<div class="col-lg-9">
+												<input class="form-control" name="fimage2" type="file">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<!-- <div class="row">
+									<div class="col-md-6">
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label"><b>Is Featured?</b></label>
+											<div class="col-lg-9">
+												<select class="form-control" name="isFeatured">
+													<option value="">Select...</option>
+													<option value="0">No</option>
+													<option value="1">Yes</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div> -->
+
+
+								<input type="submit" value="Submit" class="btn btn-primary" name="add" style="margin-left:200px;">
+
 							</div>
-						</div>
+						</form>
 					</div>
-				
-				</div>			
+				</div>
 			</div>
-			<!-- /Main Wrapper -->
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.2.1.min.js"></script>
-		<script src="assets/plugins/tinymce/tinymce.min.js"></script>
-		<script src="assets/plugins/tinymce/init-tinymce.min.js"></script>
-		<!-- Bootstrap Core JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- Slimscroll JS -->
-        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		
-		<!-- Custom JS -->
-		<script  src="assets/js/script.js"></script>
-		<script>
-			
+
+		</div>
+	</div>
+	<!-- /Main Wrapper -->
+
+
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/plugins/tinymce/tinymce.min.js"></script>
+	<script src="assets/plugins/tinymce/init-tinymce.min.js"></script>
+	<!-- Bootstrap Core JS -->
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Slimscroll JS -->
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="assets/js/script.js"></script>
+	<script>
 
     $('#state').on('change', function() {
         var state_id = this.value;
         // console.log(country_id);
         $.ajax({
-            url: '../builder/state.php',
+            url: 'state.php',
             type: "POST",
             data: {
                 state_data: state_id
@@ -550,8 +533,142 @@ $state_qry = mysqli_query($con, $states);
          }
       }
    </script>
+   <script>
+    document.getElementById('bhk').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('bed');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bed</option>';
+        
+        if(country === '1 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }
+		else if (country === '4 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</script>
+<script>
+    document.getElementById('bed').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('bath');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bath</option>';
+        
+        if(country === '1') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }else if (country === '4') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</script>
+<script>
+    document.getElementById('bhk').addEventListener('change', function() {
+        var country = this.value;
+        var cityDropdown = document.getElementById('kitchan');
+        // Reset city dropdown
+        cityDropdown.innerHTML = '<option value="">Select bath</option>';
+        
+        if(country === '1 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>`;
+			;
+        } else if (country === '2 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+            
+            `;
+        } else if (country === '3 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            `;
+        }
+		else if (country === '4 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            `;
+        }else if (country === '5 BHK') {
+            cityDropdown.innerHTML += `
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            `;
+        }
+        // Enable city dropdown
+        cityDropdown.disabled = false;
+    });
+</Script>
 
 
-    </body>
+
+
+
+</body>
 
 </html>
